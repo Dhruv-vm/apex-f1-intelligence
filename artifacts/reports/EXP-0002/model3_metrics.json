@@ -1,0 +1,47 @@
+{
+  "experiment": "EXP-0002",
+  "model": "Model 3 \u2014 Grid + driver and constructor form",
+  "constructor_column": "constructor_id",
+  "finish_column": "finish_position",
+  "points_column": "points",
+  "features": [
+    "effective_grid",
+    "log_grid",
+    "is_front_row",
+    "is_pole",
+    "is_grid_zero",
+    "driver_prior_races",
+    "driver_win_rate_all",
+    "driver_win_rate_last5",
+    "driver_mean_finish_last5",
+    "driver_finish_std_last5",
+    "constructor_prior_races",
+    "constructor_win_rate_all",
+    "constructor_win_rate_last5",
+    "constructor_mean_finish_last5",
+    "driver_mean_points_last5",
+    "constructor_mean_points_last5"
+  ],
+  "min_history_races": 20,
+  "logistic_C": 1.0,
+  "max_iter": 2000,
+  "random_state": 42,
+  "primary_cohort": "2018-2024",
+  "full_series": {
+    "races": 346,
+    "mean_log_loss": 1.4193827438884945,
+    "mean_brier_score": 0.6245831308106105,
+    "fractional_top1": 0.5255408127517954,
+    "tie_aware_top1": 0.5809248554913294
+  },
+  "primary_cohort_metrics": {
+    "races": 149,
+    "mean_log_loss": 1.3552005364466138,
+    "mean_brier_score": 0.6126978818823745,
+    "fractional_top1": 0.5167785234899329,
+    "tie_aware_top1": 0.5167785234899329
+  },
+  "candidate_set_limitation": "Candidate records originate from final result records; independently timestamped pre-race entry lists have not been verified.",
+  "probability_interpretation": "Binary logistic scores normalized across candidates within each race; not assumed to be calibrated conditional winner probabilities.",
+  "points_feature_note": "Historical points features were included."
+}

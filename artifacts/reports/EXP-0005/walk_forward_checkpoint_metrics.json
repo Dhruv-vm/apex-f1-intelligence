@@ -1,0 +1,42 @@
+{
+  "evaluation_cohort": "Primary Historical Benchmark Cohort (2018-2024, 149 Races)",
+  "race_count": 149,
+  "checkpoints": {
+    "T0_PRE_WEEKEND": {
+      "mean_log_loss": 2.058759,
+      "std_log_loss": 0.577539,
+      "mean_brier_score": 0.805276,
+      "std_brier_score": 0.143945,
+      "conventional_top1_accuracy": 0.38255,
+      "fractional_top1_score": 0.147681,
+      "expected_calibration_error": 0.061577
+    },
+    "T4_POST_QUALIFYING_GRID_ONLY": {
+      "mean_log_loss": 1.594207,
+      "std_log_loss": 1.434719,
+      "mean_brier_score": 0.683382,
+      "std_brier_score": 0.392095,
+      "conventional_top1_accuracy": 0.496644,
+      "fractional_top1_score": 0.331743,
+      "expected_calibration_error": 0.062514
+    },
+    "T5_FINAL_PRE_RACE_GRID_AND_FORM_M3": {
+      "mean_log_loss": 1.355201,
+      "std_log_loss": 1.197809,
+      "mean_brier_score": 0.612698,
+      "std_brier_score": 0.423088,
+      "conventional_top1_accuracy": 0.516779,
+      "fractional_top1_score": 0.383051,
+      "expected_calibration_error": 0.054568
+    },
+    "T5_FINAL_PRE_RACE_PLACKETT_LUCE_M5": {
+      "mean_log_loss": 1.351747,
+      "std_log_loss": 1.075384,
+      "mean_brier_score": 0.596564,
+      "std_brier_score": 0.442143,
+      "conventional_top1_accuracy": 0.543624,
+      "fractional_top1_score": 0.380267,
+      "expected_calibration_error": 0.053078
+    }
+  }
+}

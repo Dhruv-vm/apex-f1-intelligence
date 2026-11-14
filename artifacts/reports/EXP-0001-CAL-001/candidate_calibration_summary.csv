@@ -1,0 +1,2 @@
+candidate_rows,n_non_empty_bins,n_empty_bins,overall_observed_win_rate,mean_predicted_probability,calibration_in_the_large,fixed_bin_ECE,fixed_bin_MCE,candidate_one_vs_rest_brier,candidate_one_vs_rest_log_loss
+7285,8,2,0.047494852436513385,0.047494852436513336,4.85722573273506e-17,0.03066706027346896,0.18518878050981685,0.04016764449646776,0.15174618552396338

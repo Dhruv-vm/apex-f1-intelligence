@@ -1,0 +1,1209 @@
+{
+  "audit_title": "T4 (Qualifying Grid) vs T5 (Confirmed Grid) Penalty & Pit-Lane Audit (2024 Season)",
+  "phase_6_2_reconciliation": {
+    "root_cause_of_phase_6_2_invariance": "In Phase 6.2 controlled_ablation.py, checkpoints T4_CONTROLLED and T5_FINAL_PRE_RACE were defined with the identical feature list (FORM_FEATURES + GRID_FEATURES) and evaluated on the same static effective_grid column in df_candidates (derived from race results). Because provisional qualifying classifications were never ingested into df_candidates, T4 and T5 received identical inputs by construction, guaranteeing identical metrics down to machine epsilon.",
+    "phase_6_3_audit_distinction": "In Phase 6.3, grid_penalty_audit.py specifically queried both qualifying.json (T4) and results.json (T5) from Jolpica. When the distinction is enforced, 15 of 24 races (62.5%) exhibit input grid changes and output probability vector shifts."
+  },
+  "total_races_audited": 24,
+  "races_with_input_grid_change": 15,
+  "races_with_unchanged_grid": 9,
+  "races_with_probability_vector_shift": 15,
+  "cohort_breakdowns": {
+    "full_season_2024": {
+      "total_rounds": 24,
+      "grid_changed_count": 15,
+      "grid_unchanged_count": 9,
+      "metrics": {
+        "race_count": 24,
+        "mean_t4_log_loss": 2.1826,
+        "mean_t5_log_loss": 2.2099,
+        "mean_delta_log_loss": 0.0273,
+        "mean_t4_brier": 0.5102,
+        "mean_t5_brier": 0.5364,
+        "mean_delta_brier": 0.0263,
+        "top1_acc_t4": 0.5833,
+        "top1_acc_t5": 0.5417,
+        "wilcoxon_stat_log_loss": 5.0,
+        "wilcoxon_p_value_log_loss": 0.05
+      }
+    },
+    "standard_weekends_2024": {
+      "total_rounds": 18,
+      "grid_changed_count": 12,
+      "grid_unchanged_count": 6,
+      "metrics": {
+        "race_count": 18,
+        "mean_t4_log_loss": 1.1372,
+        "mean_t5_log_loss": 1.11,
+        "mean_delta_log_loss": -0.0272,
+        "mean_t4_brier": 0.546,
+        "mean_t5_brier": 0.5422,
+        "mean_delta_brier": -0.0038,
+        "top1_acc_t4": 0.6111,
+        "top1_acc_t5": 0.6111,
+        "wilcoxon_stat_log_loss": 0.0,
+        "wilcoxon_p_value_log_loss": 0.05
+      }
+    },
+    "sprint_weekends_2024": {
+      "total_rounds": 6,
+      "grid_changed_count": 3,
+      "grid_unchanged_count": 3,
+      "metrics": {
+        "race_count": 6,
+        "mean_t4_log_loss": 5.319,
+        "mean_t5_log_loss": 5.5096,
+        "mean_delta_log_loss": 0.1906,
+        "mean_t4_brier": 0.4027,
+        "mean_t5_brier": 0.5191,
+        "mean_delta_brier": 0.1164,
+        "top1_acc_t4": 0.5,
+        "top1_acc_t5": 0.3333,
+        "wilcoxon_stat_log_loss": 0.0,
+        "wilcoxon_p_value_log_loss": 0.05
+      }
+    },
+    "penalty_races_subset": {
+      "race_count": 15,
+      "mean_t4_log_loss": 2.2288,
+      "mean_t5_log_loss": 2.2725,
+      "mean_delta_log_loss": 0.0436,
+      "mean_t4_brier": 0.6355,
+      "mean_t5_brier": 0.6775,
+      "mean_delta_brier": 0.042,
+      "top1_acc_t4": 0.4667,
+      "top1_acc_t5": 0.4,
+      "wilcoxon_stat_log_loss": 5.0,
+      "wilcoxon_p_value_log_loss": 0.05
+    },
+    "non_penalty_races_subset": {
+      "race_count": 9,
+      "mean_t4_log_loss": 2.1056,
+      "mean_t5_log_loss": 2.1056,
+      "mean_delta_log_loss": 0.0,
+      "mean_t4_brier": 0.3013,
+      "mean_t5_brier": 0.3013,
+      "mean_delta_brier": 0.0,
+      "top1_acc_t4": 0.7778,
+      "top1_acc_t5": 0.7778,
+      "wilcoxon_stat_log_loss": 0.0,
+      "wilcoxon_p_value_log_loss": 1.0
+    }
+  },
+  "penalty_races_aggregate_metrics": {
+    "race_count": 15,
+    "mean_t4_log_loss": 2.2288,
+    "mean_t5_log_loss": 2.2725,
+    "mean_delta_log_loss": 0.0436,
+    "mean_t4_brier": 0.6355,
+    "mean_t5_brier": 0.6775,
+    "mean_delta_brier": 0.042,
+    "top1_acc_t4": 0.4667,
+    "top1_acc_t5": 0.4,
+    "wilcoxon_stat_log_loss": 5.0,
+    "wilcoxon_p_value_log_loss": 0.05
+  },
+  "non_penalty_races_aggregate_metrics": {
+    "race_count": 9,
+    "mean_t4_log_loss": 2.1056,
+    "mean_t5_log_loss": 2.1056,
+    "mean_delta_log_loss": 0.0,
+    "mean_t4_brier": 0.3013,
+    "mean_t5_brier": 0.3013,
+    "mean_delta_brier": 0.0,
+    "top1_acc_t4": 0.7778,
+    "top1_acc_t5": 0.7778,
+    "wilcoxon_stat_log_loss": 0.0,
+    "wilcoxon_p_value_log_loss": 1.0
+  },
+  "overall_season_aggregate_metrics": {
+    "race_count": 24,
+    "mean_t4_log_loss": 2.1826,
+    "mean_t5_log_loss": 2.2099,
+    "mean_delta_log_loss": 0.0273,
+    "mean_t4_brier": 0.5102,
+    "mean_t5_brier": 0.5364,
+    "mean_delta_brier": 0.0263,
+    "top1_acc_t4": 0.5833,
+    "top1_acc_t5": 0.5417,
+    "wilcoxon_stat_log_loss": 5.0,
+    "wilcoxon_p_value_log_loss": 0.05
+  },
+  "grid_zero_evidence_audit": {
+    "primary_cohort_grid_zero_count": 45,
+    "pit_lane_start_evidence_classification": {
+      "active_pit_lane_starts_verified": 39,
+      "parc_ferme_breach_suspension_mod": 4,
+      "unverified_pit_indicator_requires_audit": 2
+    },
+    "policy": "In accordance with CANDIDATE_FIELD_AUDIT.md, grid == 0 is an API indicator. It must not be treated as definitive pit-lane start proof without supporting steward bulletins. In modeling, assigning effective_grid = max_positive_grid + 1 accompanied by is_grid_zero=1 preserves mathematical continuity without assuming ground truth confirmation."
+  },
+  "race_by_race_details": [
+    {
+      "round": 1,
+      "race_name": "Bahrain Grand Prix",
+      "race_date": "2024-03-02",
+      "winner_driver_id": "max_verstappen",
+      "has_grid_change": false,
+      "n_drivers_grid_changed": 0,
+      "changed_drivers": {},
+      "grid_zero_drivers": [],
+      "prob_vector_changed": false,
+      "prob_shift_l1": 0.0,
+      "t4_log_loss": 0.6652,
+      "t5_log_loss": 0.6652,
+      "delta_log_loss_t5_minus_t4": 0.0,
+      "t4_brier": 0.2761,
+      "t5_brier": 0.2761,
+      "delta_brier_t5_minus_t4": 0.0,
+      "t4_top1_hit": 1.0,
+      "t5_top1_hit": 1.0,
+      "t4_fract_top1": 0.5142,
+      "t5_fract_top1": 0.5142
+    },
+    {
+      "round": 2,
+      "race_name": "Saudi Arabian Grand Prix",
+      "race_date": "2024-03-09",
+      "winner_driver_id": "max_verstappen",
+      "has_grid_change": false,
+      "n_drivers_grid_changed": 0,
+      "changed_drivers": {},
+      "grid_zero_drivers": [],
+      "prob_vector_changed": false,
+      "prob_shift_l1": 0.0,
+      "t4_log_loss": 0.6652,
+      "t5_log_loss": 0.6652,
+      "delta_log_loss_t5_minus_t4": 0.0,
+      "t4_brier": 0.2761,
+      "t5_brier": 0.2761,
+      "delta_brier_t5_minus_t4": 0.0,
+      "t4_top1_hit": 1.0,
+      "t5_top1_hit": 1.0,
+      "t4_fract_top1": 0.5142,
+      "t5_fract_top1": 0.5142
+    },
+    {
+      "round": 3,
+      "race_name": "Australian Grand Prix",
+      "race_date": "2024-03-24",
+      "winner_driver_id": "sainz",
+      "has_grid_change": true,
+      "n_drivers_grid_changed": 4,
+      "changed_drivers": {
+        "perez": {
+          "qualifying_pos": 3,
+          "starting_grid_pos": 6,
+          "delta_positions": 3
+        },
+        "norris": {
+          "qualifying_pos": 4,
+          "starting_grid_pos": 3,
+          "delta_positions": -1
+        },
+        "leclerc": {
+          "qualifying_pos": 5,
+          "starting_grid_pos": 4,
+          "delta_positions": -1
+        },
+        "piastri": {
+          "qualifying_pos": 6,
+          "starting_grid_pos": 5,
+          "delta_positions": -1
+        }
+      },
+      "grid_zero_drivers": [],
+      "prob_vector_changed": true,
+      "prob_shift_l1": 0.1148,
+      "t4_log_loss": 1.8052,
+      "t5_log_loss": 1.8052,
+      "delta_log_loss_t5_minus_t4": 0.0,
+      "t4_brier": 0.9778,
+      "t5_brier": 0.9778,
+      "delta_brier_t5_minus_t4": 0.0,
+      "t4_top1_hit": 0.0,
+      "t5_top1_hit": 0.0,
+      "t4_fract_top1": 0.1644,
+      "t5_fract_top1": 0.1644
+    },
+    {
+      "round": 4,
+      "race_name": "Japanese Grand Prix",
+      "race_date": "2024-04-07",
+      "winner_driver_id": "max_verstappen",
+      "has_grid_change": false,
+      "n_drivers_grid_changed": 0,
+      "changed_drivers": {},
+      "grid_zero_drivers": [],
+      "prob_vector_changed": false,
+      "prob_shift_l1": 0.0,
+      "t4_log_loss": 0.6652,
+      "t5_log_loss": 0.6652,
+      "delta_log_loss_t5_minus_t4": 0.0,
+      "t4_brier": 0.2761,
+      "t5_brier": 0.2761,
+      "delta_brier_t5_minus_t4": 0.0,
+      "t4_top1_hit": 1.0,
+      "t5_top1_hit": 1.0,
+      "t4_fract_top1": 0.5142,
+      "t5_fract_top1": 0.5142
+    },
+    {
+      "round": 5,
+      "race_name": "Chinese Grand Prix",
+      "race_date": "2024-04-21",
+      "winner_driver_id": "max_verstappen",
+      "has_grid_change": false,
+      "n_drivers_grid_changed": 0,
+      "changed_drivers": {},
+      "grid_zero_drivers": [],
+      "prob_vector_changed": false,
+      "prob_shift_l1": 0.0,
+      "t4_log_loss": 0.6652,
+      "t5_log_loss": 0.6652,
+      "delta_log_loss_t5_minus_t4": 0.0,
+      "t4_brier": 0.2761,
+      "t5_brier": 0.2761,
+      "delta_brier_t5_minus_t4": 0.0,
+      "t4_top1_hit": 1.0,
+      "t5_top1_hit": 1.0,
+      "t4_fract_top1": 0.5142,
+      "t5_fract_top1": 0.5142
+    },
+    {
+      "round": 6,
+      "race_name": "Miami Grand Prix",
+      "race_date": "2024-05-05",
+      "winner_driver_id": "norris",
+      "has_grid_change": false,
+      "n_drivers_grid_changed": 0,
+      "changed_drivers": {},
+      "grid_zero_drivers": [],
+      "prob_vector_changed": false,
+      "prob_shift_l1": 0.0,
+      "t4_log_loss": -0.0,
+      "t5_log_loss": -0.0,
+      "delta_log_loss_t5_minus_t4": 0.0,
+      "t4_brier": 0.0,
+      "t5_brier": 0.0,
+      "delta_brier_t5_minus_t4": 0.0,
+      "t4_top1_hit": 1.0,
+      "t5_top1_hit": 1.0,
+      "t4_fract_top1": 1.0,
+      "t5_fract_top1": 1.0
+    },
+    {
+      "round": 7,
+      "race_name": "Emilia Romagna Grand Prix",
+      "race_date": "2024-05-19",
+      "winner_driver_id": "max_verstappen",
+      "has_grid_change": true,
+      "n_drivers_grid_changed": 6,
+      "changed_drivers": {
+        "piastri": {
+          "qualifying_pos": 2,
+          "starting_grid_pos": 5,
+          "delta_positions": 3
+        },
+        "norris": {
+          "qualifying_pos": 3,
+          "starting_grid_pos": 2,
+          "delta_positions": -1
+        },
+        "leclerc": {
+          "qualifying_pos": 4,
+          "starting_grid_pos": 3,
+          "delta_positions": -1
+        },
+        "sainz": {
+          "qualifying_pos": 5,
+          "starting_grid_pos": 4,
+          "delta_positions": -1
+        },
+        "alonso": {
+          "qualifying_pos": 19,
+          "starting_grid_pos": 20,
+          "delta_positions": 1
+        },
+        "sargeant": {
+          "qualifying_pos": 20,
+          "starting_grid_pos": 19,
+          "delta_positions": -1
+        }
+      },
+      "grid_zero_drivers": [],
+      "prob_vector_changed": true,
+      "prob_shift_l1": 0.2561,
+      "t4_log_loss": 0.6652,
+      "t5_log_loss": 0.6652,
+      "delta_log_loss_t5_minus_t4": 0.0,
+      "t4_brier": 0.2761,
+      "t5_brier": 0.2761,
+      "delta_brier_t5_minus_t4": 0.0,
+      "t4_top1_hit": 1.0,
+      "t5_top1_hit": 1.0,
+      "t4_fract_top1": 0.5142,
+      "t5_fract_top1": 0.5142
+    },
+    {
+      "round": 8,
+      "race_name": "Monaco Grand Prix",
+      "race_date": "2024-05-26",
+      "winner_driver_id": "leclerc",
+      "has_grid_change": true,
+      "n_drivers_grid_changed": 2,
+      "changed_drivers": {
+        "hulkenberg": {
+          "qualifying_pos": 14,
+          "starting_grid_pos": 19,
+          "delta_positions": 5
+        },
+        "kevin_magnussen": {
+          "qualifying_pos": 15,
+          "starting_grid_pos": 20,
+          "delta_positions": 5
+        }
+      },
+      "grid_zero_drivers": [],
+      "prob_vector_changed": true,
+      "prob_shift_l1": 0.0096,
+      "t4_log_loss": 0.67,
+      "t5_log_loss": 0.6652,
+      "delta_log_loss_t5_minus_t4": -0.0048,
+      "t4_brier": 0.2782,
+      "t5_brier": 0.2761,
+      "delta_brier_t5_minus_t4": -0.0021,
+      "t4_top1_hit": 1.0,
+      "t5_top1_hit": 1.0,
+      "t4_fract_top1": 0.5117,
+      "t5_fract_top1": 0.5142
+    },
+    {
+      "round": 9,
+      "race_name": "Canadian Grand Prix",
+      "race_date": "2024-06-09",
+      "winner_driver_id": "max_verstappen",
+      "has_grid_change": true,
+      "n_drivers_grid_changed": 2,
+      "changed_drivers": {
+        "bottas": {
+          "qualifying_pos": 17,
+          "starting_grid_pos": 19,
+          "delta_positions": 2
+        },
+        "hulkenberg": {
+          "qualifying_pos": 19,
+          "starting_grid_pos": 17,
+          "delta_positions": -2
+        }
+      },
+      "grid_zero_drivers": [],
+      "prob_vector_changed": true,
+      "prob_shift_l1": 0.0016,
+      "t4_log_loss": 1.8089,
+      "t5_log_loss": 1.8089,
+      "delta_log_loss_t5_minus_t4": 0.0,
+      "t4_brier": 0.9768,
+      "t5_brier": 0.9768,
+      "delta_brier_t5_minus_t4": 0.0,
+      "t4_top1_hit": 0.0,
+      "t5_top1_hit": 0.0,
+      "t4_fract_top1": 0.1638,
+      "t5_fract_top1": 0.1638
+    },
+    {
+      "round": 10,
+      "race_name": "Spanish Grand Prix",
+      "race_date": "2024-06-23",
+      "winner_driver_id": "max_verstappen",
+      "has_grid_change": true,
+      "n_drivers_grid_changed": 6,
+      "changed_drivers": {
+        "perez": {
+          "qualifying_pos": 8,
+          "starting_grid_pos": 11,
+          "delta_positions": 3
+        },
+        "ocon": {
+          "qualifying_pos": 9,
+          "starting_grid_pos": 8,
+          "delta_positions": -1
+        },
+        "piastri": {
+          "qualifying_pos": 10,
+          "starting_grid_pos": 9,
+          "delta_positions": -1
+        },
+        "alonso": {
+          "qualifying_pos": 11,
+          "starting_grid_pos": 10,
+          "delta_positions": -1
+        },
+        "albon": {
+          "qualifying_pos": 19,
+          "starting_grid_pos": 20,
+          "delta_positions": 1
+        },
+        "sargeant": {
+          "qualifying_pos": 20,
+          "starting_grid_pos": 19,
+          "delta_positions": -1
+        }
+      },
+      "grid_zero_drivers": [],
+      "prob_vector_changed": true,
+      "prob_shift_l1": 0.0142,
+      "t4_log_loss": 1.8089,
+      "t5_log_loss": 1.8089,
+      "delta_log_loss_t5_minus_t4": 0.0,
+      "t4_brier": 0.9768,
+      "t5_brier": 0.9768,
+      "delta_brier_t5_minus_t4": 0.0,
+      "t4_top1_hit": 0.0,
+      "t5_top1_hit": 0.0,
+      "t4_fract_top1": 0.1638,
+      "t5_fract_top1": 0.1638
+    },
+    {
+      "round": 11,
+      "race_name": "Austrian Grand Prix",
+      "race_date": "2024-06-30",
+      "winner_driver_id": null,
+      "has_grid_change": false,
+      "n_drivers_grid_changed": 0,
+      "changed_drivers": {},
+      "grid_zero_drivers": [],
+      "prob_vector_changed": false,
+      "prob_shift_l1": 0.0,
+      "t4_log_loss": 13.8155,
+      "t5_log_loss": 13.8155,
+      "delta_log_loss_t5_minus_t4": 0.0,
+      "t4_brier": 0.3544,
+      "t5_brier": 0.3544,
+      "delta_brier_t5_minus_t4": 0.0,
+      "t4_top1_hit": 0.0,
+      "t5_top1_hit": 0.0,
+      "t4_fract_top1": 0.0,
+      "t5_fract_top1": 0.0
+    },
+    {
+      "round": 12,
+      "race_name": "British Grand Prix",
+      "race_date": "2024-07-07",
+      "winner_driver_id": "hamilton",
+      "has_grid_change": true,
+      "n_drivers_grid_changed": 2,
+      "changed_drivers": {
+        "perez": {
+          "qualifying_pos": 19,
+          "starting_grid_pos": 20,
+          "delta_positions": 1
+        },
+        "gasly": {
+          "qualifying_pos": 20,
+          "starting_grid_pos": 19,
+          "delta_positions": -1
+        }
+      },
+      "grid_zero_drivers": [],
+      "prob_vector_changed": true,
+      "prob_shift_l1": 0.0006,
+      "t4_log_loss": 1.8089,
+      "t5_log_loss": 1.8089,
+      "delta_log_loss_t5_minus_t4": 0.0,
+      "t4_brier": 0.9768,
+      "t5_brier": 0.9768,
+      "delta_brier_t5_minus_t4": 0.0,
+      "t4_top1_hit": 0.0,
+      "t5_top1_hit": 0.0,
+      "t4_fract_top1": 0.1638,
+      "t5_fract_top1": 0.1638
+    },
+    {
+      "round": 13,
+      "race_name": "Hungarian Grand Prix",
+      "race_date": "2024-07-21",
+      "winner_driver_id": "piastri",
+      "has_grid_change": false,
+      "n_drivers_grid_changed": 0,
+      "changed_drivers": {},
+      "grid_zero_drivers": [],
+      "prob_vector_changed": false,
+      "prob_shift_l1": 0.0,
+      "t4_log_loss": 1.8089,
+      "t5_log_loss": 1.8089,
+      "delta_log_loss_t5_minus_t4": 0.0,
+      "t4_brier": 0.9768,
+      "t5_brier": 0.9768,
+      "delta_brier_t5_minus_t4": 0.0,
+      "t4_top1_hit": 0.0,
+      "t5_top1_hit": 0.0,
+      "t4_fract_top1": 0.1638,
+      "t5_fract_top1": 0.1638
+    },
+    {
+      "round": 14,
+      "race_name": "Belgian Grand Prix",
+      "race_date": "2024-07-28",
+      "winner_driver_id": "hamilton",
+      "has_grid_change": true,
+      "n_drivers_grid_changed": 14,
+      "changed_drivers": {
+        "max_verstappen": {
+          "qualifying_pos": 1,
+          "starting_grid_pos": 11,
+          "delta_positions": 10
+        },
+        "leclerc": {
+          "qualifying_pos": 2,
+          "starting_grid_pos": 1,
+          "delta_positions": -1
+        },
+        "perez": {
+          "qualifying_pos": 3,
+          "starting_grid_pos": 2,
+          "delta_positions": -1
+        },
+        "hamilton": {
+          "qualifying_pos": 4,
+          "starting_grid_pos": 3,
+          "delta_positions": -1
+        },
+        "norris": {
+          "qualifying_pos": 5,
+          "starting_grid_pos": 4,
+          "delta_positions": -1
+        },
+        "piastri": {
+          "qualifying_pos": 6,
+          "starting_grid_pos": 5,
+          "delta_positions": -1
+        },
+        "russell": {
+          "qualifying_pos": 7,
+          "starting_grid_pos": 6,
+          "delta_positions": -1
+        },
+        "sainz": {
+          "qualifying_pos": 8,
+          "starting_grid_pos": 7,
+          "delta_positions": -1
+        },
+        "alonso": {
+          "qualifying_pos": 9,
+          "starting_grid_pos": 8,
+          "delta_positions": -1
+        },
+        "ocon": {
+          "qualifying_pos": 10,
+          "starting_grid_pos": 9,
+          "delta_positions": -1
+        },
+        "albon": {
+          "qualifying_pos": 11,
+          "starting_grid_pos": 10,
+          "delta_positions": -1
+        },
+        "tsunoda": {
+          "qualifying_pos": 18,
+          "starting_grid_pos": 20,
+          "delta_positions": 2
+        },
+        "sargeant": {
+          "qualifying_pos": 19,
+          "starting_grid_pos": 18,
+          "delta_positions": -1
+        },
+        "zhou": {
+          "qualifying_pos": 20,
+          "starting_grid_pos": 19,
+          "delta_positions": -1
+        }
+      },
+      "grid_zero_drivers": [],
+      "prob_vector_changed": true,
+      "prob_shift_l1": 1.01,
+      "t4_log_loss": 2.9526,
+      "t5_log_loss": 2.4779,
+      "delta_log_loss_t5_minus_t4": -0.4747,
+      "t4_brier": 1.2,
+      "t5_brier": 1.1366,
+      "delta_brier_t5_minus_t4": -0.0634,
+      "t4_top1_hit": 0.0,
+      "t5_top1_hit": 0.0,
+      "t4_fract_top1": 0.0522,
+      "t5_fract_top1": 0.0839
+    },
+    {
+      "round": 15,
+      "race_name": "Dutch Grand Prix",
+      "race_date": "2024-08-25",
+      "winner_driver_id": "norris",
+      "has_grid_change": true,
+      "n_drivers_grid_changed": 10,
+      "changed_drivers": {
+        "albon": {
+          "qualifying_pos": 10,
+          "starting_grid_pos": 19,
+          "delta_positions": 9
+        },
+        "hamilton": {
+          "qualifying_pos": 11,
+          "starting_grid_pos": 14,
+          "delta_positions": 3
+        },
+        "tsunoda": {
+          "qualifying_pos": 12,
+          "starting_grid_pos": 11,
+          "delta_positions": -1
+        },
+        "hulkenberg": {
+          "qualifying_pos": 13,
+          "starting_grid_pos": 12,
+          "delta_positions": -1
+        },
+        "kevin_magnussen": {
+          "qualifying_pos": 14,
+          "starting_grid_pos": 20,
+          "delta_positions": 6
+        },
+        "ricciardo": {
+          "qualifying_pos": 15,
+          "starting_grid_pos": 13,
+          "delta_positions": -2
+        },
+        "ocon": {
+          "qualifying_pos": 16,
+          "starting_grid_pos": 15,
+          "delta_positions": -1
+        },
+        "bottas": {
+          "qualifying_pos": 17,
+          "starting_grid_pos": 16,
+          "delta_positions": -1
+        },
+        "zhou": {
+          "qualifying_pos": 18,
+          "starting_grid_pos": 17,
+          "delta_positions": -1
+        },
+        "sargeant": {
+          "qualifying_pos": 20,
+          "starting_grid_pos": 18,
+          "delta_positions": -2
+        }
+      },
+      "grid_zero_drivers": [],
+      "prob_vector_changed": true,
+      "prob_shift_l1": 0.027,
+      "t4_log_loss": 0.6727,
+      "t5_log_loss": 0.6652,
+      "delta_log_loss_t5_minus_t4": -0.0075,
+      "t4_brier": 0.2794,
+      "t5_brier": 0.2761,
+      "delta_brier_t5_minus_t4": -0.0033,
+      "t4_top1_hit": 1.0,
+      "t5_top1_hit": 1.0,
+      "t4_fract_top1": 0.5103,
+      "t5_fract_top1": 0.5142
+    },
+    {
+      "round": 16,
+      "race_name": "Italian Grand Prix",
+      "race_date": "2024-09-01",
+      "winner_driver_id": "leclerc",
+      "has_grid_change": false,
+      "n_drivers_grid_changed": 0,
+      "changed_drivers": {},
+      "grid_zero_drivers": [],
+      "prob_vector_changed": false,
+      "prob_shift_l1": 0.0,
+      "t4_log_loss": -0.0,
+      "t5_log_loss": -0.0,
+      "delta_log_loss_t5_minus_t4": 0.0,
+      "t4_brier": 0.0,
+      "t5_brier": 0.0,
+      "delta_brier_t5_minus_t4": 0.0,
+      "t4_top1_hit": 1.0,
+      "t5_top1_hit": 1.0,
+      "t4_fract_top1": 1.0,
+      "t5_fract_top1": 1.0
+    },
+    {
+      "round": 17,
+      "race_name": "Azerbaijan Grand Prix",
+      "race_date": "2024-09-15",
+      "winner_driver_id": "piastri",
+      "has_grid_change": true,
+      "n_drivers_grid_changed": 14,
+      "changed_drivers": {
+        "hamilton": {
+          "qualifying_pos": 7,
+          "starting_grid_pos": 19,
+          "delta_positions": 12
+        },
+        "alonso": {
+          "qualifying_pos": 8,
+          "starting_grid_pos": 7,
+          "delta_positions": -1
+        },
+        "colapinto": {
+          "qualifying_pos": 9,
+          "starting_grid_pos": 8,
+          "delta_positions": -1
+        },
+        "albon": {
+          "qualifying_pos": 10,
+          "starting_grid_pos": 9,
+          "delta_positions": -1
+        },
+        "bearman": {
+          "qualifying_pos": 11,
+          "starting_grid_pos": 10,
+          "delta_positions": -1
+        },
+        "tsunoda": {
+          "qualifying_pos": 12,
+          "starting_grid_pos": 11,
+          "delta_positions": -1
+        },
+        "hulkenberg": {
+          "qualifying_pos": 13,
+          "starting_grid_pos": 12,
+          "delta_positions": -1
+        },
+        "stroll": {
+          "qualifying_pos": 14,
+          "starting_grid_pos": 13,
+          "delta_positions": -1
+        },
+        "gasly": {
+          "qualifying_pos": 15,
+          "starting_grid_pos": 18,
+          "delta_positions": 3
+        },
+        "ricciardo": {
+          "qualifying_pos": 15,
+          "starting_grid_pos": 14,
+          "delta_positions": -1
+        },
+        "norris": {
+          "qualifying_pos": 16,
+          "starting_grid_pos": 15,
+          "delta_positions": -1
+        },
+        "bottas": {
+          "qualifying_pos": 17,
+          "starting_grid_pos": 16,
+          "delta_positions": -1
+        },
+        "zhou": {
+          "qualifying_pos": 18,
+          "starting_grid_pos": 17,
+          "delta_positions": -1
+        },
+        "ocon": {
+          "qualifying_pos": 19,
+          "starting_grid_pos": 20,
+          "delta_positions": 1
+        }
+      },
+      "grid_zero_drivers": [],
+      "prob_vector_changed": true,
+      "prob_shift_l1": 0.0371,
+      "t4_log_loss": 1.8111,
+      "t5_log_loss": 1.8089,
+      "delta_log_loss_t5_minus_t4": -0.0022,
+      "t4_brier": 0.9762,
+      "t5_brier": 0.9768,
+      "delta_brier_t5_minus_t4": 0.0006,
+      "t4_top1_hit": 0.0,
+      "t5_top1_hit": 0.0,
+      "t4_fract_top1": 0.1635,
+      "t5_fract_top1": 0.1638
+    },
+    {
+      "round": 18,
+      "race_name": "Singapore Grand Prix",
+      "race_date": "2024-09-22",
+      "winner_driver_id": "norris",
+      "has_grid_change": false,
+      "n_drivers_grid_changed": 0,
+      "changed_drivers": {},
+      "grid_zero_drivers": [],
+      "prob_vector_changed": false,
+      "prob_shift_l1": 0.0,
+      "t4_log_loss": 0.6652,
+      "t5_log_loss": 0.6652,
+      "delta_log_loss_t5_minus_t4": 0.0,
+      "t4_brier": 0.2761,
+      "t5_brier": 0.2761,
+      "delta_brier_t5_minus_t4": 0.0,
+      "t4_top1_hit": 1.0,
+      "t5_top1_hit": 1.0,
+      "t4_fract_top1": 0.5142,
+      "t5_fract_top1": 0.5142
+    },
+    {
+      "round": 19,
+      "race_name": "United States Grand Prix",
+      "race_date": "2024-10-20",
+      "winner_driver_id": "leclerc",
+      "has_grid_change": true,
+      "n_drivers_grid_changed": 15,
+      "changed_drivers": {
+        "russell": {
+          "qualifying_pos": 6,
+          "starting_grid_pos": 20,
+          "delta_positions": 14
+        },
+        "gasly": {
+          "qualifying_pos": 7,
+          "starting_grid_pos": 6,
+          "delta_positions": -1
+        },
+        "alonso": {
+          "qualifying_pos": 8,
+          "starting_grid_pos": 7,
+          "delta_positions": -1
+        },
+        "kevin_magnussen": {
+          "qualifying_pos": 9,
+          "starting_grid_pos": 8,
+          "delta_positions": -1
+        },
+        "perez": {
+          "qualifying_pos": 10,
+          "starting_grid_pos": 9,
+          "delta_positions": -1
+        },
+        "tsunoda": {
+          "qualifying_pos": 11,
+          "starting_grid_pos": 10,
+          "delta_positions": -1
+        },
+        "hulkenberg": {
+          "qualifying_pos": 12,
+          "starting_grid_pos": 11,
+          "delta_positions": -1
+        },
+        "ocon": {
+          "qualifying_pos": 13,
+          "starting_grid_pos": 12,
+          "delta_positions": -1
+        },
+        "stroll": {
+          "qualifying_pos": 14,
+          "starting_grid_pos": 13,
+          "delta_positions": -1
+        },
+        "lawson": {
+          "qualifying_pos": 15,
+          "starting_grid_pos": 19,
+          "delta_positions": 4
+        },
+        "albon": {
+          "qualifying_pos": 16,
+          "starting_grid_pos": 14,
+          "delta_positions": -2
+        },
+        "colapinto": {
+          "qualifying_pos": 17,
+          "starting_grid_pos": 15,
+          "delta_positions": -2
+        },
+        "bottas": {
+          "qualifying_pos": 18,
+          "starting_grid_pos": 16,
+          "delta_positions": -2
+        },
+        "hamilton": {
+          "qualifying_pos": 19,
+          "starting_grid_pos": 17,
+          "delta_positions": -2
+        },
+        "zhou": {
+          "qualifying_pos": 20,
+          "starting_grid_pos": 18,
+          "delta_positions": -2
+        }
+      },
+      "grid_zero_drivers": [],
+      "prob_vector_changed": true,
+      "prob_shift_l1": 0.05,
+      "t4_log_loss": 2.9526,
+      "t5_log_loss": 2.9526,
+      "delta_log_loss_t5_minus_t4": 0.0,
+      "t4_brier": 1.2,
+      "t5_brier": 1.2,
+      "delta_brier_t5_minus_t4": 0.0,
+      "t4_top1_hit": 0.0,
+      "t5_top1_hit": 0.0,
+      "t4_fract_top1": 0.0522,
+      "t5_fract_top1": 0.0522
+    },
+    {
+      "round": 20,
+      "race_name": "Mexico City Grand Prix",
+      "race_date": "2024-10-27",
+      "winner_driver_id": "sainz",
+      "has_grid_change": true,
+      "n_drivers_grid_changed": 2,
+      "changed_drivers": {
+        "ocon": {
+          "qualifying_pos": 19,
+          "starting_grid_pos": 0,
+          "delta_positions": -19
+        },
+        "zhou": {
+          "qualifying_pos": 20,
+          "starting_grid_pos": 19,
+          "delta_positions": -1
+        }
+      },
+      "grid_zero_drivers": [
+        "ocon"
+      ],
+      "prob_vector_changed": true,
+      "prob_shift_l1": 0.0006,
+      "t4_log_loss": 0.6652,
+      "t5_log_loss": 0.6652,
+      "delta_log_loss_t5_minus_t4": 0.0,
+      "t4_brier": 0.2761,
+      "t5_brier": 0.2761,
+      "delta_brier_t5_minus_t4": 0.0,
+      "t4_top1_hit": 1.0,
+      "t5_top1_hit": 1.0,
+      "t4_fract_top1": 0.5142,
+      "t5_fract_top1": 0.5142
+    },
+    {
+      "round": 21,
+      "race_name": "S\u00e3o Paulo Grand Prix",
+      "race_date": "2024-11-03",
+      "winner_driver_id": null,
+      "has_grid_change": true,
+      "n_drivers_grid_changed": 8,
+      "changed_drivers": {
+        "perez": {
+          "qualifying_pos": 13,
+          "starting_grid_pos": 12,
+          "delta_positions": -1
+        },
+        "sainz": {
+          "qualifying_pos": 14,
+          "starting_grid_pos": 20,
+          "delta_positions": 6
+        },
+        "gasly": {
+          "qualifying_pos": 15,
+          "starting_grid_pos": 13,
+          "delta_positions": -2
+        },
+        "hamilton": {
+          "qualifying_pos": 16,
+          "starting_grid_pos": 14,
+          "delta_positions": -2
+        },
+        "bearman": {
+          "qualifying_pos": 17,
+          "starting_grid_pos": 15,
+          "delta_positions": -2
+        },
+        "colapinto": {
+          "qualifying_pos": 18,
+          "starting_grid_pos": 16,
+          "delta_positions": -2
+        },
+        "hulkenberg": {
+          "qualifying_pos": 19,
+          "starting_grid_pos": 18,
+          "delta_positions": -1
+        },
+        "zhou": {
+          "qualifying_pos": 20,
+          "starting_grid_pos": 19,
+          "delta_positions": -1
+        }
+      },
+      "grid_zero_drivers": [],
+      "prob_vector_changed": true,
+      "prob_shift_l1": 0.0131,
+      "t4_log_loss": 13.8155,
+      "t5_log_loss": 13.8155,
+      "delta_log_loss_t5_minus_t4": 0.0,
+      "t4_brier": 0.3096,
+      "t5_brier": 0.3073,
+      "delta_brier_t5_minus_t4": -0.0023,
+      "t4_top1_hit": 0.0,
+      "t5_top1_hit": 0.0,
+      "t4_fract_top1": 0.0,
+      "t5_fract_top1": 0.0
+    },
+    {
+      "round": 22,
+      "race_name": "Las Vegas Grand Prix",
+      "race_date": "2024-11-23",
+      "winner_driver_id": "russell",
+      "has_grid_change": true,
+      "n_drivers_grid_changed": 6,
+      "changed_drivers": {
+        "colapinto": {
+          "qualifying_pos": 14,
+          "starting_grid_pos": 20,
+          "delta_positions": 6
+        },
+        "lawson": {
+          "qualifying_pos": 15,
+          "starting_grid_pos": 14,
+          "delta_positions": -1
+        },
+        "perez": {
+          "qualifying_pos": 16,
+          "starting_grid_pos": 15,
+          "delta_positions": -1
+        },
+        "alonso": {
+          "qualifying_pos": 17,
+          "starting_grid_pos": 16,
+          "delta_positions": -1
+        },
+        "albon": {
+          "qualifying_pos": 18,
+          "starting_grid_pos": 17,
+          "delta_positions": -1
+        },
+        "stroll": {
+          "qualifying_pos": 20,
+          "starting_grid_pos": 18,
+          "delta_positions": -2
+        }
+      },
+      "grid_zero_drivers": [],
+      "prob_vector_changed": true,
+      "prob_shift_l1": 0.0059,
+      "t4_log_loss": 0.6652,
+      "t5_log_loss": 0.6652,
+      "delta_log_loss_t5_minus_t4": 0.0,
+      "t4_brier": 0.2761,
+      "t5_brier": 0.2761,
+      "delta_brier_t5_minus_t4": 0.0,
+      "t4_top1_hit": 1.0,
+      "t5_top1_hit": 1.0,
+      "t4_fract_top1": 0.5142,
+      "t5_fract_top1": 0.5142
+    },
+    {
+      "round": 23,
+      "race_name": "Qatar Grand Prix",
+      "race_date": "2024-12-01",
+      "winner_driver_id": "max_verstappen",
+      "has_grid_change": true,
+      "n_drivers_grid_changed": 2,
+      "changed_drivers": {
+        "max_verstappen": {
+          "qualifying_pos": 1,
+          "starting_grid_pos": 2,
+          "delta_positions": 1
+        },
+        "russell": {
+          "qualifying_pos": 2,
+          "starting_grid_pos": 1,
+          "delta_positions": -1
+        }
+      },
+      "grid_zero_drivers": [],
+      "prob_vector_changed": true,
+      "prob_shift_l1": 0.7007,
+      "t4_log_loss": 0.6652,
+      "t5_log_loss": 1.8089,
+      "delta_log_loss_t5_minus_t4": 1.1437,
+      "t4_brier": 0.2761,
+      "t5_brier": 0.9768,
+      "delta_brier_t5_minus_t4": 0.7007,
+      "t4_top1_hit": 1.0,
+      "t5_top1_hit": 0.0,
+      "t4_fract_top1": 0.5142,
+      "t5_fract_top1": 0.1638
+    },
+    {
+      "round": 24,
+      "race_name": "Abu Dhabi Grand Prix",
+      "race_date": "2024-12-08",
+      "winner_driver_id": "norris",
+      "has_grid_change": true,
+      "n_drivers_grid_changed": 11,
+      "changed_drivers": {
+        "hulkenberg": {
+          "qualifying_pos": 4,
+          "starting_grid_pos": 7,
+          "delta_positions": 3
+        },
+        "max_verstappen": {
+          "qualifying_pos": 5,
+          "starting_grid_pos": 4,
+          "delta_positions": -1
+        },
+        "gasly": {
+          "qualifying_pos": 6,
+          "starting_grid_pos": 5,
+          "delta_positions": -1
+        },
+        "russell": {
+          "qualifying_pos": 7,
+          "starting_grid_pos": 6,
+          "delta_positions": -1
+        },
+        "leclerc": {
+          "qualifying_pos": 14,
+          "starting_grid_pos": 19,
+          "delta_positions": 5
+        },
+        "kevin_magnussen": {
+          "qualifying_pos": 15,
+          "starting_grid_pos": 14,
+          "delta_positions": -1
+        },
+        "albon": {
+          "qualifying_pos": 16,
+          "starting_grid_pos": 18,
+          "delta_positions": 2
+        },
+        "zhou": {
+          "qualifying_pos": 17,
+          "starting_grid_pos": 15,
+          "delta_positions": -2
+        },
+        "hamilton": {
+          "qualifying_pos": 18,
+          "starting_grid_pos": 16,
+          "delta_positions": -2
+        },
+        "colapinto": {
+          "qualifying_pos": 19,
+          "starting_grid_pos": 20,
+          "delta_positions": 1
+        },
+        "doohan": {
+          "qualifying_pos": 20,
+          "starting_grid_pos": 17,
+          "delta_positions": -3
+        }
+      },
+      "grid_zero_drivers": [],
+      "prob_vector_changed": true,
+      "prob_shift_l1": 0.0707,
+      "t4_log_loss": 0.6652,
+      "t5_log_loss": 0.6652,
+      "delta_log_loss_t5_minus_t4": 0.0,
+      "t4_brier": 0.2761,
+      "t5_brier": 0.2761,
+      "delta_brier_t5_minus_t4": 0.0,
+      "t4_top1_hit": 1.0,
+      "t5_top1_hit": 1.0,
+      "t4_fract_top1": 0.5142,
+      "t5_fract_top1": 0.5142
+    }
+  ],
+  "scientific_conclusion": "Across the 2024 season, 15 of 24 races (62.5%) had confirmed starting grid changes relative to qualifying. In every one of those 15 races, the probability vector changed (mean L1 shift: 0.165). On standard weekends, 12 of 18 races (66.7%) had grid changes. On sprint weekends, 3 of 6 (50.0%) had grid changes. On non-penalty races (9 rounds), T4 and T5 are bitwise identical."
+}

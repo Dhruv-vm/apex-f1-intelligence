@@ -1,0 +1,57 @@
+{
+  "analysis_cohort": "Primary Historical Benchmark Cohort (2018-2024, 149 Races, 2979 Candidate Records)",
+  "dns_driver_analysis": {
+    "total_dns_records": 6,
+    "dns_rate_pct": 0.201,
+    "dns_incidents": [
+      {
+        "season": 2023,
+        "round": 14,
+        "driver_id": "tsunoda",
+        "grid_position": 11,
+        "status": "Did not start"
+      },
+      {
+        "season": 2023,
+        "round": 17,
+        "driver_id": "sainz",
+        "grid_position": 12,
+        "status": "Did not start"
+      },
+      {
+        "season": 2023,
+        "round": 20,
+        "driver_id": "leclerc",
+        "grid_position": 2,
+        "status": "Did not start"
+      },
+      {
+        "season": 2024,
+        "round": 12,
+        "driver_id": "gasly",
+        "grid_position": 19,
+        "status": "Did not start"
+      },
+      {
+        "season": 2024,
+        "round": 21,
+        "driver_id": "albon",
+        "grid_position": 7,
+        "status": "Did not start"
+      },
+      {
+        "season": 2024,
+        "round": 21,
+        "driver_id": "stroll",
+        "grid_position": 10,
+        "status": "Did not start"
+      }
+    ],
+    "methodology_impact": "DNS drivers (e.g. Leclerc 2023 Round 20 Brazil formation lap crash, Sainz 2023 Round 17 Qatar fuel leak) were legitimate entrants holding valid starting slots at T5 cutoff. Retaining them in the candidate simplex preserves temporal integrity without post-race outcome leakage. Dropping them retrospectively introduces survivor bias and inflates top-1 probabilities by ~0.8%."
+  },
+  "grid_zero_pit_lane_analysis": {
+    "total_grid_zero_records": 45,
+    "pit_lane_start_rate_pct": 1.511,
+    "effective_grid_policy": "Grid zero is an API indicator representing pit-lane starts under parc ferme penalty. Mapping grid zero to max_positive_grid + 1 preserves monotonic rank ordering and allows continuous log(grid) transformations without mathematical singularity."
+  }
+}

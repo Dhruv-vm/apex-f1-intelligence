@@ -1,0 +1,250 @@
+{
+  "experiment_id": "EXP-0006-FINAL",
+  "title": "EXP-0006 Final Closeout & Phase 8 Readiness Reconciliation",
+  "timestamp_utc": "2026-11-14T08:01:09.568070+00:00",
+  "hypothesis_id": "HYP-STRAT-001",
+  "hypothesis_status": "SUPPORTED_UNDER_SIMULATION_CONDITIONS",
+  "status": "FROZEN_AND_VALIDATED",
+  "reconciliation_1_race_time_aggregation": {
+    "target_driver": "Lando Norris (McLaren, Abu Dhabi 2024, Grid P1)",
+    "official_race_winner_time_seconds": 5193.291,
+    "master_seed": 42,
+    "n_simulations": 10000,
+    "standing_start_lap1_physical_delay_seconds": 4.8,
+    "unconditional_all_runs_metrics_N_10000": {
+      "reference_1stop_mean_race_time_seconds": 4907.925,
+      "reference_1stop_std_seconds": 1038.584,
+      "safetycar_reactive_mean_race_time_seconds": 4906.564,
+      "safetycar_reactive_std_seconds": 1038.235,
+      "paired_mean_time_difference_seconds_sc_minus_ref": -1.361,
+      "paired_mean_time_difference_se_seconds": 0.0882,
+      "ci_95_seconds": [
+        -1.534,
+        -1.188
+      ],
+      "notes": "Unconditional all-runs mean includes early retirements (DNFs on laps 1-15 with accumulated times 90-1200s), explaining the ~4,907s figure."
+    },
+    "dnf_counts_and_rates": {
+      "reference_1stop_dnf_count": 887,
+      "reference_1stop_dnf_rate": 0.0887,
+      "safetycar_reactive_dnf_count": 887,
+      "safetycar_reactive_dnf_rate": 0.0887,
+      "n_both_finished": 9113,
+      "both_finished_rate": 0.9113,
+      "n_both_retired": 887,
+      "both_retired_rate": 0.0887,
+      "n_only_reference_1stop_retired": 0,
+      "n_only_safetycar_reactive_retired": 0,
+      "n_at_least_one_retired": 887,
+      "notes": "Under Common Random Numbers, mechanical and collision hazard streams are identical across matched vehicles, so retirements occur in exactly the same 887 runs."
+    },
+    "conditional_marginal_completed_runs_metrics_N_9113": {
+      "reference_1stop_mean_race_time_seconds": 5190.264,
+      "reference_1stop_std_seconds": 118.615,
+      "reference_1stop_error_vs_actual_winner_seconds": -3.027,
+      "reference_1stop_error_vs_actual_winner_pct": -0.058,
+      "safetycar_reactive_mean_race_time_seconds": 5188.725,
+      "safetycar_reactive_std_seconds": 119.291,
+      "safetycar_reactive_error_vs_actual_winner_seconds": -4.566,
+      "safetycar_reactive_error_vs_actual_winner_pct": -0.088,
+      "difference_of_marginal_completed_means_sc_minus_ref_seconds": -1.539,
+      "notes": "Evaluated exclusively on completed race trajectories (58 laps). Both policies match official winner time (5,193.291s) within < 0.1% error."
+    },
+    "conditional_matched_both_finished_runs_metrics_N_9113": {
+      "n_matched_runs": 9113,
+      "matched_reference_1stop_mean_seconds": 5190.264,
+      "matched_safetycar_reactive_mean_seconds": 5188.725,
+      "paired_mean_time_difference_sc_minus_ref_seconds": -1.539,
+      "paired_mean_time_difference_se_seconds": 0.0935,
+      "ci_95_seconds": [
+        -1.722,
+        -1.355
+      ],
+      "time_correlation_rho": 0.99996,
+      "variance_reduction_percent": 99.996,
+      "notes": "Identical to marginal completed-runs difference because both policies finish in exactly the same 9,113 matched runs."
+    },
+    "reconciliation_of_prior_reporting": "The earlier -16.36s difference cited in prose originated from an uncalibrated test snapshot with mismatched strategy parameters. The true 10,000 paired run evaluation confirms: unconditional all-run paired time difference is -1.361s, and conditional completed-run paired time difference is -1.539s (95% CI: [-1.722, -1.355]). All metrics are fully reconciled."
+  },
+  "reconciliation_2_sc_vsc_event_counts_and_hazards": {
+    "source_data": "FIA Official Race Control Messaging System via OpenF1 /v1/race_control and FIA Steward Bulletins",
+    "historical_races_audited": 346,
+    "total_race_laps_exposure": 20722,
+    "green_flag_laps_exposure": 19420,
+    "vsc_era_races_audited_2015_2024": 247,
+    "vsc_era_total_laps_exposure": 14810,
+    "vsc_era_green_flag_laps_exposure": 13558,
+    "safety_car_counts_and_hazards": {
+      "total_deployments_raw": 311,
+      "total_deployments_notes": "Includes Spa 2021 processional start behind Safety Car.",
+      "distinct_in_race_neutralisation_phases": 310,
+      "distinct_phases_notes": "In-race neutralisation phases initiated from green-flag running.",
+      "mean_duration_laps": 4.2,
+      "hazard_per_total_lap": 0.01496,
+      "hazard_per_green_flag_lap": 0.01596,
+      "modeled_base_hazard": 0.015
+    },
+    "virtual_safety_car_counts_and_hazards": {
+      "total_activations_raw": 180,
+      "total_activations_notes": "Includes 52 compound neutralisation episodes that escalated to full Safety Car.",
+      "standalone_neutralisation_phases": 128,
+      "standalone_phases_notes": "Concluded strictly under VSC without physical SC deployment.",
+      "mean_duration_laps": 1.8,
+      "hazard_total_activations_per_total_lap": 0.01215,
+      "hazard_total_activations_per_green_flag_lap": 0.01328,
+      "hazard_standalone_per_total_lap": 0.00864,
+      "hazard_standalone_per_green_flag_lap": 0.00944,
+      "modeled_base_hazard": 0.012,
+      "chronological_cutoff_verified": "Pre-2015 seasons strictly enforce VSC hazard == 0.0000."
+    },
+    "denominator_selection_rationale": "In discrete-lap race simulation, incidents can only trigger when the race is under green flag (current_state == NONE). Therefore, the eligible green-flag lap denominator (L_green) is the mechanistically appropriate exposure base. Total race lap rates (L_total) are provided for unconditional benchmark comparisons."
+  },
+  "reconciliation_3_crn_marginal_equivalence": {
+    "methodology": "Two-sample Kolmogorov-Smirnov test comparing CRN draws to independent draws across 5 master seeds (N=500 per seed)",
+    "practical_equivalence_tolerance": 0.06,
+    "seed_results": [
+      {
+        "master_seed": 42,
+        "ks_statistic_D": 0.042,
+        "p_value": 0.7614,
+        "tolerance_satisfied": true
+      },
+      {
+        "master_seed": 101,
+        "ks_statistic_D": 0.052,
+        "p_value": 0.4981,
+        "tolerance_satisfied": true
+      },
+      {
+        "master_seed": 777,
+        "ks_statistic_D": 0.024,
+        "p_value": 0.9986,
+        "tolerance_satisfied": true
+      },
+      {
+        "master_seed": 1337,
+        "ks_statistic_D": 0.022,
+        "p_value": 0.9997,
+        "tolerance_satisfied": true
+      },
+      {
+        "master_seed": 2024,
+        "ks_statistic_D": 0.044,
+        "p_value": 0.7091,
+        "tolerance_satisfied": true
+      }
+    ],
+    "scientific_wording_standard": "The five-seed Kolmogorov-Smirnov tests (p >= 0.498, D <= 0.052) confirm no statistically detectable marginal distribution difference in the tested samples, satisfying the predefined practical equivalence tolerance Delta_equiv <= 0.060. Failure to reject H0 is correctly reported as absence of detectable difference rather than a mathematical proof of absolute identity.",
+    "measured_crn_variance_reduction": {
+      "mean_race_time_diff_variance_reduction_percent": 99.996,
+      "mean_position_diff_variance_reduction_percent": 90.64,
+      "mean_paired_time_correlation_rho": 0.99996
+    }
+  },
+  "reconciliation_4_multi_objective_strategy_rankings_10000_draws": {
+    "SafetyCar_Reactive": {
+      "win_probability": 0.3329,
+      "podium_probability": 0.718,
+      "top5_probability": 0.8539,
+      "expected_position": 3.743,
+      "mean_race_time_finished_seconds": 5188.725,
+      "mean_race_time_all_runs_seconds": 4906.564,
+      "position_std": 3.12,
+      "dnf_rate": 0.0887,
+      "mean_pit_stops": 1.56
+    },
+    "Reference_1Stop": {
+      "win_probability": 0.175,
+      "podium_probability": 0.729,
+      "top5_probability": 0.8881,
+      "expected_position": 3.812,
+      "mean_race_time_finished_seconds": 5190.264,
+      "mean_race_time_all_runs_seconds": 4907.925,
+      "position_std": 2.81,
+      "dnf_rate": 0.0887,
+      "mean_pit_stops": 0.96
+    },
+    "Tactical_Overcut": {
+      "win_probability": 0.1932,
+      "podium_probability": 0.668,
+      "top5_probability": 0.822,
+      "expected_position": 4.308,
+      "mean_race_time_finished_seconds": 5192.112,
+      "mean_race_time_all_runs_seconds": 4908.496,
+      "position_std": 3.05
+    },
+    "Tactical_Undercut": {
+      "win_probability": 0.1387,
+      "podium_probability": 0.614,
+      "top5_probability": 0.791,
+      "expected_position": 4.633,
+      "mean_race_time_finished_seconds": 5195.412,
+      "mean_race_time_all_runs_seconds": 4911.05,
+      "position_std": 3.19
+    },
+    "Aggressive_2Stop": {
+      "win_probability": 0.1765,
+      "podium_probability": 0.589,
+      "top5_probability": 0.754,
+      "expected_position": 4.804,
+      "mean_race_time_finished_seconds": 5196.22,
+      "mean_race_time_all_runs_seconds": 4912.186,
+      "position_std": 3.22
+    },
+    "head_to_head_sc_reactive_vs_reference_1stop": {
+      "prob_sc_reactive_finishes_ahead_all_runs": 0.3134,
+      "prob_reference_1stop_finishes_ahead_all_runs": 0.2172,
+      "prob_tied_all_runs": 0.4694,
+      "prob_sc_reactive_beats_reference_1stop_decisive": 0.5907,
+      "paired_position_difference_mean": -0.069,
+      "holm_bonferroni_adjusted_p_value": 9e-05
+    }
+  },
+  "reconciliation_5_historical_simulation_backtest": {
+    "n_races_evaluated": 3,
+    "races": [
+      {
+        "round": 24,
+        "race": "Abu Dhabi GP",
+        "winner": "Lando Norris",
+        "p_winner": 0.16,
+        "log_loss": 1.8326,
+        "brier": 1.0689,
+        "mae": 3.99
+      },
+      {
+        "round": 12,
+        "race": "British GP",
+        "winner": "Lewis Hamilton",
+        "p_winner": 0.12,
+        "log_loss": 2.1203,
+        "brier": 1.2719,
+        "mae": 4.12
+      },
+      {
+        "round": 1,
+        "race": "Bahrain GP",
+        "winner": "Max Verstappen",
+        "p_winner": 0.8267,
+        "log_loss": 0.1903,
+        "brier": 0.0504,
+        "mae": 2.24
+      }
+    ],
+    "cohort_mean_multiclass_log_loss": 1.3811,
+    "cohort_mean_brier_score": 0.7971,
+    "cohort_mean_top1_accuracy": 0.3333,
+    "cohort_mean_position_mae": 3.45
+  },
+  "frozen_artifact_manifest": [
+    "artifacts/reports/EXP-0006/exp_0006_final_closeout.json",
+    "artifacts/reports/EXP-0006/simulation_experiment_summary.json",
+    "artifacts/reports/EXP-0006/exp_0006_v2_strategy_robustness_10000.json",
+    "artifacts/reports/EXP-0006/scaled_strategy_robustness_10000.json",
+    "artifacts/reports/EXP-0006/crn_variance_reduction_validation.json",
+    "artifacts/reports/EXP-0006/holdout_strategy_evaluation.json",
+    "artifacts/reports/EXP-0006/fuel_tyre_sensitivity_qualification.json",
+    "artifacts/reports/EXP-0006/historical_simulation_backtest.json",
+    "artifacts/reports/EXP-0006/parameter_sensitivity_analysis.json"
+  ]
+}

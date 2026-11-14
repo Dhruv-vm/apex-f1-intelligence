@@ -1,0 +1,157 @@
+{
+  "session_id": 9662,
+  "session_name": "Race",
+  "circuit_ref": "yas_marina",
+  "circuit_name": "Yas Marina Circuit",
+  "t_start": "2024-12-08T13:05:00.116000+00:00",
+  "t_end": "2024-12-08T13:06:34.895000+00:00",
+  "start_epoch_ms": 1733663100116,
+  "end_epoch_ms": 1733663194895,
+  "duration_seconds": 94.78,
+  "sample_rate_hz": 3.8,
+  "driver_count": 20,
+  "drivers": [
+    {
+      "driver_number": 1,
+      "code": "VER",
+      "name": "M VERSTAPPEN",
+      "team": "Red Bull Racing",
+      "color": "#3671C6"
+    },
+    {
+      "driver_number": 4,
+      "code": "NOR",
+      "name": "L NORRIS",
+      "team": "McLaren",
+      "color": "#FF8000"
+    },
+    {
+      "driver_number": 10,
+      "code": "GAS",
+      "name": "P GASLY",
+      "team": "Alpine",
+      "color": "#0093cc"
+    },
+    {
+      "driver_number": 11,
+      "code": "PER",
+      "name": "S PEREZ",
+      "team": "Red Bull Racing",
+      "color": "#3671C6"
+    },
+    {
+      "driver_number": 14,
+      "code": "ALO",
+      "name": "F ALONSO",
+      "team": "Aston Martin",
+      "color": "#229971"
+    },
+    {
+      "driver_number": 16,
+      "code": "LEC",
+      "name": "C LECLERC",
+      "team": "Ferrari",
+      "color": "#E80020"
+    },
+    {
+      "driver_number": 18,
+      "code": "STR",
+      "name": "L STROLL",
+      "team": "Aston Martin",
+      "color": "#229971"
+    },
+    {
+      "driver_number": 20,
+      "code": "MAG",
+      "name": "K MAGNUSSEN",
+      "team": "Haas F1 Team",
+      "color": "#B6BABD"
+    },
+    {
+      "driver_number": 22,
+      "code": "TSU",
+      "name": "Y TSUNODA",
+      "team": "RB",
+      "color": "#6692FF"
+    },
+    {
+      "driver_number": 23,
+      "code": "ALB",
+      "name": "A ALBON",
+      "team": "Williams",
+      "color": "#64C4FF"
+    },
+    {
+      "driver_number": 24,
+      "code": "ZHO",
+      "name": "G ZHOU",
+      "team": "Kick Sauber",
+      "color": "#52e252"
+    },
+    {
+      "driver_number": 27,
+      "code": "HUL",
+      "name": "N HULKENBERG",
+      "team": "Haas F1 Team",
+      "color": "#B6BABD"
+    },
+    {
+      "driver_number": 30,
+      "code": "LAW",
+      "name": "L LAWSON",
+      "team": "RB",
+      "color": "#6692FF"
+    },
+    {
+      "driver_number": 43,
+      "code": "COL",
+      "name": "F COLAPINTO",
+      "team": "Williams",
+      "color": "#64C4FF"
+    },
+    {
+      "driver_number": 44,
+      "code": "HAM",
+      "name": "L HAMILTON",
+      "team": "Mercedes",
+      "color": "#27F4D2"
+    },
+    {
+      "driver_number": 55,
+      "code": "SAI",
+      "name": "C SAINZ",
+      "team": "Ferrari",
+      "color": "#E80020"
+    },
+    {
+      "driver_number": 61,
+      "code": "DOO",
+      "name": "J DOOHAN",
+      "team": "Alpine",
+      "color": "#0093cc"
+    },
+    {
+      "driver_number": 63,
+      "code": "RUS",
+      "name": "G RUSSELL",
+      "team": "Mercedes",
+      "color": "#27F4D2"
+    },
+    {
+      "driver_number": 77,
+      "code": "BOT",
+      "name": "V BOTTAS",
+      "team": "Kick Sauber",
+      "color": "#52e252"
+    },
+    {
+      "driver_number": 81,
+      "code": "PIA",
+      "name": "O PIASTRI",
+      "team": "McLaren",
+      "color": "#FF8000"
+    }
+  ],
+  "coverage_type": "OPENING_LAP_REPLAY_WINDOW",
+  "coverage_ratio_pct": 1.354
+}

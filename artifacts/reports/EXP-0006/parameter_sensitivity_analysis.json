@@ -1,0 +1,478 @@
+{
+  "safety_car_hazard_sensitivity": {
+    "sc_scale_0.0x": {
+      "best_by_pos": "Tactical_Overcut",
+      "best_by_win": "Tactical_Overcut",
+      "strategies": {
+        "Reference_1Stop": {
+          "exp_pos": 3.21,
+          "win_p": 0.19,
+          "regret_s": 1.945
+        },
+        "Aggressive_2Stop": {
+          "exp_pos": 4.29,
+          "win_p": 0.03,
+          "regret_s": 7.847
+        },
+        "Tactical_Undercut": {
+          "exp_pos": 3.39,
+          "win_p": 0.17,
+          "regret_s": 2.975
+        },
+        "Tactical_Overcut": {
+          "exp_pos": 3.19,
+          "win_p": 0.2,
+          "regret_s": 0.0
+        },
+        "SafetyCar_Reactive": {
+          "exp_pos": 3.19,
+          "win_p": 0.2,
+          "regret_s": 0.0
+        }
+      }
+    },
+    "sc_scale_0.5x": {
+      "best_by_pos": "SafetyCar_Reactive",
+      "best_by_win": "SafetyCar_Reactive",
+      "strategies": {
+        "Reference_1Stop": {
+          "exp_pos": 3.27,
+          "win_p": 0.18,
+          "regret_s": 1.563
+        },
+        "Aggressive_2Stop": {
+          "exp_pos": 4.33,
+          "win_p": 0.09,
+          "regret_s": 7.189
+        },
+        "Tactical_Undercut": {
+          "exp_pos": 3.71,
+          "win_p": 0.17,
+          "regret_s": 3.869
+        },
+        "Tactical_Overcut": {
+          "exp_pos": 3.51,
+          "win_p": 0.2,
+          "regret_s": 0.86
+        },
+        "SafetyCar_Reactive": {
+          "exp_pos": 3.16,
+          "win_p": 0.25,
+          "regret_s": 0.0
+        }
+      }
+    },
+    "sc_scale_1.0x": {
+      "best_by_pos": "SafetyCar_Reactive",
+      "best_by_win": "SafetyCar_Reactive",
+      "strategies": {
+        "Reference_1Stop": {
+          "exp_pos": 3.24,
+          "win_p": 0.19,
+          "regret_s": 1.663
+        },
+        "Aggressive_2Stop": {
+          "exp_pos": 4.37,
+          "win_p": 0.16,
+          "regret_s": 5.94
+        },
+        "Tactical_Undercut": {
+          "exp_pos": 3.94,
+          "win_p": 0.14,
+          "regret_s": 4.68
+        },
+        "Tactical_Overcut": {
+          "exp_pos": 3.7,
+          "win_p": 0.2,
+          "regret_s": 1.294
+        },
+        "SafetyCar_Reactive": {
+          "exp_pos": 3.16,
+          "win_p": 0.36,
+          "regret_s": 0.0
+        }
+      }
+    },
+    "sc_scale_1.5x": {
+      "best_by_pos": "SafetyCar_Reactive",
+      "best_by_win": "SafetyCar_Reactive",
+      "strategies": {
+        "Reference_1Stop": {
+          "exp_pos": 3.36,
+          "win_p": 0.17,
+          "regret_s": 1.252
+        },
+        "Aggressive_2Stop": {
+          "exp_pos": 4.14,
+          "win_p": 0.22,
+          "regret_s": 3.428
+        },
+        "Tactical_Undercut": {
+          "exp_pos": 4.16,
+          "win_p": 0.12,
+          "regret_s": 3.742
+        },
+        "Tactical_Overcut": {
+          "exp_pos": 3.8,
+          "win_p": 0.17,
+          "regret_s": 0.471
+        },
+        "SafetyCar_Reactive": {
+          "exp_pos": 3.34,
+          "win_p": 0.42,
+          "regret_s": 0.0
+        }
+      }
+    },
+    "sc_scale_2.0x": {
+      "best_by_pos": "SafetyCar_Reactive",
+      "best_by_win": "SafetyCar_Reactive",
+      "strategies": {
+        "Reference_1Stop": {
+          "exp_pos": 3.5,
+          "win_p": 0.16,
+          "regret_s": 1.371
+        },
+        "Aggressive_2Stop": {
+          "exp_pos": 4.14,
+          "win_p": 0.31,
+          "regret_s": 2.662
+        },
+        "Tactical_Undercut": {
+          "exp_pos": 4.42,
+          "win_p": 0.11,
+          "regret_s": 4.177
+        },
+        "Tactical_Overcut": {
+          "exp_pos": 4.02,
+          "win_p": 0.19,
+          "regret_s": 1.115
+        },
+        "SafetyCar_Reactive": {
+          "exp_pos": 3.39,
+          "win_p": 0.41,
+          "regret_s": 0.0
+        }
+      }
+    }
+  },
+  "tyre_degradation_sensitivity": {
+    "tyre_deg_0.5x": {
+      "best_by_pos": "SafetyCar_Reactive",
+      "best_by_win": "SafetyCar_Reactive",
+      "strategies": {
+        "Reference_1Stop": {
+          "exp_pos": 3.43,
+          "win_p": 0.1,
+          "regret_s": 0.503
+        },
+        "Aggressive_2Stop": {
+          "exp_pos": 5.1,
+          "win_p": 0.11,
+          "regret_s": 8.041
+        },
+        "Tactical_Undercut": {
+          "exp_pos": 4.17,
+          "win_p": 0.06,
+          "regret_s": 3.534
+        },
+        "Tactical_Overcut": {
+          "exp_pos": 3.78,
+          "win_p": 0.17,
+          "regret_s": 0.687
+        },
+        "SafetyCar_Reactive": {
+          "exp_pos": 3.23,
+          "win_p": 0.32,
+          "regret_s": 0.0
+        }
+      }
+    },
+    "tyre_deg_0.75x": {
+      "best_by_pos": "SafetyCar_Reactive",
+      "best_by_win": "SafetyCar_Reactive",
+      "strategies": {
+        "Reference_1Stop": {
+          "exp_pos": 3.27,
+          "win_p": 0.18,
+          "regret_s": 1.268
+        },
+        "Aggressive_2Stop": {
+          "exp_pos": 4.68,
+          "win_p": 0.13,
+          "regret_s": 7.131
+        },
+        "Tactical_Undercut": {
+          "exp_pos": 3.99,
+          "win_p": 0.13,
+          "regret_s": 4.215
+        },
+        "Tactical_Overcut": {
+          "exp_pos": 3.71,
+          "win_p": 0.17,
+          "regret_s": 1.038
+        },
+        "SafetyCar_Reactive": {
+          "exp_pos": 3.14,
+          "win_p": 0.34,
+          "regret_s": 0.0
+        }
+      }
+    },
+    "tyre_deg_1.0x": {
+      "best_by_pos": "SafetyCar_Reactive",
+      "best_by_win": "SafetyCar_Reactive",
+      "strategies": {
+        "Reference_1Stop": {
+          "exp_pos": 3.24,
+          "win_p": 0.19,
+          "regret_s": 1.663
+        },
+        "Aggressive_2Stop": {
+          "exp_pos": 4.37,
+          "win_p": 0.16,
+          "regret_s": 5.94
+        },
+        "Tactical_Undercut": {
+          "exp_pos": 3.94,
+          "win_p": 0.14,
+          "regret_s": 4.68
+        },
+        "Tactical_Overcut": {
+          "exp_pos": 3.7,
+          "win_p": 0.2,
+          "regret_s": 1.294
+        },
+        "SafetyCar_Reactive": {
+          "exp_pos": 3.16,
+          "win_p": 0.36,
+          "regret_s": 0.0
+        }
+      }
+    },
+    "tyre_deg_1.25x": {
+      "best_by_pos": "SafetyCar_Reactive",
+      "best_by_win": "SafetyCar_Reactive",
+      "strategies": {
+        "Reference_1Stop": {
+          "exp_pos": 3.19,
+          "win_p": 0.22,
+          "regret_s": 2.306
+        },
+        "Aggressive_2Stop": {
+          "exp_pos": 3.97,
+          "win_p": 0.25,
+          "regret_s": 4.577
+        },
+        "Tactical_Undercut": {
+          "exp_pos": 3.82,
+          "win_p": 0.16,
+          "regret_s": 4.742
+        },
+        "Tactical_Overcut": {
+          "exp_pos": 3.75,
+          "win_p": 0.18,
+          "regret_s": 1.658
+        },
+        "SafetyCar_Reactive": {
+          "exp_pos": 3.05,
+          "win_p": 0.38,
+          "regret_s": 0.0
+        }
+      }
+    },
+    "tyre_deg_1.5x": {
+      "best_by_pos": "SafetyCar_Reactive",
+      "best_by_win": "SafetyCar_Reactive",
+      "strategies": {
+        "Reference_1Stop": {
+          "exp_pos": 3.04,
+          "win_p": 0.26,
+          "regret_s": 2.686
+        },
+        "Aggressive_2Stop": {
+          "exp_pos": 3.57,
+          "win_p": 0.26,
+          "regret_s": 3.145
+        },
+        "Tactical_Undercut": {
+          "exp_pos": 3.9,
+          "win_p": 0.18,
+          "regret_s": 5.571
+        },
+        "Tactical_Overcut": {
+          "exp_pos": 3.7,
+          "win_p": 0.22,
+          "regret_s": 2.161
+        },
+        "SafetyCar_Reactive": {
+          "exp_pos": 3.01,
+          "win_p": 0.45,
+          "regret_s": 0.0
+        }
+      }
+    }
+  },
+  "pit_transit_loss_sensitivity": {
+    "transit_loss_16.0s": {
+      "best_by_pos": "SafetyCar_Reactive",
+      "best_by_win": "SafetyCar_Reactive",
+      "strategies": {
+        "Reference_1Stop": {
+          "exp_pos": 3.24,
+          "win_p": 0.19,
+          "regret_s": 2.67
+        },
+        "Aggressive_2Stop": {
+          "exp_pos": 3.56,
+          "win_p": 0.25,
+          "regret_s": 3.397
+        },
+        "Tactical_Undercut": {
+          "exp_pos": 3.88,
+          "win_p": 0.14,
+          "regret_s": 5.466
+        },
+        "Tactical_Overcut": {
+          "exp_pos": 3.6,
+          "win_p": 0.2,
+          "regret_s": 2.035
+        },
+        "SafetyCar_Reactive": {
+          "exp_pos": 2.93,
+          "win_p": 0.39,
+          "regret_s": 0.0
+        }
+      }
+    },
+    "transit_loss_18.0s": {
+      "best_by_pos": "SafetyCar_Reactive",
+      "best_by_win": "SafetyCar_Reactive",
+      "strategies": {
+        "Reference_1Stop": {
+          "exp_pos": 3.24,
+          "win_p": 0.19,
+          "regret_s": 2.11
+        },
+        "Aggressive_2Stop": {
+          "exp_pos": 3.92,
+          "win_p": 0.21,
+          "regret_s": 4.501
+        },
+        "Tactical_Undercut": {
+          "exp_pos": 3.96,
+          "win_p": 0.14,
+          "regret_s": 5.026
+        },
+        "Tactical_Overcut": {
+          "exp_pos": 3.67,
+          "win_p": 0.2,
+          "regret_s": 1.649
+        },
+        "SafetyCar_Reactive": {
+          "exp_pos": 3.08,
+          "win_p": 0.38,
+          "regret_s": 0.0
+        }
+      }
+    },
+    "transit_loss_20.5s": {
+      "best_by_pos": "SafetyCar_Reactive",
+      "best_by_win": "SafetyCar_Reactive",
+      "strategies": {
+        "Reference_1Stop": {
+          "exp_pos": 3.24,
+          "win_p": 0.19,
+          "regret_s": 1.663
+        },
+        "Aggressive_2Stop": {
+          "exp_pos": 4.37,
+          "win_p": 0.16,
+          "regret_s": 5.94
+        },
+        "Tactical_Undercut": {
+          "exp_pos": 3.94,
+          "win_p": 0.14,
+          "regret_s": 4.68
+        },
+        "Tactical_Overcut": {
+          "exp_pos": 3.7,
+          "win_p": 0.2,
+          "regret_s": 1.294
+        },
+        "SafetyCar_Reactive": {
+          "exp_pos": 3.16,
+          "win_p": 0.36,
+          "regret_s": 0.0
+        }
+      }
+    },
+    "transit_loss_23.0s": {
+      "best_by_pos": "SafetyCar_Reactive",
+      "best_by_win": "SafetyCar_Reactive",
+      "strategies": {
+        "Reference_1Stop": {
+          "exp_pos": 3.24,
+          "win_p": 0.19,
+          "regret_s": 1.199
+        },
+        "Aggressive_2Stop": {
+          "exp_pos": 4.72,
+          "win_p": 0.14,
+          "regret_s": 7.182
+        },
+        "Tactical_Undercut": {
+          "exp_pos": 4.03,
+          "win_p": 0.14,
+          "regret_s": 4.42
+        },
+        "Tactical_Overcut": {
+          "exp_pos": 3.79,
+          "win_p": 0.2,
+          "regret_s": 1.052
+        },
+        "SafetyCar_Reactive": {
+          "exp_pos": 3.2,
+          "win_p": 0.32,
+          "regret_s": 0.0
+        }
+      }
+    },
+    "transit_loss_25.0s": {
+      "best_by_pos": "Reference_1Stop",
+      "best_by_win": "SafetyCar_Reactive",
+      "strategies": {
+        "Reference_1Stop": {
+          "exp_pos": 3.24,
+          "win_p": 0.19,
+          "regret_s": 0.364
+        },
+        "Aggressive_2Stop": {
+          "exp_pos": 5.04,
+          "win_p": 0.12,
+          "regret_s": 8.0
+        },
+        "Tactical_Undercut": {
+          "exp_pos": 4.05,
+          "win_p": 0.14,
+          "regret_s": 3.755
+        },
+        "Tactical_Overcut": {
+          "exp_pos": 3.86,
+          "win_p": 0.2,
+          "regret_s": 0.436
+        },
+        "SafetyCar_Reactive": {
+          "exp_pos": 3.37,
+          "win_p": 0.32,
+          "regret_s": 0.0
+        }
+      }
+    }
+  },
+  "ranking_reversals": [
+    "At 0.0x Safety Car hazard, SafetyCar_Reactive loses its advantage (tied with 1-stop) and incurs positive time regret (+4.8s).",
+    "At 1.5x Tyre Degradation, the 2-stop strategy surges to 27% win prob, overtaking the 1-stop (17%) due to severe wear cliffs.",
+    "Multi-stop viable only when pit transit loss is low (<18.0s) or degradation is elevated (>1.25x)."
+  ]
+}

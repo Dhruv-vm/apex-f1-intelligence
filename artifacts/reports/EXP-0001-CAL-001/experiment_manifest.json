@@ -1,0 +1,96 @@
+{
+  "experiment_id": "EXP-0001-CAL-001",
+  "status": "COMPLETED_EXPLORATORY",
+  "source_candidate_predictions": "artifacts/reports/EXP-0001-R3/candidate_predictions.csv",
+  "source_version": "EXP-0001-R3",
+  "candidate_rows": 7285,
+  "race_count": 346,
+  "max_race_probability_sum_error": 1.5543122344752192e-15,
+  "calibration_method": "Fixed-bin candidate-level one-vs-rest (empty bins excluded from ECE/MCE)",
+  "bin_edges": [
+    0.0,
+    0.02,
+    0.04,
+    0.06,
+    0.08,
+    0.1,
+    0.15,
+    0.2,
+    0.3,
+    0.5,
+    1.000000001
+  ],
+  "boundary_convention": "half-open [bin_lower, bin_upper) with rightmost closed at 1.0",
+  "metrics": {
+    "candidate_rows": 7285,
+    "n_non_empty_bins": 8,
+    "n_empty_bins": 2,
+    "overall_observed_win_rate": 0.047494852436513385,
+    "mean_predicted_probability": 0.047494852436513336,
+    "calibration_in_the_large": 4.85722573273506e-17,
+    "fixed_bin_ECE": 0.03066706027346896,
+    "fixed_bin_MCE": 0.18518878050981685,
+    "candidate_one_vs_rest_brier": 0.04016764449646776,
+    "candidate_one_vs_rest_log_loss": 0.15174618552396338
+  },
+  "bootstrap_settings": {
+    "cluster_unit": "(season, round) Grand Prix event",
+    "replicates": 1000,
+    "random_seed": 42,
+    "confidence_interval_level": 0.95
+  },
+  "bootstrap_summary": {
+    "fixed_bin_ECE": {
+      "point_estimate": 0.03066706027346896,
+      "bootstrap_mean": 0.030617547984980575,
+      "bootstrap_std": 0.0018023926438135625,
+      "ci_95_lower": 0.02679959593468353,
+      "ci_95_upper": 0.03415582308126532
+    },
+    "fixed_bin_MCE": {
+      "point_estimate": 0.18518878050981685,
+      "bootstrap_mean": 0.1976780180807375,
+      "bootstrap_std": 0.03461402906533786,
+      "ci_95_lower": 0.13356167157652094,
+      "ci_95_upper": 0.26859744283285636
+    },
+    "candidate_one_vs_rest_brier": {
+      "point_estimate": 0.04016764449646776,
+      "bootstrap_mean": 0.040160656247000576,
+      "bootstrap_std": 0.00029091667007482007,
+      "ci_95_lower": 0.039588918051190726,
+      "ci_95_upper": 0.04071967954580257
+    },
+    "candidate_one_vs_rest_log_loss": {
+      "point_estimate": 0.15174618552396338,
+      "bootstrap_mean": 0.15172143681149144,
+      "bootstrap_std": 0.0014262564278971965,
+      "ci_95_lower": 0.1490931835785515,
+      "ci_95_upper": 0.15454100686914587
+    },
+    "calibration_in_the_large": {
+      "point_estimate": 4.85722573273506e-17,
+      "bootstrap_mean": 4.633793349029247e-17,
+      "bootstrap_std": 3.47163894997462e-18,
+      "ci_95_lower": 4.163336342344337e-17,
+      "ci_95_upper": 4.85722573273506e-17
+    }
+  },
+  "artifacts": [
+    "artifacts/reports/EXP-0001-CAL-001/candidate_calibration_summary.csv",
+    "artifacts/reports/EXP-0001-CAL-001/candidate_reliability_bins.csv",
+    "artifacts/reports/EXP-0001-CAL-001/empty_bins_diagnostic.csv",
+    "artifacts/reports/EXP-0001-CAL-001/bootstrap_uncertainty_summary.csv",
+    "artifacts/reports/EXP-0001-CAL-001/regulation_era_calibration.csv",
+    "artifacts/reports/EXP-0001-CAL-001/season_calibration.csv",
+    "artifacts/reports/EXP-0001-CAL-001/candidate_reliability_diagram.png",
+    "artifacts/reports/EXP-0001-CAL-001/season_ece_drift.png"
+  ],
+  "limitations": [
+    "Candidate set is reconstructed retrospectively from race result records rather than verified pre-race entry lists.",
+    "Drivers within a race are zero-sum competitors; row-level independent uncertainty is statistically invalid.",
+    "Fixed-bin ECE is sensitive to pre-specified bin boundary choices.",
+    "2026 season comprises only 17 rounds and carries high sampling variance.",
+    "This audit evaluates raw uncalibrated baseline outputs prior to fitting post-hoc recalibration models."
+  ]
+}

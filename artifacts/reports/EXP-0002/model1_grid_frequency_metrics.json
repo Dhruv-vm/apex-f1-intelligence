@@ -1,0 +1,45 @@
+{
+  "experiment_id": "EXP-0002",
+  "model": "Model 1: walk-forward empirical grid frequency",
+  "status": "EXPLORATORY_RUN",
+  "source_dataset": "data/interim/driver_race_results_2010_2026_v2_regulation_metadata.csv",
+  "total_races": 346,
+  "candidate_rows": 7285,
+  "primary_cohort": [
+    2018,
+    2024
+  ],
+  "primary_cohort_races": 149,
+  "grid_prior_strength": 10.0,
+  "update_policy": "Generate probabilities before each race; update grid frequency counts only after that race's outcome.",
+  "candidate_field_limitation": "Candidates are provisional retrospective result-record proxies; independently timestamped pre-race entry lists are not verified for every race.",
+  "post_race_status_filtering": false,
+  "artifacts": {
+    "candidate_predictions": "artifacts/reports/EXP-0002/model1_grid_frequency_predictions.csv",
+    "walk_forward_audit": "artifacts/reports/EXP-0002/model1_walk_forward_audit.csv"
+  },
+  "full_series_metrics": {
+    "races": 346,
+    "mean_log_loss": 1.5195164677892885,
+    "mean_brier_score": 0.6578796252252715,
+    "tie_aware_top1": 0.5317919075144508,
+    "fractional_top1": 0.5232418111753372,
+    "legacy_argmax_top1": 0.523121387283237
+  },
+  "primary_cohort_grid_frequency_metrics": {
+    "races": 149,
+    "mean_log_loss": 1.5837662452740051,
+    "mean_brier_score": 0.6823122211181438,
+    "tie_aware_top1": 0.4966442953020134,
+    "fractional_top1": 0.4966442953020134,
+    "legacy_argmax_top1": 0.4966442953020134
+  },
+  "primary_cohort_uniform_metrics": {
+    "races": 149,
+    "mean_log_loss": 2.995388023256088,
+    "mean_brier_score": 0.949982338396326,
+    "tie_aware_top1": 1.0,
+    "fractional_top1": 0.05001766160367349,
+    "legacy_argmax_top1": 0.0
+  }
+}

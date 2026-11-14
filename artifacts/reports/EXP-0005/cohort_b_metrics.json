@@ -1,0 +1,144 @@
+{
+  "cohort_name": "Cohort B \u2014 Modern Sprint Format (12 Races, 2023-2024)",
+  "race_count": 12,
+  "checkpoints": {
+    "T0_PRE_WEEKEND": {
+      "race_count": 12,
+      "mean_log_loss": 1.507773,
+      "std_log_loss": 1.088995,
+      "mean_brier_score": 0.622598,
+      "std_brier_score": 0.429145,
+      "conventional_top1_accuracy": 0.583333,
+      "fractional_top1_score": 0.331,
+      "expected_calibration_error": 0.060276
+    },
+    "T1_POST_FP1": {
+      "race_count": 12,
+      "mean_log_loss": 1.507773,
+      "std_log_loss": 1.088995,
+      "mean_brier_score": 0.622598,
+      "std_brier_score": 0.429145,
+      "conventional_top1_accuracy": 0.583333,
+      "fractional_top1_score": 0.331,
+      "expected_calibration_error": 0.060276
+    },
+    "T4_CONTROLLED": {
+      "race_count": 12,
+      "mean_log_loss": 1.944143,
+      "std_log_loss": 1.574432,
+      "mean_brier_score": 0.779708,
+      "std_brier_score": 0.549951,
+      "conventional_top1_accuracy": 0.333333,
+      "fractional_top1_score": 0.310393,
+      "expected_calibration_error": 0.057996
+    },
+    "T5_FINAL_PRE_RACE": {
+      "race_count": 12,
+      "mean_log_loss": 1.944143,
+      "std_log_loss": 1.574432,
+      "mean_brier_score": 0.779708,
+      "std_brier_score": 0.549951,
+      "conventional_top1_accuracy": 0.333333,
+      "fractional_top1_score": 0.310393,
+      "expected_calibration_error": 0.057996
+    }
+  },
+  "transitions": {
+    "T1_vs_T0": {
+      "transition": "T1_vs_T0",
+      "n_races": 12,
+      "mean_delta_log_loss": 0.0,
+      "ci_95_log_loss": [
+        0.0,
+        0.0
+      ],
+      "wilcoxon_stat_log_loss": 0.0,
+      "wilcoxon_p_value_log_loss": 1.0,
+      "cohen_d_log_loss": 0.0,
+      "mean_delta_brier": 0.0,
+      "ci_95_brier": [
+        0.0,
+        0.0
+      ],
+      "wilcoxon_stat_brier": 0.0,
+      "wilcoxon_p_value_brier": 1.0,
+      "cohen_d_brier": 0.0,
+      "holm_bonferroni_p_value_log_loss": 1.0,
+      "significant_loss_at_005": false,
+      "holm_bonferroni_p_value_brier": 1.0,
+      "significant_brier_at_005": false
+    },
+    "T4_vs_T1": {
+      "transition": "T4_vs_T1",
+      "n_races": 12,
+      "mean_delta_log_loss": 0.4364,
+      "ci_95_log_loss": [
+        -0.0415,
+        0.9398
+      ],
+      "wilcoxon_stat_log_loss": 21.0,
+      "wilcoxon_p_value_log_loss": 0.16981050508552142,
+      "cohen_d_log_loss": 0.4731,
+      "mean_delta_brier": 0.1571,
+      "ci_95_brier": [
+        -0.0128,
+        0.3276
+      ],
+      "wilcoxon_stat_brier": 20.0,
+      "wilcoxon_p_value_brier": 0.14670764206619946,
+      "cohen_d_brier": 0.5071,
+      "holm_bonferroni_p_value_log_loss": 0.679242,
+      "significant_loss_at_005": false,
+      "holm_bonferroni_p_value_brier": 0.586831,
+      "significant_brier_at_005": false
+    },
+    "T5_vs_T4": {
+      "transition": "T5_vs_T4",
+      "n_races": 12,
+      "mean_delta_log_loss": 0.0,
+      "ci_95_log_loss": [
+        0.0,
+        0.0
+      ],
+      "wilcoxon_stat_log_loss": 0.0,
+      "wilcoxon_p_value_log_loss": 1.0,
+      "cohen_d_log_loss": 0.0,
+      "mean_delta_brier": 0.0,
+      "ci_95_brier": [
+        0.0,
+        0.0
+      ],
+      "wilcoxon_stat_brier": 0.0,
+      "wilcoxon_p_value_brier": 1.0,
+      "cohen_d_brier": 0.0,
+      "holm_bonferroni_p_value_log_loss": 1.0,
+      "significant_loss_at_005": false,
+      "holm_bonferroni_p_value_brier": 1.0,
+      "significant_brier_at_005": false
+    },
+    "T5_vs_T0": {
+      "transition": "T5_vs_T0",
+      "n_races": 12,
+      "mean_delta_log_loss": 0.4364,
+      "ci_95_log_loss": [
+        -0.0415,
+        0.9398
+      ],
+      "wilcoxon_stat_log_loss": 21.0,
+      "wilcoxon_p_value_log_loss": 0.16981050508552142,
+      "cohen_d_log_loss": 0.4731,
+      "mean_delta_brier": 0.1571,
+      "ci_95_brier": [
+        -0.0128,
+        0.3276
+      ],
+      "wilcoxon_stat_brier": 20.0,
+      "wilcoxon_p_value_brier": 0.14670764206619946,
+      "cohen_d_brier": 0.5071,
+      "holm_bonferroni_p_value_log_loss": 0.509432,
+      "significant_loss_at_005": false,
+      "holm_bonferroni_p_value_brier": 0.440123,
+      "significant_brier_at_005": false
+    }
+  }
+}

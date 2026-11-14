@@ -1,0 +1,74 @@
+[
+  {
+    "Comparison": "Model 3: Platt vs Raw",
+    "Delta_LogLoss": 0.0022062393658910384,
+    "LL_95_CI": "[-0.0005, 0.0048]",
+    "LL_Sig": false,
+    "Delta_Brier": 0.000690088366561481,
+    "Brier_95_CI": "[-0.0003, 0.0017]",
+    "Brier_Sig": false
+  },
+  {
+    "Comparison": "Model 3: Isotonic vs Raw",
+    "Delta_LogLoss": 0.04858376220814353,
+    "LL_95_CI": "[-0.0217, 0.1690]",
+    "LL_Sig": false,
+    "Delta_Brier": 0.0009247609412353919,
+    "Brier_95_CI": "[-0.0084, 0.0109]",
+    "Brier_Sig": false
+  },
+  {
+    "Comparison": "Model 3: Temperature vs Raw",
+    "Delta_LogLoss": 0.0025633471281065745,
+    "LL_95_CI": "[0.0003, 0.0048]",
+    "LL_Sig": true,
+    "Delta_Brier": 0.0008175140932952241,
+    "Brier_95_CI": "[-0.0001, 0.0018]",
+    "Brier_Sig": false
+  },
+  {
+    "Comparison": "Model 4: Platt vs Raw",
+    "Delta_LogLoss": -0.020485915460118687,
+    "LL_95_CI": "[-0.0808, 0.0340]",
+    "LL_Sig": false,
+    "Delta_Brier": -0.006037498104182526,
+    "Brier_95_CI": "[-0.0245, 0.0118]",
+    "Brier_Sig": false
+  },
+  {
+    "Comparison": "Model 4: Isotonic vs Raw",
+    "Delta_LogLoss": 0.040891114006426754,
+    "LL_95_CI": "[-0.0378, 0.1407]",
+    "LL_Sig": false,
+    "Delta_Brier": -0.005352864314894679,
+    "Brier_95_CI": "[-0.0248, 0.0127]",
+    "Brier_Sig": false
+  },
+  {
+    "Comparison": "Model 4: Temperature vs Raw",
+    "Delta_LogLoss": -0.021562242522511266,
+    "LL_95_CI": "[-0.0818, 0.0331]",
+    "LL_Sig": false,
+    "Delta_Brier": -0.005275737424585203,
+    "Brier_95_CI": "[-0.0257, 0.0142]",
+    "Brier_Sig": false
+  },
+  {
+    "Comparison": "Calibrated Comparison: M4 Temp vs M3 Temp",
+    "Delta_LogLoss": 0.02982293395523139,
+    "LL_95_CI": "[-0.0584, 0.1208]",
+    "LL_Sig": false,
+    "Delta_Brier": 0.009769819469561902,
+    "Brier_95_CI": "[-0.0218, 0.0429]",
+    "Brier_Sig": false
+  },
+  {
+    "Comparison": "Calibrated Comparison: M4 Platt vs M3 Platt",
+    "Delta_LogLoss": 0.031256368779839505,
+    "LL_95_CI": "[-0.0582, 0.1234]",
+    "LL_Sig": false,
+    "Delta_Brier": 0.009135484516698322,
+    "Brier_95_CI": "[-0.0229, 0.0431]",
+    "Brier_Sig": false
+  }
+]

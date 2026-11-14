@@ -1,0 +1,306 @@
+{
+  "qualification_notice": "Epistemological Alert: Tyre degradation slopes in public timing feeds are conflated with latent vehicle mass reduction. Adjusted degradation rates are strictly CONDITIONAL on assumed fuel mass burn-off and must not be presented as direct sensor measurements.",
+  "raw_observed_stint_slope_sec_per_lap": 0.1063,
+  "baseline_assumptions": {
+    "fuel_burn_rate_kg_per_lap": 1.75,
+    "fuel_sensitivity_sec_per_kg": 0.033,
+    "baseline_fuel_correction_sec_per_lap": 0.0578,
+    "baseline_adjusted_deg_slope_sec_per_lap": 0.0486
+  },
+  "assumption_ranges": {
+    "fuel_burn_range_kg_per_lap": [
+      1.4,
+      2.0
+    ],
+    "fuel_sensitivity_range_sec_per_kg": [
+      0.025,
+      0.04
+    ],
+    "fuel_correction_range_sec_per_lap": [
+      0.035,
+      0.08
+    ],
+    "adjusted_deg_range_sec_per_lap": [
+      0.0263,
+      0.0713
+    ]
+  },
+  "sensitivity_grid": [
+    {
+      "fuel_burn_rate_kg_per_lap": 1.4,
+      "fuel_sensitivity_sec_per_kg": 0.025,
+      "fuel_correction_sec_per_lap": 0.035,
+      "adjusted_tyre_deg_slope_sec_per_lap": 0.0713,
+      "conditional_95_ci": [
+        0.0613,
+        0.0813
+      ],
+      "preferred_strategy": "Aggressive_2Stop"
+    },
+    {
+      "fuel_burn_rate_kg_per_lap": 1.4,
+      "fuel_sensitivity_sec_per_kg": 0.03,
+      "fuel_correction_sec_per_lap": 0.042,
+      "adjusted_tyre_deg_slope_sec_per_lap": 0.0643,
+      "conditional_95_ci": [
+        0.0543,
+        0.0743
+      ],
+      "preferred_strategy": "SafetyCar_Reactive"
+    },
+    {
+      "fuel_burn_rate_kg_per_lap": 1.4,
+      "fuel_sensitivity_sec_per_kg": 0.033,
+      "fuel_correction_sec_per_lap": 0.0462,
+      "adjusted_tyre_deg_slope_sec_per_lap": 0.0601,
+      "conditional_95_ci": [
+        0.0501,
+        0.0701
+      ],
+      "preferred_strategy": "SafetyCar_Reactive"
+    },
+    {
+      "fuel_burn_rate_kg_per_lap": 1.4,
+      "fuel_sensitivity_sec_per_kg": 0.036,
+      "fuel_correction_sec_per_lap": 0.0504,
+      "adjusted_tyre_deg_slope_sec_per_lap": 0.0559,
+      "conditional_95_ci": [
+        0.0459,
+        0.0659
+      ],
+      "preferred_strategy": "SafetyCar_Reactive"
+    },
+    {
+      "fuel_burn_rate_kg_per_lap": 1.4,
+      "fuel_sensitivity_sec_per_kg": 0.04,
+      "fuel_correction_sec_per_lap": 0.056,
+      "adjusted_tyre_deg_slope_sec_per_lap": 0.0503,
+      "conditional_95_ci": [
+        0.0403,
+        0.0603
+      ],
+      "preferred_strategy": "SafetyCar_Reactive"
+    },
+    {
+      "fuel_burn_rate_kg_per_lap": 1.6,
+      "fuel_sensitivity_sec_per_kg": 0.025,
+      "fuel_correction_sec_per_lap": 0.04,
+      "adjusted_tyre_deg_slope_sec_per_lap": 0.0663,
+      "conditional_95_ci": [
+        0.0563,
+        0.0763
+      ],
+      "preferred_strategy": "Aggressive_2Stop"
+    },
+    {
+      "fuel_burn_rate_kg_per_lap": 1.6,
+      "fuel_sensitivity_sec_per_kg": 0.03,
+      "fuel_correction_sec_per_lap": 0.048,
+      "adjusted_tyre_deg_slope_sec_per_lap": 0.0583,
+      "conditional_95_ci": [
+        0.0483,
+        0.0683
+      ],
+      "preferred_strategy": "SafetyCar_Reactive"
+    },
+    {
+      "fuel_burn_rate_kg_per_lap": 1.6,
+      "fuel_sensitivity_sec_per_kg": 0.033,
+      "fuel_correction_sec_per_lap": 0.0528,
+      "adjusted_tyre_deg_slope_sec_per_lap": 0.0535,
+      "conditional_95_ci": [
+        0.0435,
+        0.0635
+      ],
+      "preferred_strategy": "SafetyCar_Reactive"
+    },
+    {
+      "fuel_burn_rate_kg_per_lap": 1.6,
+      "fuel_sensitivity_sec_per_kg": 0.036,
+      "fuel_correction_sec_per_lap": 0.0576,
+      "adjusted_tyre_deg_slope_sec_per_lap": 0.0487,
+      "conditional_95_ci": [
+        0.0387,
+        0.0587
+      ],
+      "preferred_strategy": "SafetyCar_Reactive"
+    },
+    {
+      "fuel_burn_rate_kg_per_lap": 1.6,
+      "fuel_sensitivity_sec_per_kg": 0.04,
+      "fuel_correction_sec_per_lap": 0.064,
+      "adjusted_tyre_deg_slope_sec_per_lap": 0.0423,
+      "conditional_95_ci": [
+        0.0323,
+        0.0523
+      ],
+      "preferred_strategy": "SafetyCar_Reactive"
+    },
+    {
+      "fuel_burn_rate_kg_per_lap": 1.75,
+      "fuel_sensitivity_sec_per_kg": 0.025,
+      "fuel_correction_sec_per_lap": 0.0438,
+      "adjusted_tyre_deg_slope_sec_per_lap": 0.0625,
+      "conditional_95_ci": [
+        0.0525,
+        0.0725
+      ],
+      "preferred_strategy": "SafetyCar_Reactive"
+    },
+    {
+      "fuel_burn_rate_kg_per_lap": 1.75,
+      "fuel_sensitivity_sec_per_kg": 0.03,
+      "fuel_correction_sec_per_lap": 0.0525,
+      "adjusted_tyre_deg_slope_sec_per_lap": 0.0538,
+      "conditional_95_ci": [
+        0.0438,
+        0.0638
+      ],
+      "preferred_strategy": "SafetyCar_Reactive"
+    },
+    {
+      "fuel_burn_rate_kg_per_lap": 1.75,
+      "fuel_sensitivity_sec_per_kg": 0.033,
+      "fuel_correction_sec_per_lap": 0.0578,
+      "adjusted_tyre_deg_slope_sec_per_lap": 0.0486,
+      "conditional_95_ci": [
+        0.0386,
+        0.0586
+      ],
+      "preferred_strategy": "SafetyCar_Reactive"
+    },
+    {
+      "fuel_burn_rate_kg_per_lap": 1.75,
+      "fuel_sensitivity_sec_per_kg": 0.036,
+      "fuel_correction_sec_per_lap": 0.063,
+      "adjusted_tyre_deg_slope_sec_per_lap": 0.0433,
+      "conditional_95_ci": [
+        0.0333,
+        0.0533
+      ],
+      "preferred_strategy": "SafetyCar_Reactive"
+    },
+    {
+      "fuel_burn_rate_kg_per_lap": 1.75,
+      "fuel_sensitivity_sec_per_kg": 0.04,
+      "fuel_correction_sec_per_lap": 0.07,
+      "adjusted_tyre_deg_slope_sec_per_lap": 0.0363,
+      "conditional_95_ci": [
+        0.0263,
+        0.0463
+      ],
+      "preferred_strategy": "Reference_1Stop"
+    },
+    {
+      "fuel_burn_rate_kg_per_lap": 1.9,
+      "fuel_sensitivity_sec_per_kg": 0.025,
+      "fuel_correction_sec_per_lap": 0.0475,
+      "adjusted_tyre_deg_slope_sec_per_lap": 0.0588,
+      "conditional_95_ci": [
+        0.0488,
+        0.0688
+      ],
+      "preferred_strategy": "SafetyCar_Reactive"
+    },
+    {
+      "fuel_burn_rate_kg_per_lap": 1.9,
+      "fuel_sensitivity_sec_per_kg": 0.03,
+      "fuel_correction_sec_per_lap": 0.057,
+      "adjusted_tyre_deg_slope_sec_per_lap": 0.0493,
+      "conditional_95_ci": [
+        0.0393,
+        0.0593
+      ],
+      "preferred_strategy": "SafetyCar_Reactive"
+    },
+    {
+      "fuel_burn_rate_kg_per_lap": 1.9,
+      "fuel_sensitivity_sec_per_kg": 0.033,
+      "fuel_correction_sec_per_lap": 0.0627,
+      "adjusted_tyre_deg_slope_sec_per_lap": 0.0436,
+      "conditional_95_ci": [
+        0.0336,
+        0.0536
+      ],
+      "preferred_strategy": "SafetyCar_Reactive"
+    },
+    {
+      "fuel_burn_rate_kg_per_lap": 1.9,
+      "fuel_sensitivity_sec_per_kg": 0.036,
+      "fuel_correction_sec_per_lap": 0.0684,
+      "adjusted_tyre_deg_slope_sec_per_lap": 0.0379,
+      "conditional_95_ci": [
+        0.0279,
+        0.0479
+      ],
+      "preferred_strategy": "Reference_1Stop"
+    },
+    {
+      "fuel_burn_rate_kg_per_lap": 1.9,
+      "fuel_sensitivity_sec_per_kg": 0.04,
+      "fuel_correction_sec_per_lap": 0.076,
+      "adjusted_tyre_deg_slope_sec_per_lap": 0.0303,
+      "conditional_95_ci": [
+        0.0203,
+        0.0403
+      ],
+      "preferred_strategy": "Reference_1Stop"
+    },
+    {
+      "fuel_burn_rate_kg_per_lap": 2.0,
+      "fuel_sensitivity_sec_per_kg": 0.025,
+      "fuel_correction_sec_per_lap": 0.05,
+      "adjusted_tyre_deg_slope_sec_per_lap": 0.0563,
+      "conditional_95_ci": [
+        0.0463,
+        0.0663
+      ],
+      "preferred_strategy": "SafetyCar_Reactive"
+    },
+    {
+      "fuel_burn_rate_kg_per_lap": 2.0,
+      "fuel_sensitivity_sec_per_kg": 0.03,
+      "fuel_correction_sec_per_lap": 0.06,
+      "adjusted_tyre_deg_slope_sec_per_lap": 0.0463,
+      "conditional_95_ci": [
+        0.0363,
+        0.0563
+      ],
+      "preferred_strategy": "SafetyCar_Reactive"
+    },
+    {
+      "fuel_burn_rate_kg_per_lap": 2.0,
+      "fuel_sensitivity_sec_per_kg": 0.033,
+      "fuel_correction_sec_per_lap": 0.066,
+      "adjusted_tyre_deg_slope_sec_per_lap": 0.0403,
+      "conditional_95_ci": [
+        0.0303,
+        0.0503
+      ],
+      "preferred_strategy": "SafetyCar_Reactive"
+    },
+    {
+      "fuel_burn_rate_kg_per_lap": 2.0,
+      "fuel_sensitivity_sec_per_kg": 0.036,
+      "fuel_correction_sec_per_lap": 0.072,
+      "adjusted_tyre_deg_slope_sec_per_lap": 0.0343,
+      "conditional_95_ci": [
+        0.0243,
+        0.0443
+      ],
+      "preferred_strategy": "Reference_1Stop"
+    },
+    {
+      "fuel_burn_rate_kg_per_lap": 2.0,
+      "fuel_sensitivity_sec_per_kg": 0.04,
+      "fuel_correction_sec_per_lap": 0.08,
+      "adjusted_tyre_deg_slope_sec_per_lap": 0.0263,
+      "conditional_95_ci": [
+        0.0163,
+        0.0363
+      ],
+      "preferred_strategy": "Reference_1Stop"
+    }
+  ],
+  "strategy_impact": "If fuel burn-off and sensitivity are at the upper bound (high fuel effect, corr > 0.07 s/lap), adjusted tyre degradation is mild (< 0.035 s/lap), reinforcing the Reference_1Stop. Conversely, if fuel effect is at the lower bound (corr < 0.04 s/lap), adjusted tyre degradation is severe (> 0.065 s/lap), triggering quadratic thermal cliffs and inverting optimal policy to favor the Aggressive_2Stop."
+}

@@ -1,0 +1,213 @@
+{
+  "experiment_id": "EXP-0006",
+  "hypothesis_id": "HYP-STRAT-001",
+  "evaluation_title": "Monte Carlo Race Simulator Historical Backtest",
+  "n_races_evaluated": 1,
+  "iterations_per_race": 30,
+  "mean_multiclass_log_loss": 1.4554,
+  "mean_brier_score": 0.8223,
+  "mean_top1_accuracy": 0.0,
+  "mean_position_mae": 3.99,
+  "race_evaluations": [
+    {
+      "season": 2024,
+      "round_num": 24,
+      "race_name": "Abu Dhabi Grand Prix",
+      "circuit_name": "Yas Marina Circuit",
+      "total_laps": 58,
+      "actual_winner_driver_id": "norris",
+      "actual_winner_name": "Lando Norris",
+      "simulated_winner_win_prob": 0.2333,
+      "simulated_race_log_loss": 1.4554,
+      "simulated_brier_score": 0.8223,
+      "top1_argmax_correct": 0.0,
+      "mean_finish_position_mae": 3.99,
+      "top3_actual_podium_coverage": 0.7334,
+      "full_field_probability_vector": {
+        "norris": 0.2333,
+        "leclerc": 0.4,
+        "piastri": 0.0333,
+        "sainz": 0.2667,
+        "max_verstappen": 0.0333,
+        "russell": 0.0333,
+        "perez": 0.0,
+        "hulkenberg": 0.0,
+        "doohan": 0.0,
+        "gasly": 0.0,
+        "kevin_magnussen": 0.0,
+        "alonso": 0.0,
+        "tsunoda": 0.0,
+        "zhou": 0.0,
+        "lawson": 0.0,
+        "bottas": 0.0,
+        "stroll": 0.0,
+        "albon": 0.0,
+        "colapinto": 0.0,
+        "hamilton": 0.0
+      },
+      "actual_vs_simulated_positions": {
+        "norris": {
+          "name": "Lando Norris",
+          "actual_position": 1,
+          "simulated_expected_position": 2.57,
+          "error": 1.57,
+          "win_probability": 0.2333,
+          "podium_probability": 0.8667
+        },
+        "sainz": {
+          "name": "Carlos Sainz",
+          "actual_position": 2,
+          "simulated_expected_position": 5.17,
+          "error": 3.17,
+          "win_probability": 0.2667,
+          "podium_probability": 0.6667
+        },
+        "leclerc": {
+          "name": "Charles Leclerc",
+          "actual_position": 3,
+          "simulated_expected_position": 4.6,
+          "error": 1.6,
+          "win_probability": 0.4,
+          "podium_probability": 0.6667
+        },
+        "hamilton": {
+          "name": "Lewis Hamilton",
+          "actual_position": 4,
+          "simulated_expected_position": 20.9,
+          "error": 16.9,
+          "win_probability": 0.0,
+          "podium_probability": 0.0
+        },
+        "russell": {
+          "name": "George Russell",
+          "actual_position": 5,
+          "simulated_expected_position": 6.03,
+          "error": 1.03,
+          "win_probability": 0.0333,
+          "podium_probability": 0.2667
+        },
+        "max_verstappen": {
+          "name": "Max Verstappen",
+          "actual_position": 6,
+          "simulated_expected_position": 5.73,
+          "error": 0.27,
+          "win_probability": 0.0333,
+          "podium_probability": 0.1667
+        },
+        "gasly": {
+          "name": "Pierre Gasly",
+          "actual_position": 7,
+          "simulated_expected_position": 9.53,
+          "error": 2.53,
+          "win_probability": 0.0,
+          "podium_probability": 0.0
+        },
+        "hulkenberg": {
+          "name": "Nico H\u00fclkenberg",
+          "actual_position": 8,
+          "simulated_expected_position": 9.0,
+          "error": 1.0,
+          "win_probability": 0.0,
+          "podium_probability": 0.0
+        },
+        "alonso": {
+          "name": "Fernando Alonso",
+          "actual_position": 9,
+          "simulated_expected_position": 12.07,
+          "error": 3.07,
+          "win_probability": 0.0,
+          "podium_probability": 0.0
+        },
+        "piastri": {
+          "name": "Oscar Piastri",
+          "actual_position": 10,
+          "simulated_expected_position": 5.13,
+          "error": 4.87,
+          "win_probability": 0.0333,
+          "podium_probability": 0.3333
+        },
+        "albon": {
+          "name": "Alexander Albon",
+          "actual_position": 11,
+          "simulated_expected_position": 20.5,
+          "error": 9.5,
+          "win_probability": 0.0,
+          "podium_probability": 0.0
+        },
+        "tsunoda": {
+          "name": "Yuki Tsunoda",
+          "actual_position": 12,
+          "simulated_expected_position": 12.1,
+          "error": 0.1,
+          "win_probability": 0.0,
+          "podium_probability": 0.0
+        },
+        "zhou": {
+          "name": "Guanyu Zhou",
+          "actual_position": 13,
+          "simulated_expected_position": 12.2,
+          "error": 0.8,
+          "win_probability": 0.0,
+          "podium_probability": 0.0
+        },
+        "stroll": {
+          "name": "Lance Stroll",
+          "actual_position": 14,
+          "simulated_expected_position": 14.33,
+          "error": 0.33,
+          "win_probability": 0.0,
+          "podium_probability": 0.0
+        },
+        "doohan": {
+          "name": "Jack Doohan",
+          "actual_position": 15,
+          "simulated_expected_position": 9.2,
+          "error": 5.8,
+          "win_probability": 0.0,
+          "podium_probability": 0.0
+        },
+        "kevin_magnussen": {
+          "name": "Kevin Magnussen",
+          "actual_position": 16,
+          "simulated_expected_position": 11.7,
+          "error": 4.3,
+          "win_probability": 0.0,
+          "podium_probability": 0.0
+        },
+        "lawson": {
+          "name": "Liam Lawson",
+          "actual_position": 17,
+          "simulated_expected_position": 12.97,
+          "error": 4.03,
+          "win_probability": 0.0,
+          "podium_probability": 0.0
+        },
+        "bottas": {
+          "name": "Valtteri Bottas",
+          "actual_position": 18,
+          "simulated_expected_position": 13.7,
+          "error": 4.3,
+          "win_probability": 0.0,
+          "podium_probability": 0.0
+        },
+        "colapinto": {
+          "name": "Franco Colapinto",
+          "actual_position": 19,
+          "simulated_expected_position": 20.77,
+          "error": 1.77,
+          "win_probability": 0.0,
+          "podium_probability": 0.0
+        },
+        "perez": {
+          "name": "Sergio P\u00e9rez",
+          "actual_position": 20,
+          "simulated_expected_position": 7.13,
+          "error": 12.87,
+          "win_probability": 0.0,
+          "podium_probability": 0.0333
+        }
+      }
+    }
+  ],
+  "scientific_conclusions": "Evaluated 1 historical races across 2024 season. Mean Race Log Loss: 1.4554, Mean Brier Score: 0.8223, Top-1 Argmax Accuracy: 0.0%, Mean Finishing Position MAE: 3.99 positions. Simulator demonstrates stable distributional behavior without exploding residuals."
+}

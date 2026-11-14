@@ -1,0 +1,75 @@
+{
+  "experiment": "EXP-0004",
+  "model": "Model 5 \u2014 Plackett-Luce / Conditional Logit Top-Choice",
+  "objective": "multiclass_race_level_negative_log_likelihood",
+  "l2_regularization_lambda": 1.0,
+  "features": [
+    "effective_grid",
+    "log_grid",
+    "is_front_row",
+    "is_pole",
+    "is_grid_zero",
+    "driver_prior_races",
+    "driver_win_rate_all",
+    "driver_win_rate_last5",
+    "driver_mean_finish_last5",
+    "driver_finish_std_last5",
+    "constructor_prior_races",
+    "constructor_win_rate_all",
+    "constructor_win_rate_last5",
+    "constructor_mean_finish_last5",
+    "driver_mean_points_last5",
+    "constructor_mean_points_last5"
+  ],
+  "feature_count": 16,
+  "min_history_races": 20,
+  "primary_cohort_metrics": {
+    "races": 149,
+    "mean_log_loss": 1.3517467245792614,
+    "mean_brier_score": 0.5965637376682457,
+    "fractional_top1": 0.5436241610738255,
+    "tie_aware_top1": 0.5436241610738255,
+    "ece": 0.012029611821835838,
+    "mce": 0.12036174262112916
+  },
+  "full_series_metrics": {
+    "races": 346,
+    "mean_log_loss": 1.4404190912153727,
+    "mean_brier_score": 0.6172497357599411,
+    "fractional_top1": 0.5284309861622001,
+    "tie_aware_top1": 0.5838150289017341
+  },
+  "optimizer_diagnostics": {
+    "total_trained_races": 326,
+    "failures": 0,
+    "mean_iterations": 14.340490797546012,
+    "max_prob_sum_deviation": 4.440892098500626e-16
+  },
+  "causality_audit": {
+    "future_data_perturbation_tests": [
+      {
+        "target_race_id": "2018_01",
+        "target_season_round": "2018-03-25",
+        "future_perturbation_max_diff": 0.0,
+        "target_y_perturbation_max_diff": 0.0,
+        "passed": true
+      },
+      {
+        "target_race_id": "2021_05",
+        "target_season_round": "2021-05-23",
+        "future_perturbation_max_diff": 0.0,
+        "target_y_perturbation_max_diff": 0.0,
+        "passed": true
+      },
+      {
+        "target_race_id": "2023_15",
+        "target_season_round": "2023-09-17",
+        "future_perturbation_max_diff": 0.0,
+        "target_y_perturbation_max_diff": 0.0,
+        "passed": true
+      }
+    ],
+    "passed": true
+  },
+  "candidate_set_limitation": "Provisional candidate records originate from retrospective result records; independently timestamped pre-race entry lists remain unverified."
+}

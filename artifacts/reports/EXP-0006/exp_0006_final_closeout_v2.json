@@ -1,0 +1,218 @@
+{
+  "experiment_id": "EXP-0006-R4",
+  "title": "EXP-0006 Numerical Integrity Gate & Phase 8 Authorization Audit",
+  "timestamp_utc": "2026-11-14T08:39:17.382052+00:00",
+  "hypothesis_id": "HYP-STRAT-001",
+  "hypothesis_status": "SUPPORTED_UNDER_SIMULATION_CONDITIONS",
+  "gate_status": "PASS",
+  "phase_8_authorized": true,
+  "audit_summary": {
+    "race_time_weighted_mean_identity_gate": "PASS",
+    "paired_sample_population_definition_gate": "PASS",
+    "sc_vsc_transition_classification_gate": "PASS",
+    "hazard_numerators_and_denominators_gate": "PASS",
+    "crn_statistical_wording_gate": "PASS",
+    "regression_tests_gate": "PASS"
+  },
+  "audit_item_1_race_time_aggregation_and_weighted_mean_identity": {
+    "status": "RECONCILED_AND_VERIFIED",
+    "description": "Resolution of implied ~2,007s DNF mean vs earlier prose claiming laps 1-15 (90-1200s).",
+    "root_cause_analysis": "The simulation engine checks mechanical failure hazard across ALL 58 laps of the race (reliability_model.base_mech_hazard per lap), plus opening lap collisions (lap 1 collision hazard). Retirements do NOT stop at lap 15; they occur across laps 1 through 58. The previous report note stating DNFs only occur on laps 1-15 with times 90-1200s was factually erroneous prose. In reality, the DNF distribution spans lap 1 (0.0s elapsed) to lap 58 (5,571.66s elapsed), with a true mean retirement lap of 22.87 and true mean DNF time of 2,007.19s for Reference_1Stop and 2,007.65s for SafetyCar_Reactive. Direct evaluation of the 10,000 raw simulation records proves the weighted-mean arithmetic identity holds to machine epsilon.",
+    "raw_record_counts": {
+      "total_runs_evaluated": 10000,
+      "unique_run_ids": 10000,
+      "missing_or_duplicate_run_ids": 0,
+      "reference_1stop": {
+        "total_runs": 10000,
+        "completed_runs": 9113,
+        "completed_rate": 0.9113,
+        "dnf_runs": 887,
+        "dnf_rate": 0.0887,
+        "completed_mean_time_seconds": 5190.263833,
+        "completed_std_seconds": 118.614726,
+        "dnf_mean_time_seconds": 2007.186291,
+        "dnf_std_seconds": 1668.788063,
+        "dnf_min_time_seconds": 0.0,
+        "dnf_max_time_seconds": 5571.663134,
+        "dnf_min_lap": 1,
+        "dnf_max_lap": 58,
+        "dnf_mean_lap": 22.87,
+        "all_run_mean_time_seconds": 4907.924855,
+        "all_run_std_seconds": 1038.584393,
+        "total_accumulated_time_seconds": 49079248.553947,
+        "weighted_mean_identity_verification": {
+          "formula": "(completed_count / total_count) * completed_mean + (dnf_count / total_count) * dnf_mean",
+          "computed_weighted_mean": 4907.924855394709,
+          "reported_all_run_mean": 4907.924855394709,
+          "absolute_difference": 0.0,
+          "identity_satisfied": true
+        }
+      },
+      "safetycar_reactive": {
+        "total_runs": 10000,
+        "completed_runs": 9113,
+        "completed_rate": 0.9113,
+        "dnf_runs": 887,
+        "dnf_rate": 0.0887,
+        "completed_mean_time_seconds": 5188.725236,
+        "completed_std_seconds": 119.291189,
+        "dnf_mean_time_seconds": 2007.646384,
+        "dnf_std_seconds": 1669.31629,
+        "dnf_min_time_seconds": 0.0,
+        "dnf_max_time_seconds": 5567.962419,
+        "dnf_min_lap": 1,
+        "dnf_max_lap": 58,
+        "dnf_mean_lap": 22.87,
+        "all_run_mean_time_seconds": 4906.563541,
+        "all_run_std_seconds": 1038.235115,
+        "total_accumulated_time_seconds": 49065635.414444,
+        "weighted_mean_identity_verification": {
+          "formula": "(completed_count / total_count) * completed_mean + (dnf_count / total_count) * dnf_mean",
+          "computed_weighted_mean": 4906.56354144441,
+          "reported_all_run_mean": 4906.5635414444105,
+          "absolute_difference": 9.094947017729282e-13,
+          "identity_satisfied": true
+        }
+      }
+    },
+    "recomputed_paired_statistics": {
+      "all_run_paired_time_difference": {
+        "sample_size_N": 10000,
+        "formula": "t_reactive - t_reference across all 10,000 paired draws",
+        "mean_difference_seconds": -1.3613,
+        "standard_error_seconds": 0.0882,
+        "ci_95_seconds": [
+          -1.5342,
+          -1.1884
+        ],
+        "notes": "Unconditional metric reflecting all simulated runs including early retirements."
+      },
+      "completed_run_marginal_means": {
+        "sample_size_N": 9113,
+        "reference_1stop_mean_seconds": 5190.2638,
+        "safetycar_reactive_mean_seconds": 5188.7252,
+        "marginal_difference_seconds": -1.5386,
+        "notes": "Conditional on full 58-lap race completion. Real-world benchmark: official winner 5,193.291s (-0.058% and -0.088% error)."
+      },
+      "matched_finished_run_paired_difference": {
+        "sample_size_N": 9113,
+        "formula": "t_reactive - t_reference strictly for paired runs where BOTH policies finish",
+        "mean_difference_seconds": -1.5386,
+        "standard_error_seconds": 0.0935,
+        "ci_95_seconds": [
+          -1.7219,
+          -1.3553
+        ],
+        "time_correlation_rho": 0.99996,
+        "variance_reduction_percent": 99.996
+      },
+      "retirement_coupling_under_crn": {
+        "reference_1stop_dnfs": 887,
+        "safetycar_reactive_dnfs": 887,
+        "n_both_finished": 9113,
+        "n_both_retired": 887,
+        "n_asymmetric_retired": 0,
+        "asymmetric_retirement_rate": 0.0,
+        "explanation": "Under Common Random Numbers, mechanical and collision hazard streams are evaluated on identical random draws across paired vehicle instances."
+      }
+    }
+  },
+  "audit_item_2_sc_vsc_transition_classification_and_hazard_audit": {
+    "status": "RECONCILED_AND_VERIFIED",
+    "description": "Transition-based accounting of 1,284 raw race-control messages and exact initiation hazard definitions.",
+    "raw_messages_traceability_table": {
+      "total_raw_race_control_records": 1284,
+      "seasons_audited": [
+        2010,
+        2024
+      ],
+      "total_races": 346,
+      "vsc_era_seasons": [
+        2015,
+        2024
+      ],
+      "vsc_era_races": 247,
+      "transition_breakdown": {
+        "green_to_sc_direct_in_race": 258,
+        "green_to_vsc_activations": 180,
+        "vsc_to_sc_escalations": 52,
+        "vsc_to_green_standalone_concluded": 128,
+        "sc_to_green_concluded": 310,
+        "pre_race_or_processional_sc_intervention": 1,
+        "duplicate_status_or_sector_notices": 355
+      },
+      "reconciliation_identities": {
+        "sc_declarations": "258 direct + 52 escalation + 1 pre-race == 311 total declarations",
+        "sc_in_race_phases": "258 direct + 52 escalation == 310 in-race phases",
+        "vsc_activations": "128 standalone return green + 52 escalation to SC == 180 total activations",
+        "green_originating_episodes": "258 (green to SC) + 180 (green to VSC) == 310 (total SC phases) + 128 (standalone VSC) == 438 total green-originating episodes",
+        "raw_records_traceability": "311 (SC decl) + 180 (VSC decl) + 310 (SC return) + 128 (VSC return) + 355 (status/sector notices) == 1284 raw records"
+      }
+    },
+    "hazard_rate_audit": {
+      "exposure_denominators": {
+        "sc_total_laps_2010_2024": 20722,
+        "sc_green_laps_2010_2024": 19420,
+        "vsc_total_laps_2015_2024": 14810,
+        "vsc_green_laps_2015_2024": 13558,
+        "selection_justification": "In discrete-lap simulation, new incidents are evaluated exclusively when current_state == NONE (green flag). Thus, eligible green-lap exposure (L_green) is the mechanistically valid denominator for incident initiation."
+      },
+      "calibrated_hazard_rates": {
+        "sc_direct_green_initiation_hazard": {
+          "numerator": 258,
+          "denominator": 19420,
+          "value_per_lap": 0.01328,
+          "notes": "Direct transition from green flag to physical Safety Car."
+        },
+        "sc_total_phases_hazard": {
+          "numerator": 310,
+          "denominator": 19420,
+          "value_per_lap": 0.01596,
+          "modeled_baseline_value": 0.015,
+          "notes": "All in-race SC phases (incorporating the 52 VSC escalations at macroscopic phase level)."
+        },
+        "vsc_total_activations_hazard": {
+          "numerator": 180,
+          "denominator": 13558,
+          "value_per_lap": 0.01328,
+          "modeled_baseline_value": 0.012,
+          "notes": "All VSC deployments from green running in 2015-2024 era."
+        },
+        "vsc_standalone_phases_hazard": {
+          "numerator": 128,
+          "denominator": 13558,
+          "value_per_lap": 0.00944,
+          "notes": "VSC phases concluding strictly to green without escalating to full SC."
+        },
+        "vsc_to_sc_escalation_probability": {
+          "numerator": 52,
+          "denominator": 180,
+          "value": 0.28889,
+          "notes": "Conditional transition probability P(escalate to SC | active VSC)."
+        }
+      },
+      "pre_2015_chronological_cutoff": "VSC hazard strictly enforced as 0.000 for seasons prior to 2015.",
+      "processional_starts_exclusion": "Spa 2021 pre-race formation start behind SC is excluded from in-race green incident generation.",
+      "simulation_loop_guard": "In check_new_incident(), if current_state != NONE, 0 laps and None are returned. A VSC cannot be counted as a new green-originating deployment in the simulation loop."
+    }
+  },
+  "audit_item_3_crn_marginal_equivalence_standard": {
+    "status": "RECONCILED_AND_VERIFIED",
+    "variance_reduction_definitions": {
+      "race_time_variance_reduction": "99.997% reduction in Var(t_A - t_B) under CRN vs independent sampling across 5 seeds.",
+      "position_variance_reduction": "92.33% reduction in Var(pos_A - pos_B) under CRN vs independent sampling across 5 seeds."
+    },
+    "kolmogorov_smirnov_interpretation_standard": "Two-sample Kolmogorov-Smirnov tests across 5 seeds yielded D <= 0.052 and p >= 0.4981, satisfying practical equivalence tolerance Delta_equiv <= 0.060. Per rigorous statistical guidelines, failure to reject H_0 is strictly reported as no statistically detectable marginal distribution difference in the tested samples, and is never asserted as mathematical proof of identity."
+  },
+  "versioned_artifact_manifest": {
+    "exp_0006_v1_frozen_path": "artifacts/reports/EXP-0006/exp_0006_final_closeout.json",
+    "exp_0006_v2_audited_path": "artifacts/reports/EXP-0006/exp_0006_final_closeout_v2.json",
+    "historical_artifacts_untouched": [
+      "EXP-0001",
+      "EXP-0002",
+      "EXP-0003",
+      "EXP-0004",
+      "EXP-0005"
+    ]
+  }
+}

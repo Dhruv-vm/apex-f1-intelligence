@@ -1,0 +1,35 @@
+{
+  "experiment": "EXP-0002",
+  "model": "Logistic regression \u2014 grid features",
+  "features": [
+    "effective_grid",
+    "log_grid",
+    "is_front_row",
+    "is_pole",
+    "is_grid_zero"
+  ],
+  "min_history_races": 20,
+  "logistic_C": 1.0,
+  "max_iter": 2000,
+  "random_state": 42,
+  "primary_cohort": "2018-2024",
+  "full_series": {
+    "races": 346,
+    "mean_log_loss": 1.541942175362016,
+    "mean_brier_score": 0.6623753767944737,
+    "fractional_top1": 0.5081997722893676,
+    "tie_aware_top1": 0.5635838150289018
+  },
+  "primary_cohort_metrics": {
+    "races": 149,
+    "mean_log_loss": 1.5942074496644347,
+    "mean_brier_score": 0.6833815160502003,
+    "fractional_top1": 0.4966442953020134,
+    "tie_aware_top1": 0.4966442953020134
+  },
+  "candidate_set_limitation": "Candidates are a provisional proxy from final result records; independently timestamped pre-race entry lists are not verified for every race.",
+  "artifacts": {
+    "candidate_predictions": "artifacts/reports/EXP-0002/model2_logistic_predictions.csv",
+    "walk_forward_audit": "artifacts/reports/EXP-0002/model2_walk_forward_audit.csv"
+  }
+}

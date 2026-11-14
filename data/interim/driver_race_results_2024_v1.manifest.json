@@ -1,0 +1,24 @@
+{
+  "dataset_name": "APEX 2024 driver-race results",
+  "dataset_version": "v1",
+  "source": "Jolpica F1 API, Ergast-compatible",
+  "season": 2024,
+  "endpoint": "2024/results.json",
+  "raw_pages": 5,
+  "row_count": 479,
+  "unique_race_rounds": 24,
+  "unique_drivers": 24,
+  "primary_key": [
+    "season",
+    "round",
+    "driver_id"
+  ],
+  "duplicate_primary_keys": 0,
+  "contains_model_predictions": false,
+  "notes": [
+    "Sprint results are excluded.",
+    "Classification status is preserved separately.",
+    "No DNF labels have been derived yet.",
+    "Missing values are reported, not silently removed."
+  ]
+}

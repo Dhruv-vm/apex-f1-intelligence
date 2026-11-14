@@ -1,0 +1,45 @@
+{
+  "diagnostic_title": "End-to-End T0-T3 Feature Flow & Invariance Diagnostic Report",
+  "timestamp": "2026-11-05T13:05:18.201722+00:00",
+  "total_standard_races_inspected": 75,
+  "seven_factor_investigation": {
+    "factor_1_missing_local_practice_data": {
+      "verdict": "CONFIRMED_PRIMARY_ROOT_CAUSE",
+      "finding": "33 of 34 standard weekends had zero raw practice JSON files in data/raw/openf1/practice/.",
+      "evidence": "Only session 9461 (Abu Dhabi 2024 FP1), 9656 (FP2), 9657 (FP3) existed locally."
+    },
+    "factor_2_feature_defaults_and_imputation": {
+      "verdict": "CONFIRMED_CONTRIBUTING_CAUSE",
+      "finding": "Unobserved practice sessions were filled with constant 0.0 defaults (delta=0.0) and missing=1.0.",
+      "evidence": "All 20 candidate rows for 33 races received identical placeholder values."
+    },
+    "factor_3_constant_feature_columns": {
+      "verdict": "CONFIRMED_CONTRIBUTING_CAUSE",
+      "finding": "In the historical training sets (r' < r), practice features had zero variance across 100% of rows.",
+      "evidence": "Standardization computed std=1.0 (fallback for zero variance), producing standardized feature X_norm = 0.0."
+    },
+    "factor_4_zero_fitted_coefficients": {
+      "verdict": "CONFIRMED_MATHEMATICAL_MECHANISM",
+      "finding": "L2 regularization strictly drove the model weights for zero-variance practice features to exactly 0.000000.",
+      "evidence": "With grad = X^T(p-y) + lambda*w = 0 + lambda*w = 0, the Newton step set w_practice = 0.0."
+    },
+    "factor_5_incorrect_feature_column_mapping": {
+      "verdict": "CONFIRMED_IMPLEMENTATION_BUG_IN_PHASE_6_2",
+      "finding": "In controlled_ablation.py line 194, d_mask for Abu Dhabi practice was applied without driver_id filtering, overwriting all candidates with the last driver's delta.",
+      "evidence": "Additionally, FP2 laps/stints and FP3 laps/stints for Abu Dhabi were not mapped into build_controlled_feature_matrix."
+    },
+    "factor_6_model_architecture": {
+      "verdict": "CONFIRMED_STRUCTURAL_LIMITATION",
+      "finding": "Walk-forward linear logistic regression cannot learn a non-zero weight for a feature that was never observed in prior training rounds.",
+      "evidence": "Even at Abu Dhabi 2024, prior races 1..148 had no practice features, so the trained walk-forward model evaluated Abu Dhabi with w_practice = 0.0."
+    },
+    "factor_7_genuine_lack_of_predictive_contribution": {
+      "verdict": "UNTESTED_AT_SCALE_DUE_TO_FACTORS_1_THROUGH_6",
+      "finding": "The conclusion in Phase 6.2 that practice features lacked predictive power was confounded by data absence and zero weights. It was an artifact of unobserved data, not a proved lack of predictive signal."
+    }
+  },
+  "probability_vector_equality": {
+    "finding": "Across all 33 uncached races, P(T0), P(T1), P(T2), and P(T3) had bitwise identical probabilities down to machine epsilon (SHA-256 hashes match).",
+    "proof": "Since w_practice = 0.0, logits(T_k) = logits(T0) + 0*feat = logits(T0). Softmax produced identical probability simplexes."
+  }
+}

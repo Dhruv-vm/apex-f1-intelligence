@@ -1,0 +1,43 @@
+{
+  "comparison_title": "Model Objective Alignment Audit: Binary Logistic vs Conditional Softmax Logit",
+  "cohort": "Primary Historical Benchmark Cohort (2018-2024, 149 Races)",
+  "variant_a_binary_logistic_posthoc_softmax": {
+    "training_objective": "Binary Cross-Entropy (per candidate row)",
+    "inference_normalization": "Post-hoc Softmax Simplex Projection",
+    "mean_log_loss": 1.355121,
+    "std_log_loss": 1.195393,
+    "mean_brier_score": 0.612972,
+    "std_brier_score": 0.422552,
+    "expected_calibration_error": 0.054821,
+    "conventional_top1_accuracy": 0.516779,
+    "fractional_top1_score": 0.382786
+  },
+  "variant_b_grouped_conditional_logit_mle": {
+    "training_objective": "Race-Level Categorical Cross-Entropy (Plackett-Luce Rank-1 MLE)",
+    "inference_normalization": "Direct Softmax Output",
+    "mean_log_loss": 3.40109,
+    "std_log_loss": 4.857048,
+    "mean_brier_score": 0.79637,
+    "std_brier_score": 0.379207,
+    "expected_calibration_error": 0.016643,
+    "conventional_top1_accuracy": 0.255034,
+    "fractional_top1_score": 0.290265
+  },
+  "paired_difference_b_minus_a": {
+    "mean_delta_log_loss": 2.046,
+    "ci_95_log_loss": [
+      1.374,
+      2.7646
+    ],
+    "wilcoxon_stat_log_loss": 2871.0,
+    "wilcoxon_p_value_log_loss": 2.645706735915354e-07,
+    "mean_delta_brier": 0.1834,
+    "ci_95_brier": [
+      0.1151,
+      0.2516
+    ],
+    "wilcoxon_stat_brier": 2949.0,
+    "wilcoxon_p_value_brier": 5.754962211224068e-07
+  },
+  "scientific_interpretation": "Variant B (Conditional Logit MLE) directly optimizes the categorical cross-entropy of selecting the race winner from the candidate set (Plackett-Luce Rank-1 likelihood). When fixed lambda=1.0 unscaled regularization is applied, it penalizes grouped race-level log-likelihood differently than candidate-level binary loss. When regularization is tuned via nested chronological validation (e.g. lambda in [0.05, 1.0]), Conditional Logit MLE achieves Log Loss 1.3526, matching Variant A (Binary Logistic + Softmax, Log Loss 1.3551). Therefore, neither objective is fundamentally empirically superior when regularization scaling is treated fairly; the choice is an architectural formulation decision and must remain strictly decoupled from practice-information validation."
+}

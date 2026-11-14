@@ -1,0 +1,138 @@
+{
+  "cohort_a_149_races": {
+    "T0_PRE_WEEKEND": {
+      "race_count": 149,
+      "mean_log_loss": 1.564612,
+      "std_log_loss": 1.075269,
+      "mean_brier_score": 0.669151,
+      "std_brier_score": 0.373288,
+      "conventional_top1_accuracy": 0.530201,
+      "fractional_top1_score": 0.306014,
+      "expected_calibration_error": 0.061801
+    },
+    "T4_CONTROLLED": {
+      "race_count": 149,
+      "mean_log_loss": 1.355121,
+      "std_log_loss": 1.195393,
+      "mean_brier_score": 0.612972,
+      "std_brier_score": 0.422552,
+      "conventional_top1_accuracy": 0.516779,
+      "fractional_top1_score": 0.382786,
+      "expected_calibration_error": 0.054821
+    },
+    "T5_FINAL_PRE_RACE": {
+      "race_count": 149,
+      "mean_log_loss": 1.355121,
+      "std_log_loss": 1.195393,
+      "mean_brier_score": 0.612972,
+      "std_brier_score": 0.422552,
+      "conventional_top1_accuracy": 0.516779,
+      "fractional_top1_score": 0.382786,
+      "expected_calibration_error": 0.054821
+    }
+  },
+  "cohort_b_12_sprint_races": {
+    "T0_PRE_WEEKEND": {
+      "race_count": 12,
+      "mean_log_loss": 1.507773,
+      "std_log_loss": 1.088995,
+      "mean_brier_score": 0.622598,
+      "std_brier_score": 0.429145,
+      "conventional_top1_accuracy": 0.583333,
+      "fractional_top1_score": 0.331,
+      "expected_calibration_error": 0.060276
+    },
+    "T1_POST_FP1": {
+      "race_count": 12,
+      "mean_log_loss": 1.507773,
+      "std_log_loss": 1.088995,
+      "mean_brier_score": 0.622598,
+      "std_brier_score": 0.429145,
+      "conventional_top1_accuracy": 0.583333,
+      "fractional_top1_score": 0.331,
+      "expected_calibration_error": 0.060276
+    },
+    "T4_CONTROLLED": {
+      "race_count": 12,
+      "mean_log_loss": 1.944143,
+      "std_log_loss": 1.574432,
+      "mean_brier_score": 0.779708,
+      "std_brier_score": 0.549951,
+      "conventional_top1_accuracy": 0.333333,
+      "fractional_top1_score": 0.310393,
+      "expected_calibration_error": 0.057996
+    },
+    "T5_FINAL_PRE_RACE": {
+      "race_count": 12,
+      "mean_log_loss": 1.944143,
+      "std_log_loss": 1.574432,
+      "mean_brier_score": 0.779708,
+      "std_brier_score": 0.549951,
+      "conventional_top1_accuracy": 0.333333,
+      "fractional_top1_score": 0.310393,
+      "expected_calibration_error": 0.057996
+    }
+  },
+  "cohort_c_34_standard_races": {
+    "T0_PRE_WEEKEND": {
+      "race_count": 34,
+      "mean_log_loss": 1.419035,
+      "std_log_loss": 1.052553,
+      "mean_brier_score": 0.585803,
+      "std_brier_score": 0.4084,
+      "conventional_top1_accuracy": 0.588235,
+      "fractional_top1_score": 0.354665,
+      "expected_calibration_error": 0.055916
+    },
+    "T1_POST_FP1": {
+      "race_count": 34,
+      "mean_log_loss": 1.419035,
+      "std_log_loss": 1.052553,
+      "mean_brier_score": 0.585803,
+      "std_brier_score": 0.4084,
+      "conventional_top1_accuracy": 0.588235,
+      "fractional_top1_score": 0.354665,
+      "expected_calibration_error": 0.055916
+    },
+    "T2_POST_FP2": {
+      "race_count": 34,
+      "mean_log_loss": 1.419035,
+      "std_log_loss": 1.052553,
+      "mean_brier_score": 0.585803,
+      "std_brier_score": 0.4084,
+      "conventional_top1_accuracy": 0.588235,
+      "fractional_top1_score": 0.354665,
+      "expected_calibration_error": 0.055916
+    },
+    "T3_POST_FP3": {
+      "race_count": 34,
+      "mean_log_loss": 1.419035,
+      "std_log_loss": 1.052553,
+      "mean_brier_score": 0.585803,
+      "std_brier_score": 0.4084,
+      "conventional_top1_accuracy": 0.588235,
+      "fractional_top1_score": 0.354665,
+      "expected_calibration_error": 0.055916
+    },
+    "T4_CONTROLLED": {
+      "race_count": 34,
+      "mean_log_loss": 0.946693,
+      "std_log_loss": 0.798728,
+      "mean_brier_score": 0.444019,
+      "std_brier_score": 0.362529,
+      "conventional_top1_accuracy": 0.705882,
+      "fractional_top1_score": 0.471641,
+      "expected_calibration_error": 0.047295
+    },
+    "T5_FINAL_PRE_RACE": {
+      "race_count": 34,
+      "mean_log_loss": 0.946693,
+      "std_log_loss": 0.798728,
+      "mean_brier_score": 0.444019,
+      "std_brier_score": 0.362529,
+      "conventional_top1_accuracy": 0.705882,
+      "fractional_top1_score": 0.471641,
+      "expected_calibration_error": 0.047295
+    }
+  }
+}

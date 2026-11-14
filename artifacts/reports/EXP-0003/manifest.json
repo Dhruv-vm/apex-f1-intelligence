@@ -1,0 +1,27 @@
+{
+  "experiment_id": "EXP-0003",
+  "experiment_title": "Walk-Forward Probability Calibration Benchmark",
+  "base_models_evaluated": [
+    "Model 3 (Logistic)",
+    "Model 4 (LightGBM)"
+  ],
+  "calibration_methods": [
+    "Platt Scaling",
+    "Isotonic Regression",
+    "Temperature Scaling"
+  ],
+  "primary_cohort": "2018-2024 (149 rounds)",
+  "full_series": "2010-2026 (346 rounds)",
+  "artifacts_generated": [
+    "model3_calibrated_predictions.csv",
+    "model4_calibrated_predictions.csv",
+    "calibration_walk_forward_audit.csv",
+    "reliability_bins.csv",
+    "bootstrap_results.json",
+    "calibration_comparison.json",
+    "reliability_diagrams_model3.png",
+    "reliability_diagrams_model4.png",
+    "temperature_trajectories.png",
+    "manifest.json"
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "selection_set_a": {
+    "master_seed": 42,
+    "n_simulations": 2500,
+    "strategy_metrics": {
+      "Reference_1Stop": {
+        "expected_position": 3.837,
+        "win_probability": 0.1716,
+        "median_position": 3.0,
+        "time_regret_s": 1.477
+      },
+      "Aggressive_2Stop": {
+        "expected_position": 4.859,
+        "win_probability": 0.1708,
+        "median_position": 4.0,
+        "time_regret_s": 5.713
+      },
+      "Tactical_Undercut": {
+        "expected_position": 4.61,
+        "win_probability": 0.1408,
+        "median_position": 3.0,
+        "time_regret_s": 4.561
+      },
+      "Tactical_Overcut": {
+        "expected_position": 4.285,
+        "win_probability": 0.1948,
+        "median_position": 3.0,
+        "time_regret_s": 1.983
+      },
+      "SafetyCar_Reactive": {
+        "expected_position": 3.754,
+        "win_probability": 0.3352,
+        "median_position": 2.0,
+        "time_regret_s": 0.0
+      }
+    },
+    "selected_strategy": "SafetyCar_Reactive",
+    "selection_criterion": "arg_min Expected Position on Set A"
+  },
+  "evaluation_set_b": {
+    "master_seed": 99991,
+    "n_simulations": 2500,
+    "strategy_metrics": {
+      "Reference_1Stop": {
+        "expected_position": 3.664,
+        "win_probability": 0.1856,
+        "median_position": 3.0,
+        "time_regret_s": 1.662
+      },
+      "Aggressive_2Stop": {
+        "expected_position": 4.686,
+        "win_probability": 0.1816,
+        "median_position": 4.0,
+        "time_regret_s": 5.347
+      },
+      "Tactical_Undercut": {
+        "expected_position": 4.508,
+        "win_probability": 0.1436,
+        "median_position": 3.0,
+        "time_regret_s": 4.898
+      },
+      "Tactical_Overcut": {
+        "expected_position": 4.205,
+        "win_probability": 0.1924,
+        "median_position": 3.0,
+        "time_regret_s": 2.28
+      },
+      "SafetyCar_Reactive": {
+        "expected_position": 3.532,
+        "win_probability": 0.3544,
+        "median_position": 2.0,
+        "time_regret_s": 0.0
+      }
+    },
+    "held_out_best_strategy": "SafetyCar_Reactive",
+    "held_out_paired_contrast_vs_reference_1stop": {
+      "strategy_a": "Reference_1Stop",
+      "strategy_b": "SafetyCar_Reactive",
+      "mean_position_difference": 0.132,
+      "ci_pos_diff_95": [
+        0.0611,
+        0.2028
+      ],
+      "mean_time_difference_seconds": 1.49,
+      "ci_time_diff_95": [
+        1.166,
+        1.8299
+      ],
+      "prob_a_finishes_ahead": 0.2152,
+      "prob_b_finishes_ahead": 0.3332,
+      "prob_tied": 0.4516,
+      "prob_a_beats_b_decisive": 0.3924,
+      "p_value_paired_test": 0.00013,
+      "p_value_adjusted_holm_bonferroni": 0.00018,
+      "time_correlation": 1.0,
+      "variance_reduction_percent": 100.0,
+      "head_to_head_definition": "prob_a_finishes_ahead = W_A / N (total runs); prob_a_beats_b_decisive = W_A / (W_A + W_B) (decisive runs). Classified finishers always rank ahead of DNFs; DNFs rank ahead of DSQs."
+    }
+  },
+  "ex_post_oracle_comparison": {
+    "description": "Ex-post oracle knows in advance whether an SC will occur and picks optimal policy per run",
+    "oracle_expected_position": 2.832,
+    "oracle_win_probability": 0.442,
+    "selected_online_policy_expected_position": 3.532,
+    "selected_online_policy_win_probability": 0.3544,
+    "online_vs_oracle_position_regret": 0.7
+  },
+  "scientific_conclusion": "Strategy 'SafetyCar_Reactive' selected on Set A (Exp Pos P3.75) evaluated on independent Holdout Set B (Exp Pos P3.53, Win Prob 35.4%). The gap to the theoretical Ex-Post Oracle (P2.83) is 0.7 positions, representing the cost of operating under uncertainty."
+}

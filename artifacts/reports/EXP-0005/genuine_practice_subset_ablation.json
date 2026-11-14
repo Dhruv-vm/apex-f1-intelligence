@@ -1,0 +1,699 @@
+{
+  "evaluation_title": "Genuine Practice Feature Sensitivity & Checkpoint Reconciliation (Abu Dhabi 2024)",
+  "scope_notice": "Classification: Single-Race Case Study. Not generalizable across multi-season cohorts. Evaluates both (1) 20-driver Full Entrant Simplex with exact PL rank marginals, and (2) 4-driver Restricted Contender Sensitivity Study.",
+  "session_identity_audit": {
+    "fp1_session_key": 9461,
+    "fp1_reported_typo_key": 9641,
+    "fp1_status": "CONFIRMED_AS_9461 (9641 is a transcription typo)",
+    "fp2_session_key": 9656,
+    "fp3_session_key": 9657,
+    "qualifying_session_key": 9658,
+    "race_session_key": 9662
+  },
+  "driver_substitution_audit": {
+    "verstappen_fp1_status": "DID_NOT_PARTICIPATE",
+    "car_37_driver": "Isack Hadjar",
+    "fia_official_fp1_times": {
+      "Charles Leclerc": 84.321,
+      "Lando Norris": 84.542,
+      "Lewis Hamilton": 84.806,
+      "Isack Hadjar": 85.877
+    },
+    "handling": "Verstappen FP1 pace is strictly missing (missing=1.0, pace_delta=None). No Hadjar pace leakage."
+  },
+  "verified_subset_metadata": {
+    "candidates": [
+      "Max Verstappen",
+      "Lando Norris",
+      "Charles Leclerc",
+      "Lewis Hamilton"
+    ],
+    "candidate_count": 4,
+    "sessions_evaluated": [
+      "FP1",
+      "FP2",
+      "FP3"
+    ],
+    "actual_race_winner": "Lando Norris (Driver 4)",
+    "ground_truth_order": {
+      "Lando Norris": 1,
+      "Max Verstappen": 6,
+      "Charles Leclerc": 3,
+      "Lewis Hamilton": 4
+    }
+  },
+  "practice_telemetry_observations": {
+    "Max Verstappen": {
+      "driver_number": 1,
+      "fp1": {
+        "participated": false,
+        "replacement_driver": "Isack Hadjar (#37)",
+        "best_lap_time": null,
+        "pace_delta_to_benchmark": null,
+        "median_lap_time": null,
+        "trimmed_mean_lap_time": null,
+        "theoretical_best_lap": null,
+        "clean_laps_count": 0,
+        "total_laps_count": 0
+      },
+      "fp2": {
+        "participated": true,
+        "best_lap_time": 84.598,
+        "pace_delta_to_benchmark": 1.081,
+        "median_lap_time": 89.706,
+        "trimmed_mean_lap_time": 89.553,
+        "theoretical_best_lap": 84.598,
+        "clean_laps_count": 16,
+        "total_laps_count": 26,
+        "primary_stint_compound": "MEDIUM",
+        "primary_stint_clean_laps": 11,
+        "degradation_slope_sec_per_lap": -0.1439
+      },
+      "fp3": {
+        "participated": true,
+        "best_lap_time": 83.844,
+        "pace_delta_to_benchmark": 0.218,
+        "median_lap_time": 97.399,
+        "trimmed_mean_lap_time": 99.124,
+        "theoretical_best_lap": 83.844,
+        "clean_laps_count": 9,
+        "total_laps_count": 17
+      }
+    },
+    "Lando Norris": {
+      "driver_number": 4,
+      "fp1": {
+        "participated": true,
+        "replacement_driver": null,
+        "best_lap_time": 84.542,
+        "pace_delta_to_benchmark": 0.221,
+        "median_lap_time": 89.896,
+        "trimmed_mean_lap_time": 91.652,
+        "theoretical_best_lap": 84.542,
+        "clean_laps_count": 16,
+        "total_laps_count": 25
+      },
+      "fp2": {
+        "participated": true,
+        "best_lap_time": 83.517,
+        "pace_delta_to_benchmark": 0.0,
+        "median_lap_time": 89.713,
+        "trimmed_mean_lap_time": 89.684,
+        "theoretical_best_lap": 83.517,
+        "clean_laps_count": 15,
+        "total_laps_count": 25,
+        "primary_stint_compound": "MEDIUM",
+        "primary_stint_clean_laps": 8,
+        "degradation_slope_sec_per_lap": 0.1063
+      },
+      "fp3": {
+        "participated": true,
+        "best_lap_time": 83.626,
+        "pace_delta_to_benchmark": 0.0,
+        "median_lap_time": 92.746,
+        "trimmed_mean_lap_time": 96.778,
+        "theoretical_best_lap": 83.626,
+        "clean_laps_count": 6,
+        "total_laps_count": 15
+      }
+    },
+    "Charles Leclerc": {
+      "driver_number": 16,
+      "fp1": {
+        "participated": true,
+        "replacement_driver": null,
+        "best_lap_time": 84.321,
+        "pace_delta_to_benchmark": 0.0,
+        "median_lap_time": 87.583,
+        "trimmed_mean_lap_time": 90.026,
+        "theoretical_best_lap": 84.321,
+        "clean_laps_count": 11,
+        "total_laps_count": 19
+      },
+      "fp2": {
+        "participated": true,
+        "best_lap_time": 84.201,
+        "pace_delta_to_benchmark": 0.684,
+        "median_lap_time": 89.959,
+        "trimmed_mean_lap_time": 91.812,
+        "theoretical_best_lap": 84.142,
+        "clean_laps_count": 18,
+        "total_laps_count": 28,
+        "primary_stint_compound": "MEDIUM",
+        "primary_stint_clean_laps": 10,
+        "degradation_slope_sec_per_lap": 0.0919
+      },
+      "fp3": {
+        "participated": true,
+        "best_lap_time": 84.098,
+        "pace_delta_to_benchmark": 0.472,
+        "median_lap_time": 86.414,
+        "trimmed_mean_lap_time": 89.246,
+        "theoretical_best_lap": 84.076,
+        "clean_laps_count": 10,
+        "total_laps_count": 20
+      }
+    },
+    "Lewis Hamilton": {
+      "driver_number": 44,
+      "fp1": {
+        "participated": true,
+        "replacement_driver": null,
+        "best_lap_time": 84.806,
+        "pace_delta_to_benchmark": 0.485,
+        "median_lap_time": 89.554,
+        "trimmed_mean_lap_time": 91.808,
+        "theoretical_best_lap": 84.806,
+        "clean_laps_count": 15,
+        "total_laps_count": 27
+      },
+      "fp2": {
+        "participated": true,
+        "best_lap_time": 84.119,
+        "pace_delta_to_benchmark": 0.602,
+        "median_lap_time": 89.49,
+        "trimmed_mean_lap_time": 88.899,
+        "theoretical_best_lap": 83.942,
+        "clean_laps_count": 16,
+        "total_laps_count": 28,
+        "primary_stint_compound": "MEDIUM",
+        "primary_stint_clean_laps": 8,
+        "degradation_slope_sec_per_lap": -0.0177
+      },
+      "fp3": {
+        "participated": true,
+        "best_lap_time": 83.823,
+        "pace_delta_to_benchmark": 0.197,
+        "median_lap_time": 84.838,
+        "trimmed_mean_lap_time": 86.633,
+        "theoretical_best_lap": 83.823,
+        "clean_laps_count": 6,
+        "total_laps_count": 18
+      }
+    }
+  },
+  "restricted_4_driver_contender_study": {
+    "notice": "Evaluates relative probability shifts among 4 contenders. Not calibrated to full 20-driver field.",
+    "metrics": {
+      "T0_PRE_WEEKEND_FORM": {
+        "variant": "T0_PRE_WEEKEND_FORM",
+        "race_level_multiclass_log_loss": 1.3341,
+        "multiclass_log_loss": 1.3341,
+        "multiclass_brier_score": 0.7341,
+        "candidate_level_binary_cross_entropy": 0.5472,
+        "conventional_top1_hit": 0.0,
+        "fractional_top1_score": 0.2634,
+        "expected_calibration_error": 0.2074,
+        "candidate_probabilities": {
+          "Max Verstappen": 0.3217,
+          "Lando Norris": 0.2634,
+          "Charles Leclerc": 0.2383,
+          "Lewis Hamilton": 0.1766
+        }
+      },
+      "T1_POST_FP1_PACE": {
+        "variant": "T1_POST_FP1_PACE",
+        "race_level_multiclass_log_loss": 1.5219,
+        "multiclass_log_loss": 1.5219,
+        "multiclass_brier_score": 0.8633,
+        "candidate_level_binary_cross_entropy": 0.6178,
+        "conventional_top1_hit": 0.0,
+        "fractional_top1_score": 0.2183,
+        "expected_calibration_error": 0.3454,
+        "candidate_probabilities": {
+          "Max Verstappen": 0.3968,
+          "Lando Norris": 0.2183,
+          "Charles Leclerc": 0.294,
+          "Lewis Hamilton": 0.091
+        }
+      },
+      "T2_POST_FP2_PACE_AND_DEG": {
+        "variant": "T2_POST_FP2_PACE_AND_DEG",
+        "race_level_multiclass_log_loss": 0.7548,
+        "multiclass_log_loss": 0.7548,
+        "multiclass_brier_score": 0.3785,
+        "candidate_level_binary_cross_entropy": 0.3352,
+        "conventional_top1_hit": 1.0,
+        "fractional_top1_score": 0.4701,
+        "expected_calibration_error": 0.2649,
+        "candidate_probabilities": {
+          "Max Verstappen": 0.2232,
+          "Lando Norris": 0.4701,
+          "Charles Leclerc": 0.1316,
+          "Lewis Hamilton": 0.1751
+        }
+      },
+      "T3_POST_FP3_FULL_PRACTICE": {
+        "variant": "T3_POST_FP3_FULL_PRACTICE",
+        "race_level_multiclass_log_loss": 0.7257,
+        "multiclass_log_loss": 0.7257,
+        "multiclass_brier_score": 0.3659,
+        "candidate_level_binary_cross_entropy": 0.325,
+        "conventional_top1_hit": 1.0,
+        "fractional_top1_score": 0.484,
+        "expected_calibration_error": 0.258,
+        "candidate_probabilities": {
+          "Max Verstappen": 0.2468,
+          "Lando Norris": 0.484,
+          "Charles Leclerc": 0.0991,
+          "Lewis Hamilton": 0.1701
+        }
+      },
+      "ABLATION_FP1_PACE_ONLY": {
+        "variant": "ABLATION_FP1_PACE_ONLY",
+        "race_level_multiclass_log_loss": 1.5219,
+        "multiclass_log_loss": 1.5219,
+        "multiclass_brier_score": 0.8633,
+        "candidate_level_binary_cross_entropy": 0.6178,
+        "conventional_top1_hit": 0.0,
+        "fractional_top1_score": 0.2183,
+        "expected_calibration_error": 0.3454,
+        "candidate_probabilities": {
+          "Max Verstappen": 0.3968,
+          "Lando Norris": 0.2183,
+          "Charles Leclerc": 0.294,
+          "Lewis Hamilton": 0.091
+        }
+      },
+      "ABLATION_FP2_PACE_ONLY": {
+        "variant": "ABLATION_FP2_PACE_ONLY",
+        "race_level_multiclass_log_loss": 0.5102,
+        "multiclass_log_loss": 0.5102,
+        "multiclass_brier_score": 0.2143,
+        "candidate_level_binary_cross_entropy": 0.235,
+        "conventional_top1_hit": 1.0,
+        "fractional_top1_score": 0.6004,
+        "expected_calibration_error": 0.1998,
+        "candidate_probabilities": {
+          "Max Verstappen": 0.1048,
+          "Lando Norris": 0.6004,
+          "Charles Leclerc": 0.1586,
+          "Lewis Hamilton": 0.1362
+        }
+      },
+      "ABLATION_FP2_DEG_ONLY": {
+        "variant": "ABLATION_FP2_DEG_ONLY",
+        "race_level_multiclass_log_loss": 1.8534,
+        "multiclass_log_loss": 1.8534,
+        "multiclass_brier_score": 1.0345,
+        "candidate_level_binary_cross_entropy": 0.7352,
+        "conventional_top1_hit": 0.0,
+        "fractional_top1_score": 0.1567,
+        "expected_calibration_error": 0.2603,
+        "candidate_probabilities": {
+          "Max Verstappen": 0.5206,
+          "Lando Norris": 0.1567,
+          "Charles Leclerc": 0.1502,
+          "Lewis Hamilton": 0.1725
+        }
+      },
+      "ABLATION_FP3_PACE_ONLY": {
+        "variant": "ABLATION_FP3_PACE_ONLY",
+        "race_level_multiclass_log_loss": 0.9867,
+        "multiclass_log_loss": 0.9867,
+        "multiclass_brier_score": 0.5395,
+        "candidate_level_binary_cross_entropy": 0.4257,
+        "conventional_top1_hit": 1.0,
+        "fractional_top1_score": 0.3728,
+        "expected_calibration_error": 0.1598,
+        "candidate_probabilities": {
+          "Max Verstappen": 0.3076,
+          "Lando Norris": 0.3728,
+          "Charles Leclerc": 0.1443,
+          "Lewis Hamilton": 0.1753
+        }
+      },
+      "ABLATION_ALL_PRACTICE_FEATURES": {
+        "variant": "ABLATION_ALL_PRACTICE_FEATURES",
+        "race_level_multiclass_log_loss": 0.9561,
+        "multiclass_log_loss": 0.9561,
+        "multiclass_brier_score": 0.5374,
+        "candidate_level_binary_cross_entropy": 0.4181,
+        "conventional_top1_hit": 1.0,
+        "fractional_top1_score": 0.3844,
+        "expected_calibration_error": 0.1321,
+        "candidate_probabilities": {
+          "Max Verstappen": 0.3513,
+          "Lando Norris": 0.3844,
+          "Charles Leclerc": 0.125,
+          "Lewis Hamilton": 0.1392
+        }
+      }
+    }
+  },
+  "variant_metrics": {
+    "T0_PRE_WEEKEND_FORM": {
+      "variant": "T0_PRE_WEEKEND_FORM",
+      "race_level_multiclass_log_loss": 1.3341,
+      "multiclass_log_loss": 1.3341,
+      "multiclass_brier_score": 0.7341,
+      "candidate_level_binary_cross_entropy": 0.5472,
+      "conventional_top1_hit": 0.0,
+      "fractional_top1_score": 0.2634,
+      "expected_calibration_error": 0.2074,
+      "candidate_probabilities": {
+        "Max Verstappen": 0.3217,
+        "Lando Norris": 0.2634,
+        "Charles Leclerc": 0.2383,
+        "Lewis Hamilton": 0.1766
+      }
+    },
+    "T1_POST_FP1_PACE": {
+      "variant": "T1_POST_FP1_PACE",
+      "race_level_multiclass_log_loss": 1.5219,
+      "multiclass_log_loss": 1.5219,
+      "multiclass_brier_score": 0.8633,
+      "candidate_level_binary_cross_entropy": 0.6178,
+      "conventional_top1_hit": 0.0,
+      "fractional_top1_score": 0.2183,
+      "expected_calibration_error": 0.3454,
+      "candidate_probabilities": {
+        "Max Verstappen": 0.3968,
+        "Lando Norris": 0.2183,
+        "Charles Leclerc": 0.294,
+        "Lewis Hamilton": 0.091
+      }
+    },
+    "T2_POST_FP2_PACE_AND_DEG": {
+      "variant": "T2_POST_FP2_PACE_AND_DEG",
+      "race_level_multiclass_log_loss": 0.7548,
+      "multiclass_log_loss": 0.7548,
+      "multiclass_brier_score": 0.3785,
+      "candidate_level_binary_cross_entropy": 0.3352,
+      "conventional_top1_hit": 1.0,
+      "fractional_top1_score": 0.4701,
+      "expected_calibration_error": 0.2649,
+      "candidate_probabilities": {
+        "Max Verstappen": 0.2232,
+        "Lando Norris": 0.4701,
+        "Charles Leclerc": 0.1316,
+        "Lewis Hamilton": 0.1751
+      }
+    },
+    "T3_POST_FP3_FULL_PRACTICE": {
+      "variant": "T3_POST_FP3_FULL_PRACTICE",
+      "race_level_multiclass_log_loss": 0.7257,
+      "multiclass_log_loss": 0.7257,
+      "multiclass_brier_score": 0.3659,
+      "candidate_level_binary_cross_entropy": 0.325,
+      "conventional_top1_hit": 1.0,
+      "fractional_top1_score": 0.484,
+      "expected_calibration_error": 0.258,
+      "candidate_probabilities": {
+        "Max Verstappen": 0.2468,
+        "Lando Norris": 0.484,
+        "Charles Leclerc": 0.0991,
+        "Lewis Hamilton": 0.1701
+      }
+    },
+    "ABLATION_FP1_PACE_ONLY": {
+      "variant": "ABLATION_FP1_PACE_ONLY",
+      "race_level_multiclass_log_loss": 1.5219,
+      "multiclass_log_loss": 1.5219,
+      "multiclass_brier_score": 0.8633,
+      "candidate_level_binary_cross_entropy": 0.6178,
+      "conventional_top1_hit": 0.0,
+      "fractional_top1_score": 0.2183,
+      "expected_calibration_error": 0.3454,
+      "candidate_probabilities": {
+        "Max Verstappen": 0.3968,
+        "Lando Norris": 0.2183,
+        "Charles Leclerc": 0.294,
+        "Lewis Hamilton": 0.091
+      }
+    },
+    "ABLATION_FP2_PACE_ONLY": {
+      "variant": "ABLATION_FP2_PACE_ONLY",
+      "race_level_multiclass_log_loss": 0.5102,
+      "multiclass_log_loss": 0.5102,
+      "multiclass_brier_score": 0.2143,
+      "candidate_level_binary_cross_entropy": 0.235,
+      "conventional_top1_hit": 1.0,
+      "fractional_top1_score": 0.6004,
+      "expected_calibration_error": 0.1998,
+      "candidate_probabilities": {
+        "Max Verstappen": 0.1048,
+        "Lando Norris": 0.6004,
+        "Charles Leclerc": 0.1586,
+        "Lewis Hamilton": 0.1362
+      }
+    },
+    "ABLATION_FP2_DEG_ONLY": {
+      "variant": "ABLATION_FP2_DEG_ONLY",
+      "race_level_multiclass_log_loss": 1.8534,
+      "multiclass_log_loss": 1.8534,
+      "multiclass_brier_score": 1.0345,
+      "candidate_level_binary_cross_entropy": 0.7352,
+      "conventional_top1_hit": 0.0,
+      "fractional_top1_score": 0.1567,
+      "expected_calibration_error": 0.2603,
+      "candidate_probabilities": {
+        "Max Verstappen": 0.5206,
+        "Lando Norris": 0.1567,
+        "Charles Leclerc": 0.1502,
+        "Lewis Hamilton": 0.1725
+      }
+    },
+    "ABLATION_FP3_PACE_ONLY": {
+      "variant": "ABLATION_FP3_PACE_ONLY",
+      "race_level_multiclass_log_loss": 0.9867,
+      "multiclass_log_loss": 0.9867,
+      "multiclass_brier_score": 0.5395,
+      "candidate_level_binary_cross_entropy": 0.4257,
+      "conventional_top1_hit": 1.0,
+      "fractional_top1_score": 0.3728,
+      "expected_calibration_error": 0.1598,
+      "candidate_probabilities": {
+        "Max Verstappen": 0.3076,
+        "Lando Norris": 0.3728,
+        "Charles Leclerc": 0.1443,
+        "Lewis Hamilton": 0.1753
+      }
+    },
+    "ABLATION_ALL_PRACTICE_FEATURES": {
+      "variant": "ABLATION_ALL_PRACTICE_FEATURES",
+      "race_level_multiclass_log_loss": 0.9561,
+      "multiclass_log_loss": 0.9561,
+      "multiclass_brier_score": 0.5374,
+      "candidate_level_binary_cross_entropy": 0.4181,
+      "conventional_top1_hit": 1.0,
+      "fractional_top1_score": 0.3844,
+      "expected_calibration_error": 0.1321,
+      "candidate_probabilities": {
+        "Max Verstappen": 0.3513,
+        "Lando Norris": 0.3844,
+        "Charles Leclerc": 0.125,
+        "Lewis Hamilton": 0.1392
+      }
+    }
+  },
+  "full_20_driver_field_evaluation": {
+    "notice": "Full 20-entrant candidate simplex using canonical walk-forward model with strict chronological training.",
+    "metrics": {
+      "T0_PRE_WEEKEND": {
+        "checkpoint": "T0_PRE_WEEKEND",
+        "race_level_multiclass_log_loss": 2.9662,
+        "multiclass_brier_score": 1.0813,
+        "conventional_top1_hit": 0.0,
+        "fractional_top1_score": 0.0515,
+        "top1_predicted_driver": "max_verstappen",
+        "top1_predicted_probability": 0.3141,
+        "norris_podium_probability": 0.1872,
+        "norris_top5_probability": 0.3945,
+        "norris_expected_position": 6.08,
+        "full_field_candidate_probabilities": {
+          "albon": 0.0015,
+          "alonso": 0.0029,
+          "bottas": 0.002,
+          "colapinto": 0.0038,
+          "doohan": 0.0007,
+          "gasly": 0.0139,
+          "hamilton": 0.0752,
+          "hulkenberg": 0.0054,
+          "kevin_magnussen": 0.0052,
+          "lawson": 0.0032,
+          "leclerc": 0.1917,
+          "max_verstappen": 0.3141,
+          "norris": 0.0515,
+          "perez": 0.0093,
+          "piastri": 0.0405,
+          "russell": 0.1039,
+          "sainz": 0.1663,
+          "stroll": 0.0015,
+          "tsunoda": 0.004,
+          "zhou": 0.0035
+        }
+      },
+      "T1_POST_FP1": {
+        "checkpoint": "T1_POST_FP1",
+        "race_level_multiclass_log_loss": 2.9662,
+        "multiclass_brier_score": 1.0813,
+        "conventional_top1_hit": 0.0,
+        "fractional_top1_score": 0.0515,
+        "top1_predicted_driver": "max_verstappen",
+        "top1_predicted_probability": 0.3141,
+        "norris_podium_probability": 0.1872,
+        "norris_top5_probability": 0.3945,
+        "norris_expected_position": 6.08,
+        "full_field_candidate_probabilities": {
+          "albon": 0.0015,
+          "alonso": 0.0029,
+          "bottas": 0.002,
+          "colapinto": 0.0038,
+          "doohan": 0.0007,
+          "gasly": 0.0139,
+          "hamilton": 0.0752,
+          "hulkenberg": 0.0054,
+          "kevin_magnussen": 0.0052,
+          "lawson": 0.0032,
+          "leclerc": 0.1917,
+          "max_verstappen": 0.3141,
+          "norris": 0.0515,
+          "perez": 0.0093,
+          "piastri": 0.0405,
+          "russell": 0.1039,
+          "sainz": 0.1663,
+          "stroll": 0.0015,
+          "tsunoda": 0.004,
+          "zhou": 0.0035
+        }
+      },
+      "T2_POST_FP2": {
+        "checkpoint": "T2_POST_FP2",
+        "race_level_multiclass_log_loss": 2.9662,
+        "multiclass_brier_score": 1.0813,
+        "conventional_top1_hit": 0.0,
+        "fractional_top1_score": 0.0515,
+        "top1_predicted_driver": "max_verstappen",
+        "top1_predicted_probability": 0.3141,
+        "norris_podium_probability": 0.1872,
+        "norris_top5_probability": 0.3945,
+        "norris_expected_position": 6.08,
+        "full_field_candidate_probabilities": {
+          "albon": 0.0015,
+          "alonso": 0.0029,
+          "bottas": 0.002,
+          "colapinto": 0.0038,
+          "doohan": 0.0007,
+          "gasly": 0.0139,
+          "hamilton": 0.0752,
+          "hulkenberg": 0.0054,
+          "kevin_magnussen": 0.0052,
+          "lawson": 0.0032,
+          "leclerc": 0.1917,
+          "max_verstappen": 0.3141,
+          "norris": 0.0515,
+          "perez": 0.0093,
+          "piastri": 0.0405,
+          "russell": 0.1039,
+          "sainz": 0.1663,
+          "stroll": 0.0015,
+          "tsunoda": 0.004,
+          "zhou": 0.0035
+        }
+      },
+      "T3_POST_FP3": {
+        "checkpoint": "T3_POST_FP3",
+        "race_level_multiclass_log_loss": 2.9662,
+        "multiclass_brier_score": 1.0813,
+        "conventional_top1_hit": 0.0,
+        "fractional_top1_score": 0.0515,
+        "top1_predicted_driver": "max_verstappen",
+        "top1_predicted_probability": 0.3141,
+        "norris_podium_probability": 0.1872,
+        "norris_top5_probability": 0.3945,
+        "norris_expected_position": 6.08,
+        "full_field_candidate_probabilities": {
+          "albon": 0.0015,
+          "alonso": 0.0029,
+          "bottas": 0.002,
+          "colapinto": 0.0038,
+          "doohan": 0.0007,
+          "gasly": 0.0139,
+          "hamilton": 0.0752,
+          "hulkenberg": 0.0054,
+          "kevin_magnussen": 0.0052,
+          "lawson": 0.0032,
+          "leclerc": 0.1917,
+          "max_verstappen": 0.3141,
+          "norris": 0.0515,
+          "perez": 0.0093,
+          "piastri": 0.0405,
+          "russell": 0.1039,
+          "sainz": 0.1663,
+          "stroll": 0.0015,
+          "tsunoda": 0.004,
+          "zhou": 0.0035
+        }
+      },
+      "T4_POST_QUALIFYING": {
+        "checkpoint": "T4_POST_QUALIFYING",
+        "race_level_multiclass_log_loss": 0.9261,
+        "multiclass_brier_score": 0.45,
+        "conventional_top1_hit": 1.0,
+        "fractional_top1_score": 0.3961,
+        "top1_predicted_driver": "norris",
+        "top1_predicted_probability": 0.3961,
+        "norris_podium_probability": 0.8532,
+        "norris_top5_probability": 0.987,
+        "norris_expected_position": 2.15,
+        "full_field_candidate_probabilities": {
+          "albon": 0.0007,
+          "alonso": 0.0069,
+          "bottas": 0.004,
+          "colapinto": 0.0006,
+          "doohan": 0.0005,
+          "gasly": 0.0255,
+          "hamilton": 0.0067,
+          "hulkenberg": 0.0089,
+          "kevin_magnussen": 0.0021,
+          "lawson": 0.0021,
+          "leclerc": 0.0058,
+          "max_verstappen": 0.2194,
+          "norris": 0.3961,
+          "perez": 0.0045,
+          "piastri": 0.1326,
+          "russell": 0.05,
+          "sainz": 0.1271,
+          "stroll": 0.0017,
+          "tsunoda": 0.0033,
+          "zhou": 0.0014
+        }
+      },
+      "T5_FINAL_PRE_RACE": {
+        "checkpoint": "T5_FINAL_PRE_RACE",
+        "race_level_multiclass_log_loss": 0.9261,
+        "multiclass_brier_score": 0.45,
+        "conventional_top1_hit": 1.0,
+        "fractional_top1_score": 0.3961,
+        "top1_predicted_driver": "norris",
+        "top1_predicted_probability": 0.3961,
+        "norris_podium_probability": 0.8532,
+        "norris_top5_probability": 0.987,
+        "norris_expected_position": 2.15,
+        "full_field_candidate_probabilities": {
+          "albon": 0.0007,
+          "alonso": 0.0069,
+          "bottas": 0.004,
+          "colapinto": 0.0006,
+          "doohan": 0.0005,
+          "gasly": 0.0255,
+          "hamilton": 0.0067,
+          "hulkenberg": 0.0089,
+          "kevin_magnussen": 0.0021,
+          "lawson": 0.0021,
+          "leclerc": 0.0058,
+          "max_verstappen": 0.2194,
+          "norris": 0.3961,
+          "perez": 0.0045,
+          "piastri": 0.1326,
+          "russell": 0.05,
+          "sainz": 0.1271,
+          "stroll": 0.0017,
+          "tsunoda": 0.0033,
+          "zhou": 0.0014
+        }
+      }
+    }
+  }
+}

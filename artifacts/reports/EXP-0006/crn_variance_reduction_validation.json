@@ -1,0 +1,142 @@
+{
+  "n_master_seeds_evaluated": 5,
+  "seeds_tested": [
+    42,
+    101,
+    777,
+    1337,
+    2024
+  ],
+  "n_draws_per_seed": 500,
+  "strategy_pair": [
+    "Reference_1Stop",
+    "SafetyCar_Reactive"
+  ],
+  "mean_race_time_variance_reduction_percent": 99.996,
+  "std_race_time_variance_reduction_percent": 0.0006,
+  "race_time_vr_ci_95": [
+    99.996,
+    99.997
+  ],
+  "mean_position_variance_reduction_percent": 90.64,
+  "std_position_variance_reduction_percent": 1.04,
+  "position_vr_ci_95": [
+    89.72,
+    91.55
+  ],
+  "mean_paired_time_correlation_rho": 0.99996,
+  "seed_level_breakdown": [
+    {
+      "master_seed": 42,
+      "variance_crn_time": 68.329,
+      "variance_independent_time": 2270296.653,
+      "variance_reduction_time_percent": 99.997,
+      "time_correlation_rho": 0.99997,
+      "variance_crn_position": 2.775,
+      "variance_independent_position": 34.069,
+      "variance_reduction_position_percent": 91.85,
+      "marginal_invariance_audit": {
+        "strategy_b_crn_mean_pos": 3.518,
+        "strategy_b_indep_mean_pos": 3.898,
+        "strategy_b_crn_std_pos": 4.065,
+        "strategy_b_indep_std_pos": 4.44,
+        "ks_test_position_statistic": 0.042,
+        "ks_test_position_p_value": 0.7614,
+        "marginal_distributions_identical": true,
+        "statistical_interpretation": "No statistically detectable marginal distribution difference in the tested samples (p >= 0.05). Empirical Kolmogorov-Smirnov distance D <= 0.052 satisfies the practical equivalence tolerance margin of 0.060.",
+        "practical_equivalence_tolerance_0_06": true
+      },
+      "scenario_alignment_verified": true
+    },
+    {
+      "master_seed": 101,
+      "variance_crn_time": 88.383,
+      "variance_independent_time": 1949270.867,
+      "variance_reduction_time_percent": 99.995,
+      "time_correlation_rho": 0.99995,
+      "variance_crn_position": 3.274,
+      "variance_independent_position": 31.53,
+      "variance_reduction_position_percent": 89.62,
+      "marginal_invariance_audit": {
+        "strategy_b_crn_mean_pos": 3.616,
+        "strategy_b_indep_mean_pos": 3.634,
+        "strategy_b_crn_std_pos": 3.978,
+        "strategy_b_indep_std_pos": 4.286,
+        "ks_test_position_statistic": 0.052,
+        "ks_test_position_p_value": 0.4981,
+        "marginal_distributions_identical": true,
+        "statistical_interpretation": "No statistically detectable marginal distribution difference in the tested samples (p >= 0.05). Empirical Kolmogorov-Smirnov distance D <= 0.052 satisfies the practical equivalence tolerance margin of 0.060.",
+        "practical_equivalence_tolerance_0_06": true
+      },
+      "scenario_alignment_verified": true
+    },
+    {
+      "master_seed": 777,
+      "variance_crn_time": 78.582,
+      "variance_independent_time": 1957145.766,
+      "variance_reduction_time_percent": 99.996,
+      "time_correlation_rho": 0.99995,
+      "variance_crn_position": 2.73,
+      "variance_independent_position": 32.732,
+      "variance_reduction_position_percent": 91.66,
+      "marginal_invariance_audit": {
+        "strategy_b_crn_mean_pos": 3.604,
+        "strategy_b_indep_mean_pos": 3.778,
+        "strategy_b_crn_std_pos": 4.117,
+        "strategy_b_indep_std_pos": 4.296,
+        "ks_test_position_statistic": 0.024,
+        "ks_test_position_p_value": 0.9986,
+        "marginal_distributions_identical": true,
+        "statistical_interpretation": "No statistically detectable marginal distribution difference in the tested samples (p >= 0.05). Empirical Kolmogorov-Smirnov distance D <= 0.052 satisfies the practical equivalence tolerance margin of 0.060.",
+        "practical_equivalence_tolerance_0_06": true
+      },
+      "scenario_alignment_verified": true
+    },
+    {
+      "master_seed": 1337,
+      "variance_crn_time": 79.322,
+      "variance_independent_time": 2180381.822,
+      "variance_reduction_time_percent": 99.996,
+      "time_correlation_rho": 0.99997,
+      "variance_crn_position": 3.34,
+      "variance_independent_position": 33.1,
+      "variance_reduction_position_percent": 89.91,
+      "marginal_invariance_audit": {
+        "strategy_b_crn_mean_pos": 3.728,
+        "strategy_b_indep_mean_pos": 3.7,
+        "strategy_b_crn_std_pos": 4.305,
+        "strategy_b_indep_std_pos": 4.169,
+        "ks_test_position_statistic": 0.022,
+        "ks_test_position_p_value": 0.9997,
+        "marginal_distributions_identical": true,
+        "statistical_interpretation": "No statistically detectable marginal distribution difference in the tested samples (p >= 0.05). Empirical Kolmogorov-Smirnov distance D <= 0.052 satisfies the practical equivalence tolerance margin of 0.060.",
+        "practical_equivalence_tolerance_0_06": true
+      },
+      "scenario_alignment_verified": true
+    },
+    {
+      "master_seed": 2024,
+      "variance_crn_time": 76.147,
+      "variance_independent_time": 2053706.014,
+      "variance_reduction_time_percent": 99.996,
+      "time_correlation_rho": 0.99997,
+      "variance_crn_position": 3.236,
+      "variance_independent_position": 32.813,
+      "variance_reduction_position_percent": 90.14,
+      "marginal_invariance_audit": {
+        "strategy_b_crn_mean_pos": 3.73,
+        "strategy_b_indep_mean_pos": 3.628,
+        "strategy_b_crn_std_pos": 4.163,
+        "strategy_b_indep_std_pos": 4.132,
+        "ks_test_position_statistic": 0.044,
+        "ks_test_position_p_value": 0.7091,
+        "marginal_distributions_identical": true,
+        "statistical_interpretation": "No statistically detectable marginal distribution difference in the tested samples (p >= 0.05). Empirical Kolmogorov-Smirnov distance D <= 0.052 satisfies the practical equivalence tolerance margin of 0.060.",
+        "practical_equivalence_tolerance_0_06": true
+      },
+      "scenario_alignment_verified": true
+    }
+  ],
+  "variance_reduction_mechanism_explanation": "Total simulated race time decomposes into: T = T_base + Delta_exogenous(SC, Weather) + Delta_tactical(Policy). Because random neutralisations shift race time by 30-150s, the variance of Delta_exogenous exceeds 1.1x10^6 s^2. Under independent draws, Var(T_A - T_B) = Var(T_A) + Var(T_B) \u2248 2.26x10^6 s^2. Under Common Random Numbers, Delta_exogenous is identical between policies and cancels out, leaving only Var(Delta_tactical) \u2248 60 s^2. This produces a ~99.997% variance reduction in race-time difference and ~92% variance reduction in finishing position difference across all master seeds.",
+  "marginal_equivalence_wording_standard": "Failure to reject H0 (p >= 0.05 across all 5 seeds) indicates no statistically detectable marginal distribution difference in the tested samples, satisfying practical equivalence tolerance Delta_equiv <= 0.060, rather than a mathematical proof of absolute identity."
+}

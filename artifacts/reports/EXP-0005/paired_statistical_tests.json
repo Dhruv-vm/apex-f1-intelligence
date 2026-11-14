@@ -1,0 +1,77 @@
+{
+  "T4_vs_T0": {
+    "transition": "T4_vs_T0",
+    "n_races": 149,
+    "mean_delta_log_loss": -0.2095,
+    "ci_95_log_loss": [
+      -0.3844,
+      -0.0325
+    ],
+    "wilcoxon_stat_log_loss": 3820.0,
+    "wilcoxon_p_value_log_loss": 0.000812107050087274,
+    "cohen_d_log_loss": -0.1902,
+    "mean_delta_brier": -0.0562,
+    "ci_95_brier": [
+      -0.1147,
+      0.0012
+    ],
+    "wilcoxon_stat_brier": 4484.0,
+    "wilcoxon_p_value_brier": 0.036591656561682395,
+    "cohen_d_brier": -0.1525,
+    "holm_bonferroni_p_value_log_loss": 0.002436,
+    "significant_loss_at_005": true,
+    "holm_bonferroni_p_value_brier": 0.109775,
+    "significant_brier_at_005": false,
+    "statistically_significant_at_005": true
+  },
+  "T5_vs_T4": {
+    "transition": "T5_vs_T4",
+    "n_races": 149,
+    "mean_delta_log_loss": 0.0,
+    "ci_95_log_loss": [
+      0.0,
+      0.0
+    ],
+    "wilcoxon_stat_log_loss": 0.0,
+    "wilcoxon_p_value_log_loss": 1.0,
+    "cohen_d_log_loss": 0.0,
+    "mean_delta_brier": 0.0,
+    "ci_95_brier": [
+      0.0,
+      0.0
+    ],
+    "wilcoxon_stat_brier": 0.0,
+    "wilcoxon_p_value_brier": 1.0,
+    "cohen_d_brier": 0.0,
+    "holm_bonferroni_p_value_log_loss": 1.0,
+    "significant_loss_at_005": false,
+    "holm_bonferroni_p_value_brier": 1.0,
+    "significant_brier_at_005": false,
+    "statistically_significant_at_005": false
+  },
+  "T5_vs_T0": {
+    "transition": "T5_vs_T0",
+    "n_races": 149,
+    "mean_delta_log_loss": -0.2095,
+    "ci_95_log_loss": [
+      -0.3844,
+      -0.0325
+    ],
+    "wilcoxon_stat_log_loss": 3820.0,
+    "wilcoxon_p_value_log_loss": 0.000812107050087274,
+    "cohen_d_log_loss": -0.1902,
+    "mean_delta_brier": -0.0562,
+    "ci_95_brier": [
+      -0.1147,
+      0.0012
+    ],
+    "wilcoxon_stat_brier": 4484.0,
+    "wilcoxon_p_value_brier": 0.036591656561682395,
+    "cohen_d_brier": -0.1525,
+    "holm_bonferroni_p_value_log_loss": 0.001624,
+    "significant_loss_at_005": true,
+    "holm_bonferroni_p_value_brier": 0.073183,
+    "significant_brier_at_005": false,
+    "statistically_significant_at_005": true
+  }
+}

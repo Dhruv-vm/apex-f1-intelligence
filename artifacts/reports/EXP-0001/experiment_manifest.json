@@ -1,0 +1,22 @@
+{
+  "experiment_id": "EXP-0001",
+  "model": "driver-only pairwise Elo baseline",
+  "status": "EXPLORATORY_BASELINE",
+  "dataset": "data/interim/driver_race_results_2010_2026_v2_regulation_metadata.csv",
+  "dataset_rows": 7285,
+  "race_predictions": 346,
+  "initial_rating": 1500.0,
+  "elo_scale": 400.0,
+  "k_factor": 20.0,
+  "rating_policy": "Carry ratings across seasons without explicit resets",
+  "probability_policy": "Normalized Elo strengths across result-record candidates",
+  "evaluation": "Chronological walk-forward; no parameter tuning",
+  "candidate_field_limitation": "Result records may include non-starters; pre-race entry lists have not yet been reconstructed.",
+  "nonstarter_update_policy": "Explicit non-starters are not used in rating updates; all result records remain in the forecast candidate field.",
+  "artifacts": [
+    "artifacts/reports/EXP-0001/race_predictions.csv",
+    "artifacts/reports/EXP-0001/season_scores.csv",
+    "artifacts/reports/EXP-0001/regulation_era_scores.csv",
+    "artifacts/reports/EXP-0001/rating_update_audit.csv"
+  ]
+}

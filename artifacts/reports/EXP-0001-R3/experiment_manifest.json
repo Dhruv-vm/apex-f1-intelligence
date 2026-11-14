@@ -1,0 +1,41 @@
+{
+  "experiment_id": "EXP-0001-R3",
+  "model": "driver-only pairwise Elo baseline (outcome-independent candidate order)",
+  "status": "COMPLETED_WALK_FORWARD",
+  "dataset": "data/interim/driver_race_results_2010_2026_v2_regulation_metadata.csv",
+  "dataset_rows": 7285,
+  "race_predictions": 346,
+  "candidate_predictions": 7285,
+  "initial_rating": 1500.0,
+  "elo_scale": 400.0,
+  "k_factor": 20.0,
+  "candidate_ordering_policy": "Strictly pre-race outcome-independent: sorted by driver_id prior to forecast. Prevents outcome leakage in tie-breaking.",
+  "rating_policy": "Carry ratings across seasons without explicit resets",
+  "probability_policy": "Luce/Bradley-Terry softmax over pre-race Elo ratings",
+  "evaluation": "Chronological walk-forward; no parameter tuning",
+  "candidate_field_limitation": "Result records may include non-starters; pre-race entry lists have not yet been reconstructed.",
+  "nonstarter_update_policy": "Explicit non-starters and disqualified drivers (codes W, F, D, DNS, DNQ, DSQ) excluded from rating updates; all result records remain in the forecast candidate field.",
+  "metrics_summary": {
+    "total_races": 346,
+    "total_candidate_predictions": 7285,
+    "elo_mean_log_loss": 2.2781768631759522,
+    "uniform_mean_log_loss": 3.0445562114568876,
+    "log_loss_improvement": 0.7663793482809353,
+    "elo_mean_brier": 0.8457262721293861,
+    "uniform_mean_brier": 0.9522643971989881,
+    "brier_improvement": 0.10653812506960203,
+    "tie_aware_top1_accuracy": 0.3352601156069364,
+    "fractional_top1_accuracy": 0.332490366088632,
+    "legacy_top1_accuracy": 0.33236994219653176,
+    "races_with_top_ties": 1,
+    "top_tie_rate": 0.002890173410404624,
+    "total_skipped_nonstarters": 72
+  },
+  "artifacts": [
+    "artifacts/reports/EXP-0001-R3/candidate_predictions.csv",
+    "artifacts/reports/EXP-0001-R3/race_predictions.csv",
+    "artifacts/reports/EXP-0001-R3/season_scores.csv",
+    "artifacts/reports/EXP-0001-R3/regulation_era_scores.csv",
+    "artifacts/reports/EXP-0001-R3/rating_update_audit.csv"
+  ]
+}

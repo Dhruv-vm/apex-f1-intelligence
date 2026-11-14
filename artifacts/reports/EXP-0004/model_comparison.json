@@ -1,0 +1,56 @@
+[
+  {
+    "Model": "Model 0: Uniform Baseline",
+    "Primary Log Loss": 2.995388023256088,
+    "Primary Brier": 0.949982338396326,
+    "Primary Fract Top-1": 0.05001766160367349,
+    "Full Series Log Loss": 3.0445562114568885,
+    "Full Series Brier": 0.9522643971989878,
+    "Full Series Fract Top-1": 0.04773560280101233
+  },
+  {
+    "Model": "Model 1: Empirical Grid Freq",
+    "Primary Log Loss": 1.5837662452740062,
+    "Primary Brier": 0.6823122211181438,
+    "Primary Fract Top-1": 0.4966442953020134,
+    "Full Series Log Loss": 1.5195164677892896,
+    "Full Series Brier": 0.6578796252252715,
+    "Full Series Fract Top-1": 0.5232418111753372
+  },
+  {
+    "Model": "Model 2: Grid-Only Logistic",
+    "Primary Log Loss": 1.5942074496644374,
+    "Primary Brier": 0.6833815160502003,
+    "Primary Fract Top-1": 0.4966442953020134,
+    "Full Series Log Loss": 1.5419421753620173,
+    "Full Series Brier": 0.6623753767944737,
+    "Full Series Fract Top-1": 0.5081997722893676
+  },
+  {
+    "Model": "Model 3: Grid + Form Logistic",
+    "Primary Log Loss": 1.3552005364466142,
+    "Primary Brier": 0.6126978818823744,
+    "Primary Fract Top-1": 0.5167785234899329,
+    "Full Series Log Loss": 1.4193827438884954,
+    "Full Series Brier": 0.6245831308106105,
+    "Full Series Fract Top-1": 0.5255408127517954
+  },
+  {
+    "Model": "Model 4: LightGBM GBDT",
+    "Primary Log Loss": 1.4091490600524634,
+    "Primary Brier": 0.6285609528698167,
+    "Primary Fract Top-1": 0.5302013422818792,
+    "Full Series Log Loss": 1.5226498818873093,
+    "Full Series Brier": 0.6508613243314075,
+    "Full Series Fract Top-1": 0.5168702925205816
+  },
+  {
+    "Model": "Model 5: Conditional Logit / Plackett-Luce",
+    "Primary Log Loss": 1.3517467245792614,
+    "Primary Brier": 0.5965637376682457,
+    "Primary Fract Top-1": 0.5436241610738255,
+    "Full Series Log Loss": 1.4404190912153727,
+    "Full Series Brier": 0.6172497357599411,
+    "Full Series Fract Top-1": 0.5284309861622001
+  }
+]

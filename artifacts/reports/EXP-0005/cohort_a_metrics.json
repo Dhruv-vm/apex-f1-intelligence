@@ -1,0 +1,110 @@
+{
+  "cohort_name": "Cohort A \u2014 Universal Historical Benchmark (149 Races, 2018-2024)",
+  "race_count": 149,
+  "checkpoints": {
+    "T0_PRE_WEEKEND": {
+      "race_count": 149,
+      "mean_log_loss": 1.564612,
+      "std_log_loss": 1.075269,
+      "mean_brier_score": 0.669151,
+      "std_brier_score": 0.373288,
+      "conventional_top1_accuracy": 0.530201,
+      "fractional_top1_score": 0.306014,
+      "expected_calibration_error": 0.061801
+    },
+    "T4_CONTROLLED": {
+      "race_count": 149,
+      "mean_log_loss": 1.355121,
+      "std_log_loss": 1.195393,
+      "mean_brier_score": 0.612972,
+      "std_brier_score": 0.422552,
+      "conventional_top1_accuracy": 0.516779,
+      "fractional_top1_score": 0.382786,
+      "expected_calibration_error": 0.054821
+    },
+    "T5_FINAL_PRE_RACE": {
+      "race_count": 149,
+      "mean_log_loss": 1.355121,
+      "std_log_loss": 1.195393,
+      "mean_brier_score": 0.612972,
+      "std_brier_score": 0.422552,
+      "conventional_top1_accuracy": 0.516779,
+      "fractional_top1_score": 0.382786,
+      "expected_calibration_error": 0.054821
+    }
+  },
+  "transitions": {
+    "T4_vs_T0": {
+      "transition": "T4_vs_T0",
+      "n_races": 149,
+      "mean_delta_log_loss": -0.2095,
+      "ci_95_log_loss": [
+        -0.3844,
+        -0.0325
+      ],
+      "wilcoxon_stat_log_loss": 3820.0,
+      "wilcoxon_p_value_log_loss": 0.000812107050087274,
+      "cohen_d_log_loss": -0.1902,
+      "mean_delta_brier": -0.0562,
+      "ci_95_brier": [
+        -0.1147,
+        0.0012
+      ],
+      "wilcoxon_stat_brier": 4484.0,
+      "wilcoxon_p_value_brier": 0.036591656561682395,
+      "cohen_d_brier": -0.1525,
+      "holm_bonferroni_p_value_log_loss": 0.002436,
+      "significant_loss_at_005": true,
+      "holm_bonferroni_p_value_brier": 0.109775,
+      "significant_brier_at_005": false
+    },
+    "T5_vs_T4": {
+      "transition": "T5_vs_T4",
+      "n_races": 149,
+      "mean_delta_log_loss": 0.0,
+      "ci_95_log_loss": [
+        0.0,
+        0.0
+      ],
+      "wilcoxon_stat_log_loss": 0.0,
+      "wilcoxon_p_value_log_loss": 1.0,
+      "cohen_d_log_loss": 0.0,
+      "mean_delta_brier": 0.0,
+      "ci_95_brier": [
+        0.0,
+        0.0
+      ],
+      "wilcoxon_stat_brier": 0.0,
+      "wilcoxon_p_value_brier": 1.0,
+      "cohen_d_brier": 0.0,
+      "holm_bonferroni_p_value_log_loss": 1.0,
+      "significant_loss_at_005": false,
+      "holm_bonferroni_p_value_brier": 1.0,
+      "significant_brier_at_005": false
+    },
+    "T5_vs_T0": {
+      "transition": "T5_vs_T0",
+      "n_races": 149,
+      "mean_delta_log_loss": -0.2095,
+      "ci_95_log_loss": [
+        -0.3844,
+        -0.0325
+      ],
+      "wilcoxon_stat_log_loss": 3820.0,
+      "wilcoxon_p_value_log_loss": 0.000812107050087274,
+      "cohen_d_log_loss": -0.1902,
+      "mean_delta_brier": -0.0562,
+      "ci_95_brier": [
+        -0.1147,
+        0.0012
+      ],
+      "wilcoxon_stat_brier": 4484.0,
+      "wilcoxon_p_value_brier": 0.036591656561682395,
+      "cohen_d_brier": -0.1525,
+      "holm_bonferroni_p_value_log_loss": 0.001624,
+      "significant_loss_at_005": true,
+      "holm_bonferroni_p_value_brier": 0.073183,
+      "significant_brier_at_005": false
+    }
+  }
+}

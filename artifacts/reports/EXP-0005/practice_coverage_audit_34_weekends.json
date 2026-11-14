@@ -1,0 +1,11 @@
+{
+  "total_standard_weekends": 34,
+  "total_practice_sessions_audited": 102,
+  "locally_cached_sessions": 3,
+  "locally_cached_pct": 2.94,
+  "provider_available_but_uncached": 99,
+  "processable_sessions": 3,
+  "fully_cached_weekends": 1,
+  "audit_timestamp": "2026-11-05T13:05:15.071356+00:00",
+  "key_audit_finding": "Only 1 of the 34 standard weekends (Abu Dhabi 2024, Round 24) has locally cached practice payloads in data/raw/openf1/practice/ (FP1 9461, FP2 9656, FP3 9657). Silverstone 2024 has session keys cached, but laps/stints are unpopulated. The remaining 32 weekends have zero local practice telemetry. Claiming full 34-race practice coverage was an artifact of conflating provider-level existence with local data presence."
+}

@@ -1,0 +1,61 @@
+{
+  "experiment": "EXP-0002",
+  "model": "Model 4 \u2014 LightGBM GBDT (grid + driver/constructor form)",
+  "algorithm": "LightGBM GBDT (LGBMClassifier)",
+  "hyperparameters": {
+    "objective": "binary",
+    "n_estimators": 250,
+    "learning_rate": 0.03,
+    "num_leaves": 15,
+    "max_depth": -1,
+    "min_child_samples": 20,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "reg_lambda": 1.0,
+    "random_state": 42,
+    "n_jobs": 1,
+    "verbose": -1
+  },
+  "features": [
+    "effective_grid",
+    "log_grid",
+    "is_front_row",
+    "is_pole",
+    "is_grid_zero",
+    "driver_prior_races",
+    "driver_win_rate_all",
+    "driver_win_rate_last5",
+    "driver_mean_finish_last5",
+    "driver_finish_std_last5",
+    "constructor_prior_races",
+    "constructor_win_rate_all",
+    "constructor_win_rate_last5",
+    "constructor_mean_finish_last5",
+    "driver_mean_points_last5",
+    "constructor_mean_points_last5"
+  ],
+  "feature_count": 16,
+  "min_history_races": 20,
+  "random_state": 42,
+  "primary_cohort": "2018-2024",
+  "full_series": {
+    "races": 346,
+    "mean_log_loss": 1.5226498818873075,
+    "mean_brier_score": 0.6508613243314075,
+    "fractional_top1": 0.5168702925205816,
+    "tie_aware_top1": 0.5722543352601156
+  },
+  "primary_cohort_metrics": {
+    "races": 149,
+    "mean_log_loss": 1.4091490600524608,
+    "mean_brier_score": 0.6285609528698168,
+    "fractional_top1": 0.5302013422818792,
+    "tie_aware_top1": 0.5302013422818792
+  },
+  "candidate_set_limitation": "Candidate records originate from final result records; independently timestamped pre-race entry lists have not been verified.",
+  "probability_interpretation": "Binary GBDT scores normalized across candidates within each race; not assumed to be calibrated conditional winner probabilities.",
+  "artifacts": {
+    "candidate_predictions": "artifacts/reports/EXP-0002/model4_lightgbm_predictions.csv",
+    "walk_forward_audit": "artifacts/reports/EXP-0002/model4_walk_forward_audit.csv"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "dataset_name": "APEX historical driver-race results",
+  "dataset_version": "v2",
+  "seasons": [
+    2010,
+    2026
+  ],
+  "row_count": 7285,
+  "race_weekends": 346,
+  "primary_key": [
+    "season",
+    "round",
+    "driver_id"
+  ],
+  "duplicate_primary_keys": 0,
+  "regulation_metadata": "Provisional, date-based grouping",
+  "2026_result_records": 374,
+  "source": "Jolpica F1 API",
+  "prediction_features_created": false,
+  "limitations": [
+    "Sprint results are excluded.",
+    "Regulatory phase labels are provisional.",
+    "Race outcomes must not be used as predictors for pre-race forecasts."
+  ]
+}
