@@ -82,7 +82,7 @@ Phase 9: Integrated APEX Web Terminal & Production Packaging
 ### Phase 8: Research Model Benchmarks, Ablations & Paper Traceability
 - **Objective:** Port validated notebook models (Models 0–5) to shared `ml/` library, evaluate LambdaMART and hierarchical Bayesian models, and compile paper artifacts.
 - **Key Deliverables:** Standardized model registry, paired cluster bootstrap evaluations, publication-ready figures and tables.
-- **Exit Criteria:** All models reproducible via CLI; Paper Traceability Matrix fully verified.
+- **Exit Criteria:** All models reproducible via CLI; Paper Traceability Matrix fully verified. [STAGE 8.1 COMPLETED: Implemented shared ML package foundation at `ml/` with `ForecastResult` Pydantic v2 validation, `BasePredictiveModel` and independent `BaseRankingModel` contracts, canonical model registry for `ELO_R3` and `M0`–`M5`, candidate pool schema with outcome-independent ordering and effective grid encoding, and strictly proper scoring metrics (multiclass log loss, Brier score, tie-aware and fractional top-1 credit). 35 new unit tests in `tests/test_ml_base.py`; full suite passing at 162 tests.]
 
 ### Phase 9: Integrated APEX Web Terminal & Production Packaging
 - **Objective:** Connect the 11 analytical views in a production Next.js terminal, Docker packaging, and CI/CD pipelines.
