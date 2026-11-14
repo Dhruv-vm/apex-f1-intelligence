@@ -1,49 +1,47 @@
-# Current Milestone: Milestone 1 — Data Availability, Research Specification & Notebook-Based Source Validation
+# Current Milestone: EXP-0006 Final Closeout & Phase 8 Gate Authorization
 
-- **Milestone Code:** `M1`
-- **Milestone Title:** Data Availability, Research Specification & Notebook-Based Source Validation
-- **Start Date:** 2026-10-18
-- **Current Lifecycle Status:** `IN PROGRESS` (Notebook Scaffold Established; Awaiting Collaborative Notebook Validation)
+- **Milestone Code:** `EXP-0006-GATE` / `Phase 7.2.1`
+- **Milestone Title:** Monte Carlo Simulator Final Calibration, SC/VSC Methodology Reconciliation & Phase 8 Gate
+- **Start Date:** 2026-11-05
+- **Completion Date:** 2026-11-06
+- **Current Lifecycle Status:** `COMPLETED & PHASE 8 AUTHORIZED`
 
 ---
 
 ## 1. Milestone Objective
 
-Empirically audit historical and modern Formula 1 data availability across candidate providers (Jolpica, OpenF1, FastF1), establish verified coverage through the current 2026 season, formalize feasible forecast checkpoints, and establish the **Notebook-First Research Workflow** where the Project Owner and ChatGPT collaboratively perform data science and source validation in Jupyter notebooks prior to dataset construction and modeling.
+Execute final numerical integrity audits and methodological reconciliations on the Monte Carlo Race and Strategy Dynamics Simulator (EXP-0006), verify machine-precision conservation identities, establish decoupled SC/VSC raw message vs lifecycle accounting, validate multi-seed CRN variance reduction, and formally authorize progression to **Phase 8 (Research Model Benchmarks, Ablations & Paper Traceability)**.
 
 ---
 
 ## 2. Acceptance Criteria Checklist
 
-- [x] **Reproducible Command-Line Audit Scripts:**
-  - [x] [scripts/audit/audit_jolpica.py](../../scripts/audit/audit_jolpica.py) auditing schedules, results, qualifying, pitstops, and standings across 1950–2026.
-  - [x] [scripts/audit/audit_openf1.py](../../scripts/audit/audit_openf1.py) auditing sessions, sub-second telemetry, laps, stints, weather, intervals, and rate limits.
-  - [x] [scripts/audit/audit_fastf1.py](../../scripts/audit/audit_fastf1.py) documenting upstream live timing HTTP 401 authentication gates.
-  - [x] [scripts/audit/run_audit_summary.py](../../scripts/audit/run_audit_summary.py) producing consolidated JSON summary.
-- [x] **Multi-Season Coverage Matrix & Recommendations:**
-  - [x] Coverage matrix published in [docs/research/DATA_AVAILABILITY_AUDIT.md](../research/DATA_AVAILABILITY_AUDIT.md) separating complete seasons (1950–2025) from 2026 Year-to-Date.
-- [x] **Architectural Decision Record (ADR):**
-  - [x] Published [ADR-0002](../decisions/ADR-0002-data-provider-selection-and-telemetry-strategy.md) adopting the two-tier hybrid data architecture (Jolpica for broad historical sporting records, OpenF1 for open modern telemetry).
-- [x] **Notebook-First Workflow & Scaffold:**
-  - [x] [notebooks/README.md](../../notebooks/README.md) defining division of responsibilities, directory structure, and 8 core rules.
-  - [x] [notebooks/00_environment_and_source_checks.ipynb](../../notebooks/00_environment_and_source_checks.ipynb) validating Python environment, dependencies, and project paths.
-  - [x] [notebooks/01_data_source_validation.ipynb](../../notebooks/01_data_source_validation.ipynb) providing the collaborative framework to independently reproduce and verify the audit across Jolpica, OpenF1, and FastF1.
-  - [x] [notebooks/03_elo_baseline.ipynb](../../notebooks/03_elo_baseline.ipynb) patched with candidate-level probability distributions, tie-aware top-1 metrics, and non-starter rating exclusion (`EXP-0001-R2` / `EXP-0001-R3`).
-  - [x] [notebooks/04_probability_calibration.ipynb](../../notebooks/04_probability_calibration.ipynb) scaffolded and verified for candidate-level one-vs-rest reliability diagrams, ECE, race-clustered bootstrapping, and era drift (`EXP-0001-CAL-001`).
-  - [x] [docs/research/CANDIDATE_FIELD_AUDIT.md](../research/CANDIDATE_FIELD_AUDIT.md) authoring pre-race candidate-field reconstruction audit (provisional proxy caveats, race-specific grid-zero encoding with `is_grid_zero`, 149/156 cohort counts).
-  - [x] [notebooks/05_static_grid_benchmark.ipynb](../../notebooks/05_static_grid_benchmark.ipynb) scaffolded for EXP-0002 static pre-race starting grid baselines and benchmark.
-- [ ] **Collaborative Notebook Execution (Project Owner + ChatGPT):**
-  - [ ] Execute `00_environment_and_source_checks.ipynb` to verify the working environment.
-  - [ ] Execute `01_data_source_validation.ipynb` to independently verify provider coverage, rate limits, and formulate the confirmed research dataset recommendation.
-  - [x] Execute `03_elo_baseline.ipynb` (`EXP-0001-R2` / `EXP-0001-R3`) generating baseline walk-forward distributions and proper scoring metrics.
-  - [x] Execute `04_probability_calibration.ipynb` evaluating candidate-level calibration error (ECE = 0.030667, MCE = 0.185189, CITL = 0.000000).
-  - [ ] Execute `05_static_grid_benchmark.ipynb` evaluating pre-race starting grid baselines against Elo baseline.
+- [x] **Race-Time Weighted-Mean Mathematical Identity:**
+  - Machine-verified across all 10,000 paired simulation runs ($|\text{AllRunMean} - \text{WeightedMean}| \le 9.09 \times 10^{-13}$s).
+  - DNF span confirmed across laps 1–58 (mean DNF lap 22.87, duration 0.0s to 5,571.66s), refuting the legacy prose note that assumed DNFs only occur on laps 1–15.
+- [x] **Safety Car & VSC Methodology Reconciliation:**
+  - **Table A (Raw Message Ledger):** Exactly 1,284 mutually exclusive records partitioned into 311 SC deployed, 180 VSC deployed, 310 SC ending, 128 VSC ending, and 355 duplicate/sector status notices.
+  - **Table B (Derived Event Lifecycle Ledger):** Exactly 438 green-originating episodes (258 direct green SC, 180 green VSC partitioned into 52 escalations and 128 standalone conclusions).
+  - **Calibrated Green Hazard Rates:** Direct green SC $\lambda_{\text{SC}} = 258 / 19,420 = 0.013285\text{ lap}^{-1}$; green VSC $\lambda_{\text{VSC}} = 180 / 13,558 = 0.013276\text{ lap}^{-1}$; conditional escalation $P(\text{SC} \mid \text{VSC}) = 52 / 180 = 0.288889$.
+  - Descriptive macro phase ratio $310 / 19,420 = 0.015963\text{ lap}^{-1}$ strictly segregated from conditional initiation hazards.
+- [x] **Common Random Numbers (CRN) Variance Reduction:**
+  - Multi-seed validation across seeds 42, 101, 777, 1337, 2024: 99.996% race-time difference variance reduction, 90.64% position difference variance reduction, $\rho = 0.99996$.
+  - Two-sample Kolmogorov-Smirnov test confirms no statistically detectable marginal distribution difference ($D \le 0.052, p \ge 0.498 \ge 0.05$).
+- [x] **Out-of-Sample Holdout Strategy Evaluation:**
+  - Selection on Set A ($N=2,500$, seed 42) vs frozen evaluation on Set B ($N=2,500$, seed 99991).
+  - `SafetyCar_Reactive` confirmed as winning strategy on Set B ($\Delta_{\text{pos}} = -0.121$, $p = 0.00045$, Holm-Bonferroni adjusted $p = 0.00045$).
+- [x] **Implementation Audit & Gate Tests:**
+  - Independent orthogonal random stream (`master_seed + 8089`) and single-evaluation guard per VSC episode implemented in `backend/simulation/engine.py`.
+  - Versioned closeout artifacts serialized to `artifacts/reports/EXP-0006/` (`exp_0006_final_closeout_v3.json`).
+  - 126 automated backend pytest unit, integration, and mathematical regression tests passing in `tests/test_phase7_numerical_gate.py`.
+  - Next.js 14 frontend production build verified.
 
 ---
 
-## 3. Transition Criteria to Milestone 2
+## 3. Transition to Phase 8
 
-Milestone 1 will conclude and transition to **Milestone 2 (Data Pipeline, Ingestion & Temporal Alignment Store)** when:
-1. `notebooks/00_environment_and_source_checks.ipynb` has been executed by the Project Owner and ChatGPT.
-2. `notebooks/01_data_source_validation.ipynb` has been executed and confirmed without discrepancies.
-3. The confirmed research dataset recommendation is finalized to guide local caching in `data/raw/` and Parquet serialization in `data/processed/`.
+EXP-0006 is officially frozen. Phase 8 is authorized to proceed:
+1. Port validated research models (Models 0 through 5) from `notebooks/` to production library `ml/`.
+2. Construct unified cross-model benchmark evaluation harness on the primary historical cohort (2018–2024, 149 rounds).
+3. Evaluate LambdaMART listwise ranking and hierarchical Bayesian formulations.
+4. Synthesize verified empirical artifacts into the academic paper draft and traceability matrices.

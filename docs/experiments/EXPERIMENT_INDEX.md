@@ -1,23 +1,23 @@
 # APEX — Experiment Index
 
-> **Status Notice:** At Milestone 0, no benchmark runs or experiments have been executed. The entries below represent planned baseline benchmarks and initial ablation studies scheduled for Milestones 3 and 4.
+> **Status Notice:** Experiments EXP-0001 through EXP-0006 are completed, provenance-audited, and serialized in `artifacts/reports/`. The entries below represent the canonical research registry, model mappings, and empirical findings.
 
 ---
 
-## 1. Planned Experiment Registry
+## 1. Planned & Executed Experiment Registry
 
 | Experiment ID | Title | Related RQ | Related Hypotheses | Target Checkpoint | Model Family | Academic Literature Foundation | Status |
 |---|---|---|---|---|---|---|---|
-| [EXP-0001](#exp-0001) | Static Rolling Elo & Historical Rating Baseline | RQ1 | [HYP-0001](../research/HYPOTHESES.md#hyp-0001-sequential-information-superiority) | $T_0$ (Pre-Weekend) | Dynamic Elo / Logistic | van Kesteren & Bergkamp (2023), Bell et al. (2016) | `IN PROGRESS` (R1 & R2 Executed; R3 Logged) |
-| [EXP-0002](#exp-0002) | Static Pre-Race Starting Grid Benchmark | RQ1 | [HYP-0001](../research/HYPOTHESES.md#hyp-0001-sequential-information-superiority), [HYP-GRID-001](../research/HYPOTHESES.md#hyp-grid-001-pre-race-grid-position-dominance), [HYP-GRID-002](../research/HYPOTHESES.md#hyp-grid-002-nonlinear-grid-representation-superiority) | $T_5$ (Pre-Race) | Empirical Grid / Multinomial Logit / GBDT | Henderson et al. (2016), Urdhwareshe (2025) [audit] | `SCAFFOLDED` (Candidate Audit Complete; Notebook Ready) |
-| [EXP-0003](#exp-0003) | Incremental Value of Free Practice Long-Run Pace | RQ2 | [HYP-0002](../research/HYPOTHESES.md#hyp-0002-incremental-value-of-free-practice-telemetry) | $T_2$ (Post-FP2) | GBDT + Stint Pace Features | Cappello & Hoegh (2025), Heilmeier et al. (2020) | `PLANNED` |
-| [EXP-0004](#exp-0004) | High-Frequency Telemetry vs. Aggregated Timing Ablation | RQ2 | [HYP-0003](../research/HYPOTHESES.md#hyp-0003-modality-parsimony-and-leakage-sensitivity) | $T_4$ (Post-Qualifying) | LightGBM Ablation Series | Todd et al. (2025), Sasikumar et al. (2025) | `PLANNED` |
+| [EXP-0001](#exp-0001) | Static Rolling Elo & Historical Rating Baseline | RQ1 | [HYP-0001](../research/HYPOTHESES.md#hyp-0001-sequential-information-superiority) | $T_0$ (Pre-Weekend) | Dynamic Elo (R1, R2, R3) | van Kesteren & Bergkamp (2023), Bell et al. (2016) | `COMPLETED` (R3 Logged; CAL-001 Audited) |
+| [EXP-0002](#exp-0002) | Static Pre-Race Starting Grid Benchmark | RQ1 | [HYP-0001](../research/HYPOTHESES.md#hyp-0001-sequential-information-superiority), [HYP-GRID-001](../research/HYPOTHESES.md#hyp-grid-001-pre-race-grid-position-dominance), [HYP-GRID-002](../research/HYPOTHESES.md#hyp-grid-002-nonlinear-grid-representation-superiority) | $T_5$ (Pre-Race) | Models 0–4: Uniform (M0), Grid Frequency (M1), Grid Logistic (M2), Grid+Form Logistic (M3), LightGBM (M4) | Henderson et al. (2016), Urdhwareshe (2025) [audit] | `COMPLETED` (Notebook 05 Executed; Artifacts in `artifacts/reports/EXP-0002/`) |
+| [EXP-0003](#exp-0003) | Post-Hoc Probability Calibration Benchmark | RQ3 | [HYP-0004](../research/HYPOTHESES.md#hyp-0004-checkpoint-calibration-drift) | $T_5$ (Pre-Race) | Platt Scaling, Isotonic Regression, Temperature Scaling (M3, M4) | Niculescu-Mizil & Caruana (2005), Guo et al. (2017) | `COMPLETED` (Notebook 06 Executed; Artifacts in `artifacts/reports/EXP-0003/`) |
+| [EXP-0004](#exp-0004) | Direct Race-Level Winner Probability Model (Plackett-Luce Ranking) | RQ1 | [HYP-0001](../research/HYPOTHESES.md#hyp-0001-sequential-information-superiority) | $T_5$ (Pre-Race) | Model 5: Plackett-Luce Ranking / Conditional Logit MLE | Plackett (1975), Luce (1959), Hunter (2004) | `COMPLETED` (Notebook 07 Executed; Artifacts in `artifacts/reports/EXP-0004/`) |
 | [EXP-0005](#exp-0005) | Multi-Checkpoint Walk-Forward Validation & Calibration Drift | RQ1, RQ3 | [HYP-0001](../research/HYPOTHESES.md#hyp-0001-sequential-information-superiority), [HYP-0004](../research/HYPOTHESES.md#hyp-0004-checkpoint-calibration-drift) | $T_0 \dots T_5$ | Calibrated Sequential Ensemble / Plackett-Luce | van Kesteren & Bergkamp (2023), Chalita & Hassanipak (2025) | `COMPLETED` (149 Races Backtested; Artifacts in `artifacts/reports/EXP-0005/`) |
 | [EXP-0006](#exp-0006) | Counterfactual Strategy & Tactical Undercut Simulation | RQ4 | [HYP-STRAT-001](../research/HYPOTHESES.md#hyp-strat-001-counterfactual-strategy-and-tactical-gain) | Phase 7 (Simulation) | Monte Carlo Simulation / Common Random Numbers / Counterfactual Rollouts | Thomas et al. (2026), Piccinotti et al. (2021), Heilmeier et al. (2020) | `COMPLETED` (Artifacts in `artifacts/reports/EXP-0006/`) |
 
 ---
 
-## 2. Planned Experiment Overviews
+## 2. Planned & Executed Experiment Overviews
 
 ### EXP-0001
 - **Focus:** Establish the foundational non-sequential baseline using historical race results across 2010–2026 ($T_0$ Pre-Weekend).
@@ -45,31 +45,51 @@
 ### EXP-0002
 - **Focus:** Establish the standard pre-race starting-grid race-winner benchmark at forecast checkpoint $T_5$ (30 minutes prior to formation lap / official FIA final grid).
 - **Related Hypotheses:** [HYP-0001](../research/HYPOTHESES.md#hyp-0001-sequential-information-superiority), [HYP-GRID-001](../research/HYPOTHESES.md#hyp-grid-001-pre-race-grid-position-dominance), [HYP-GRID-002](../research/HYPOTHESES.md#hyp-grid-002-nonlinear-grid-representation-superiority).
-- **Pre-Race Candidate Field Audit:** Documented in [docs/research/CANDIDATE_FIELD_AUDIT.md](../research/CANDIDATE_FIELD_AUDIT.md). Entrant lists represent a provisional result-record proxy until entry-field reconstruction is verified; zero post-race leakage is not claimed as proven; drivers are not excluded using post-race status; and race-specific grid-zero encoding ($\max_{i, \text{grid}_i > 0}(\text{grid}_i) + 1$, with `is_grid_zero` indicator) is enforced without assuming grid zero is definitive pit-lane proof.
+- **Pre-Race Candidate Field Audit:** Documented in [docs/research/CANDIDATE_FIELD_AUDIT.md](../research/CANDIDATE_FIELD_AUDIT.md). Entrant lists represent a provisional result-record proxy until entry-field reconstruction is verified against official pre-session timing manifests; zero post-race leakage is not claimed as proven; drivers are not excluded using post-race status; and race-specific grid-zero encoding ($\max_{i, \text{grid}_i > 0}(\text{grid}_i) + 1$, with `is_grid_zero` indicator) is enforced without assuming grid zero is definitive pit-lane proof.
 - **Active Research Notebook:** [notebooks/05_static_grid_benchmark.ipynb](../../notebooks/05_static_grid_benchmark.ipynb).
 - **Candidate Models Compared:**
   - **Model 0 (Uniform Baseline):** $P_i = 1/N_r$ over all $N_r$ pre-race entrants.
-  - **Model 1 (Empirical Grid Baseline):** Historical win frequency by starting grid position with Bayesian / Laplacian smoothing ($P(\text{Win} \mid \text{Grid})$).
-  - **Model 2 (Multinomial Logit Softmax):** Multinomial logistic regression on nonlinear grid features ($\log(\text{grid})$, front-row binary indicator).
-  - **Model 3 (Pre-Race LightGBM Benchmark):** Tree-based GBDT model (architecture and training pipeline documented; LightGBM installation documented and deferred pending approval).
-- **Evaluation Cohort & Protocol:** Rolling-origin backtesting across 2018–2024 primary test cohort (149 rounds) with 2010–2017 historical sensitivity/warm-up (156 rounds).
+  - **Model 1 (Empirical Grid Baseline):** Historical win frequency by starting grid position with Laplacian smoothing ($P(\text{Win} \mid \text{Grid})$, $\alpha=10$).
+  - **Model 2 (Grid-Only Logistic Regression):** Univariate logistic regression on 5 grid features.
+  - **Model 3 (Grid + Driver/Constructor Form Logistic Regression):** Multivariate logistic regression on 16 grid and rolling form features.
+  - **Model 4 (Pre-Race LightGBM Benchmark):** Gradient boosted decision tree model on 16 features.
+- **Evaluation Cohort & Protocol:** Rolling-origin backtesting across 2018–2024 primary test cohort (149 rounds, 2,979 candidate rows) with 2010–2017 historical sensitivity/warm-up (156 rounds, 3,453 candidate rows), totaling 305 completed races and 6,432 records across 2010–2024.
 - **Proper Scoring Rules:** Multi-Class Log Loss, Multi-Class Brier Score, Tie-Aware Top-1 Accuracy, Fractional Top-1 Credit, Expected Calibration Error (ECE).
-- **Status:** `SCAFFOLDED` (Candidate audit complete; notebook scaffolded in `notebooks/05_static_grid_benchmark.ipynb`; awaiting collaborative execution).
-- **Scheduled Phase:** Milestone 3 (Static Baseline Forecasting).
+- **Status:** `COMPLETED` (Executed in `notebooks/05_static_grid_benchmark.ipynb`; artifacts in `artifacts/reports/EXP-0002/`).
+- **Key Empirical Results (Primary Cohort, 2018–2024, 149 Races):**
+  - Model 0 (Uniform): Log Loss `2.995388`, Brier `0.949982`, Fract. Top-1 `0.050018`.
+  - Model 1 (Grid Frequency): Log Loss `1.583766`, Brier `0.682312`, Fract. Top-1 `0.496644`.
+  - Model 2 (Grid Logistic): Log Loss `1.594207`, Brier `0.683382`, Fract. Top-1 `0.496644`.
+  - Model 3 (Grid + Form Logistic): Log Loss `1.355201`, Brier `0.612698`, Fract. Top-1 `0.516779` (**Best Overall Probabilistic Performance**).
+  - Model 4 (LightGBM): Log Loss `1.409149`, Brier `0.628561`, Fract. Top-1 `0.530201` (**Best Argmax Accuracy**, but inferior under proper scoring rules due to uncalibrated overconfident probability tails).
 
 ### EXP-0003
-- **Focus:** Quantify out-of-sample log loss delta after integrating fuel-adjusted FP2 long-run degradation features.
-- **Academic Foundation:** Cappello & Hoegh (2025) Bayesian state-space modeling with Skewed-$T$ errors; Heilmeier et al. (2020) linear tire degradation $t_{\text{tire}}(a, c) = k_0 + k_1 \cdot a$.
-- **Related Hypothesis:** [HYP-0002](../research/HYPOTHESES.md#hyp-0002-incremental-value-of-free-practice-telemetry).
-- **Target Checkpoint:** $T_2$ (Post-FP2).
-- **Scheduled Phase:** Milestone 4 (Sequential Feature Pipeline).
+- **Focus:** Post-hoc probability calibration benchmark across pre-race models (Model 3 Logistic Regression and Model 4 LightGBM GBDT) to correct probability overconfidence.
+- **Academic Foundation:** Niculescu-Mizil & Caruana (2005) calibration analysis; Guo et al. (2017) temperature scaling for modern neural and tree architectures.
+- **Related Hypothesis:** [HYP-0004](../research/HYPOTHESES.md#hyp-0004-checkpoint-calibration-drift).
+- **Target Checkpoint:** $T_5$ (Pre-Race).
+- **Active Research Notebook:** [notebooks/06_probability_calibration.ipynb](../../notebooks/06_probability_calibration.ipynb).
+- **Calibration Methods Evaluated:**
+  - Raw uncalibrated probabilities.
+  - Platt Scaling (parametric sigmoid mapping).
+  - Isotonic Regression (non-parametric monotonic mapping).
+  - Temperature Scaling ($P_i \propto \exp(z_i / T)$).
+- **Status:** `COMPLETED` (Executed in `notebooks/06_probability_calibration.ipynb`; artifacts in `artifacts/reports/EXP-0003/`).
+- **Key Empirical Results (Primary Cohort, 2018–2024, 149 Races):**
+  - Model 3 Logistic is naturally well-calibrated (Raw Log Loss `1.355201`, ECE `0.009618`, $T \approx 1.007$). Calibration yields negligible change.
+  - Model 4 LightGBM benefits significantly from calibration: Temperature scaling ($T \approx 1.360$) reduces Log Loss from `1.409149` to `1.387587` and ECE from `0.013875` to `0.007818`. Platt scaling yields Log Loss `1.388663` and ECE `0.007314`.
+  - Isotonic regression overfits and degrades log loss on candidate probability simplexes (Model 4 Isotonic Log Loss: `1.450040`).
 
 ### EXP-0004
-- **Focus:** Direct ablation comparison between full high-frequency (10–50 Hz) throttle/brake telemetry features and sector-level summary metrics.
-- **Academic Foundation:** Todd et al. (2025) [REF-03] and Sasikumar et al. (2025) [REF-07] proving that tree ensembles on aggregated kinematic features match or outperform complex sequential deep models on motorsport data while avoiding noise overfitting.
-- **Related Hypothesis:** [HYP-0003](../research/HYPOTHESES.md#hyp-0003-modality-parsimony-and-leakage-sensitivity).
-- **Target Checkpoint:** $T_4$ (Post-Qualifying).
-- **Scheduled Phase:** Milestone 4 (Sequential Feature Pipeline).
+- **Focus:** Direct race-level winner probability modeling using Plackett-Luce ranking and grouped conditional logit maximum likelihood estimation (Model 5).
+- **Academic Foundation:** Plackett (1975), Luce (1959) choice axioms; Hunter (2004) MM algorithms for generalized Bradley-Terry models.
+- **Related Hypothesis:** [HYP-0001](../research/HYPOTHESES.md#hyp-0001-sequential-information-superiority).
+- **Target Checkpoint:** $T_5$ (Pre-Race).
+- **Active Research Notebook:** [notebooks/07_plackett_luce_ranking.ipynb](../../notebooks/07_plackett_luce_ranking.ipynb).
+- **Status:** `COMPLETED` (Executed in `notebooks/07_plackett_luce_ranking.ipynb`; artifacts in `artifacts/reports/EXP-0004/`).
+- **Key Empirical Results (Primary Cohort, 2018–2024, 149 Races):**
+  - Model 5 (Plackett-Luce Ranking Model): Log Loss `1.351747`, Brier `0.596564`, Fract. Top-1 `0.543624`.
+  - Establishes mathematical consistency across full candidate simplexes ($\sum P = 1.0$) with joint multi-output predictions ($\sum p_{\text{podium}} = 3.0$, $\sum p_{\text{top5}} = 5.0$, $\sum E[\text{pos}] = N(N+1)/2$).
 
 ### EXP-0005
 - **Focus:** Systematic evaluation of predictive performance (multiclass log loss, Brier score, ECE, top-1 accuracy) across discrete weekend checkpoints ($T_0 \dots T_5$) on the 149-race historical primary cohort (2018–2024), and sequential practice analysis.
