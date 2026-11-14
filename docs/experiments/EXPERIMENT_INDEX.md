@@ -76,9 +76,12 @@
   - Temperature Scaling ($P_i \propto \exp(z_i / T)$).
 - **Status:** `COMPLETED` (Executed in `notebooks/06_probability_calibration.ipynb`; artifacts in `artifacts/reports/EXP-0003/`).
 - **Key Empirical Results (Primary Cohort, 2018–2024, 149 Races):**
-  - Model 3 Logistic is naturally well-calibrated (Raw Log Loss `1.355201`, ECE `0.009618`, $T \approx 1.007$). Calibration yields negligible change.
-  - Model 4 LightGBM benefits significantly from calibration: Temperature scaling ($T \approx 1.360$) reduces Log Loss from `1.409149` to `1.387587` and ECE from `0.013875` to `0.007818`. Platt scaling yields Log Loss `1.388663` and ECE `0.007314`.
-  - Isotonic regression overfits and degrades log loss on candidate probability simplexes (Model 4 Isotonic Log Loss: `1.450040`).
+  - **Model 3 (Logistic):** Naturally well-calibrated (Raw Log Loss `1.355201`, ECE `0.009618`, $T \approx 1.007$). Calibration yields negligible change.
+  - **Model 4 (LightGBM):** Post-hoc calibration achieves substantial descriptive improvements in probability calibration:
+    - Temperature scaling ($T \approx 1.360$) reduces ECE by 43.7% (from `0.013875` to `0.007818`) and MCE by 41.1% (from `0.133525` to `0.078645`), with numerical improvements in Log Loss (`1.387587` vs `1.409149`, $\Delta = -0.0216$) and Brier score (`0.623285` vs `0.628561`, $\Delta = -0.0053$).
+    - Platt scaling reduces ECE by 47.3% (to `0.007314`) and MCE by 59.0% (to `0.054807`), with numerical improvements in Log Loss (`1.388663`, $\Delta = -0.0205$) and Brier score (`0.622523`, $\Delta = -0.0060$).
+    - **Statistical Significance Audit (`bootstrap_results.json`):** Under the 95% race-clustered bootstrap test, the log loss delta 95% CI spans zero for both Temperature scaling (`[-0.0818, +0.0331]`, `LL_Sig: false`) and Platt scaling (`[-0.0808, +0.0340]`, `LL_Sig: false`), as does the Brier score delta (`[-0.0257, +0.0142]` and `[-0.0245, +0.0118]`). Therefore, the empirical gain is specifically an improvement in **probability calibration quality and tail risk reduction (ECE/MCE)**, rather than a statistically demonstrated out-of-sample log-loss superiority.
+  - **Isotonic Regression:** Overfits on candidate simplexes and degrades proper scores (Model 4 Isotonic Log Loss: `1.450040`).
 
 ### EXP-0004
 - **Focus:** Direct race-level winner probability modeling using Plackett-Luce ranking and grouped conditional logit maximum likelihood estimation (Model 5).
@@ -121,7 +124,7 @@
   - **Cohort A (149 races, 2018–2024):**
     - $T_0$ (Form-only): Log Loss `1.5646`, Brier `0.6692`, Top-1 Acc `53.02%`
     - $T_4$ (Form + Grid): Log Loss `1.3551`, Brier `0.6130`, Top-1 Acc `51.68%`
-    - $\Delta \text{LogLoss} (T_4 - T_0) = -0.2095$ (95% CI: $[-0.3844, -0.0325]$, Wilcoxon $p = 0.00081$, Holm-Bonferroni $p = 0.00244$, **statistically significant**)
+    - $\Delta \text{LogLoss} (T_4 - T_0) = -0.2095$ (95% CI: $[-0.3844, -0.0325]$, Wilcoxon $W = 3820.0$, raw $p = 0.000812 < 0.001$, Holm-Bonferroni step-down adjusted $p = 0.00244$, **statistically significant**)
   - **Cohort C (34 Standard races, 2023–2024):**
     - $T_0$ (Form-only): Log Loss `1.4190`, Brier `0.5858`, Top-1 Acc `58.82%`
     - $T_1 \dots T_3$ (Free Practice): Log Loss `1.4190`, Brier `0.5858` (unobserved practice records in historical archive fallback to rolling form)
@@ -193,7 +196,7 @@
     - Paired difference `SafetyCar_Reactive` vs `Reference_1Stop`: $\Delta_{\text{pos}} = -0.069$ (SE 0.0176, 95% CI: $[-0.104, -0.034]$, raw $p = 9 \times 10^{-5}$, Holm-Bonferroni adjusted $p = 9 \times 10^{-5}$).
     - Multi-Objective Trade-Offs: `SafetyCar_Reactive` maximizes Win % and minimizes Expected Position; `Reference_1Stop` maximizes Podium % and Top-5 % with lower outcome variance. On decisive runs, `SafetyCar_Reactive` beats 1-stop in 59.07% of non-tied finishes (31.34% vs 21.72% on all runs, 46.94% tied).
     - Race-Time Calibration & Reconciliation: Completed race duration ($5,188.73\text{s}$ vs $5,190.26\text{s}$) closely matches official 2024 Abu Dhabi GP winner Norris ($5,193.291\text{s}$, error $< 0.1\%$). Unconditional all-runs paired time diff is $-1.361\text{s}$ (SE 0.0882s); conditional matched completed-runs paired time diff is $-1.539\text{s}$ (SE 0.0935s, 95% CI: $[-1.722, -1.355]$ across 9,113 matched finishes). Prior $-16.36\text{s}$ text discrepancy resolved. Standing start physical launch delay adds $+4.8\text{s}$ on Lap 1.
-    - Safety Car & VSC Exposure Calibration: SC (310 distinct phases / 311 total deployments including Spa 2021, $\lambda_{\text{total}} = 0.0150, \lambda_{\text{green}} = 0.0160$) and VSC (128 standalone / 180 total activations including 52 compound escalations, $\lambda_{\text{total}} = 0.0120, \lambda_{\text{green}} = 0.0133$, with chronological pre-2015 zero cutoff). Denominator $L_{\text{green}}$ is selected as mechanistically appropriate for green-flag incident initiation.
+    - Safety Car & VSC Exposure Calibration: The discrete-lap simulation engine is configured with direct green-flag incident initiation hazard rates: direct green SC $\lambda_{\text{SC}} = 258 / 19,420 \approx 0.013285\text{ lap}^{-1}$, green VSC $\lambda_{\text{VSC}} = 180 / 13,558 \approx 0.013276\text{ lap}^{-1}$, and conditional VSC-to-SC escalation $P(\text{SC} \mid \text{VSC}) = 52 / 180 \approx 0.28889$. The macro SC phase ratio ($310 / 20,722 \approx 0.01496 \approx 0.0150$ per total lap, or $310 / 19,420 \approx 0.01596$ per green lap) includes VSC escalations at the phase level and is preserved strictly under descriptive naming (`legacy_macro_sc_hazard_total_lap`, `aggregate_sc_phase_ratio`), preventing double counting in the engine. Pre-2015 seasons enforce $\text{VSC} \equiv 0.0000$.
   - **Holdout Strategy Selection vs. Frozen Evaluation (Set A vs Set B, $N=2,500$ each):**
     - Set A Selection: `SafetyCar_Reactive` selected based on lowest expected position ($E[\text{pos}] = 3.748$, win prob $33.8\%$).
     - Set B Frozen Evaluation: `SafetyCar_Reactive` achieved $E[\text{pos}] = 3.541$, win prob $35.3\%$, beating 1-stop with $\Delta_{\text{pos}} = -0.121$ ($p = 0.00045$, Holm-Bonferroni adjusted $p = 0.00045$).

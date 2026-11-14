@@ -1,5 +1,6 @@
 """APEX — Comprehensive Test Suite for Phase 7 & 7.1 Simulation Engine (EXP-0006 & EXP-0006-R2)."""
 
+import math
 import pytest
 import numpy as np
 from fastapi.testclient import TestClient
@@ -391,19 +392,26 @@ def test_fia_art_30_5_mandatory_dry_compound_check():
 def test_safety_car_and_vsc_separation_and_chronological_cutoff():
     """Safety Car and VSC processes must be modeled separately with historical chronology."""
     model = SafetyCarModel()
-    assert model.base_sc_hazard == 0.0150
-    assert model.base_vsc_hazard == 0.0120
+    assert math.isclose(model.base_sc_hazard, 258 / 19420, rel_tol=1e-4)
+    assert math.isclose(model.base_vsc_hazard, 180 / 13558, rel_tol=1e-4)
+    assert model.legacy_macro_sc_hazard_total_lap == 0.0150
+    assert model.legacy_macro_vsc_hazard_total_lap == 0.0120
 
     # Chronological cutoff check
-    # 2024 season: both SC and VSC active
+    # 2024 season: both SC and VSC active with validated green initiation hazards
     sc_2024, vsc_2024 = SafetyCarModel.get_chronological_hazard(2024)
-    assert sc_2024 == 0.0150
-    assert vsc_2024 == 0.0120
+    assert math.isclose(sc_2024, 258 / 19420, rel_tol=1e-4)
+    assert math.isclose(vsc_2024, 180 / 13558, rel_tol=1e-4)
 
     # 2012 season (pre-VSC era): VSC hazard must be strictly 0.0
     sc_2012, vsc_2012 = SafetyCarModel.get_chronological_hazard(2012)
-    assert sc_2012 == 0.0150
+    assert math.isclose(sc_2012, 258 / 19420, rel_tol=1e-4)
     assert vsc_2012 == 0.0
+
+    # Legacy macro chronological hazard check
+    sc_m_2024, vsc_m_2024 = SafetyCarModel.get_legacy_macro_chronological_hazard(2024)
+    assert sc_m_2024 == 0.0150
+    assert vsc_m_2024 == 0.0120
 
     # Hazard decomposition audit
     decomp = SafetyCarModel.get_hazard_decomposition()

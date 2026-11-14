@@ -632,8 +632,8 @@ def run_full_exp_0006_v2_suite() -> Dict[str, Any]:
     sc_sweep = {}
     for sc_scale in [0.0, 0.5, 1.0, 1.5, 2.0]:
         engine = CounterfactualEngine()
-        engine.engine.safety_car_model.base_sc_hazard = 0.015 * sc_scale
-        engine.engine.safety_car_model.base_vsc_hazard = 0.012 * sc_scale
+        engine.engine.safety_car_model.base_sc_hazard = round(258 / 19420, 6) * sc_scale
+        engine.engine.safety_car_model.base_vsc_hazard = round(180 / 13558, 6) * sc_scale
         rep = engine.compare_strategies(base_race, "norris", strategies, n_simulations=100, master_seed=master_seed)
         sc_sweep[f"sc_scale_{sc_scale}x"] = {
             "best_by_pos": rep.best_strategy_by_expected_position,

@@ -400,3 +400,27 @@ def test_exp_0006_v3_closeout_artifact():
     assert math.isclose(hazards["green_to_vsc_initiation_hazard"]["value_per_lap"], 180 / 13558, rel_tol=1e-3)
     assert math.isclose(hazards["conditional_vsc_to_sc_escalation_probability"]["value"], 52 / 180, rel_tol=1e-4)
 
+
+def test_calibrated_initiation_hazard_engine_configuration():
+    """
+    Verifies that the simulation engine is configured with direct green initiation hazards
+    (SC: 258/19420 ~ 0.013285; VSC: 180/13558 ~ 0.013276) rather than macro phase ratios
+    which confound VSC escalations, and verifies legacy macro ratios are preserved under descriptive names.
+    """
+    model = SafetyCarModel()
+    assert math.isclose(model.base_sc_hazard, 258 / 19420, rel_tol=1e-4)
+    assert math.isclose(model.base_vsc_hazard, 180 / 13558, rel_tol=1e-4)
+    assert model.legacy_macro_sc_hazard_total_lap == 0.0150
+    assert model.legacy_macro_vsc_hazard_total_lap == 0.0120
+    assert math.isclose(model.aggregate_sc_phase_ratio, 310 / 19420, rel_tol=1e-4)
+
+    # get_chronological_hazard returns direct green initiation hazards
+    sc_2024, vsc_2024 = SafetyCarModel.get_chronological_hazard(2024)
+    assert math.isclose(sc_2024, 258 / 19420, rel_tol=1e-4)
+    assert math.isclose(vsc_2024, 180 / 13558, rel_tol=1e-4)
+
+    # get_legacy_macro_chronological_hazard returns macro phase ratios
+    sc_m, vsc_m = SafetyCarModel.get_legacy_macro_chronological_hazard(2024)
+    assert sc_m == 0.0150
+    assert vsc_m == 0.0120
+

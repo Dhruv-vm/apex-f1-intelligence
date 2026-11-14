@@ -27,18 +27,20 @@ class SafetyCarModel:
 
     def __init__(
         self,
-        base_sc_hazard_per_lap: float = 0.0150,
-        base_vsc_hazard_per_lap: float = 0.0120,
+        base_sc_hazard_per_lap: float = round(258 / 19420, 6),  # 0.013285 direct green initiation hazard
+        base_vsc_hazard_per_lap: float = round(180 / 13558, 6),  # 0.013276 direct green initiation hazard
         sc_pace_multiplier: float = 1.35,  # Lap times are ~35% slower under SC
         vsc_pace_multiplier: float = 1.30,
         restart_gap_mean_seconds: float = 0.95,
         restart_gap_std_seconds: float = 0.20,
-        direct_green_sc_hazard: float = round(258 / 19420, 5),  # 0.01328
-        green_vsc_hazard: float = round(180 / 13558, 5),  # 0.01328
+        direct_green_sc_hazard: float = round(258 / 19420, 6),  # 0.013285
+        green_vsc_hazard: float = round(180 / 13558, 6),  # 0.013276
         conditional_vsc_escalation_prob: float = round(52 / 180, 5),  # 0.28889
         conditional_standalone_vsc_prob: float = round(128 / 180, 5),  # 0.71111
-        aggregate_sc_phase_ratio: float = round(310 / 19420, 5),  # 0.01596
-        standalone_vsc_outcome_rate: float = round(128 / 13558, 5),  # 0.00944
+        aggregate_sc_phase_ratio: float = round(310 / 19420, 6),  # 0.015963 descriptive green macro ratio
+        standalone_vsc_outcome_rate: float = round(128 / 13558, 6),  # 0.009441 descriptive green outcome rate
+        legacy_macro_sc_hazard_total_lap: float = 0.0150,  # 310 / 20,722 ~ 0.01496 (macro total SC phases / total laps)
+        legacy_macro_vsc_hazard_total_lap: float = 0.0120,  # 180 / 14,810 ~ 0.01215 (macro total VSC activations / total laps)
         enable_vsc_escalation: bool = True,
     ):
         self.base_sc_hazard = base_sc_hazard_per_lap
@@ -53,13 +55,27 @@ class SafetyCarModel:
         self.conditional_standalone_vsc_prob = conditional_standalone_vsc_prob
         self.aggregate_sc_phase_ratio = aggregate_sc_phase_ratio
         self.standalone_vsc_outcome_rate = standalone_vsc_outcome_rate
+        self.legacy_macro_sc_hazard_total_lap = legacy_macro_sc_hazard_total_lap
+        self.legacy_macro_vsc_hazard_total_lap = legacy_macro_vsc_hazard_total_lap
         self.enable_vsc_escalation = enable_vsc_escalation
 
     @staticmethod
     def get_chronological_hazard(season: int) -> Tuple[float, float]:
         """
-        Returns (base_sc_hazard, base_vsc_hazard) strictly respecting chronological availability.
-        VSC was introduced in 2015; seasons < 2015 have vsc_hazard = 0.0.
+        Returns (base_sc_hazard, base_vsc_hazard) strictly respecting chronological availability
+        and direct green-flag incident initiation hazard rates:
+        - Direct Green -> SC initiation hazard: 258 / 19,420 = 0.013285 lap^-1.
+        - Green -> VSC initiation hazard: 180 / 13,558 = 0.013276 lap^-1 (introduced in 2015; seasons < 2015 have vsc = 0.0).
+        """
+        sc_h = round(258 / 19420, 6)  # 0.013285
+        vsc_h = round(180 / 13558, 6) if season >= 2015 else 0.0  # 0.013276
+        return sc_h, vsc_h
+
+    @staticmethod
+    def get_legacy_macro_chronological_hazard(season: int) -> Tuple[float, float]:
+        """
+        Returns the legacy descriptive macro phase ratios (310 / 20,722 ~ 0.0150; 180 / 14,810 ~ 0.0120).
+        Includes VSC-to-SC escalations at the phase level; MUST NOT be used for direct green initiation.
         """
         sc_h = 0.0150
         vsc_h = 0.0120 if season >= 2015 else 0.0
@@ -249,7 +265,8 @@ class SafetyCarModel:
                 "mean_duration_laps": 4.2,
                 "hazard_per_total_lap": round(310 / 20722, 5),  # 0.01496
                 "hazard_per_green_flag_lap": round(310 / 19420, 5),  # 0.01596
-                "modeled_base_hazard": 0.0150,
+                "modeled_base_hazard": round(258 / 19420, 6),  # 0.013285 direct green initiation hazard
+                "legacy_macro_total_lap_hazard": 0.0150,  # 310 / 20,722 ~ 0.01496 macro phase ratio
                 "duration_distribution": "Discrete-Uniform(3, 6) laps",
             },
             "virtual_sc": {
@@ -270,7 +287,8 @@ class SafetyCarModel:
                 "hazard_total_activations_per_green_flag_lap": round(180 / 13558, 5),  # 0.01328
                 "hazard_standalone_per_total_lap": round(128 / 14810, 5),  # 0.00864
                 "hazard_standalone_per_green_flag_lap": round(128 / 13558, 5),  # 0.00944
-                "modeled_base_hazard": 0.0120,
+                "modeled_base_hazard": round(180 / 13558, 6),  # 0.013276 direct green initiation hazard
+                "legacy_macro_total_lap_hazard": 0.0120,  # 180 / 14,810 ~ 0.01215 macro activation ratio
                 "duration_distribution": "Discrete-Uniform(1, 3) laps",
             },
             "combined_neutralisation_rate_per_lap": 0.0270,

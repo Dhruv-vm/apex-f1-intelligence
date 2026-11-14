@@ -235,14 +235,23 @@ def test_separate_sc_and_vsc_hazard_denominators():
     assert vsc["deployments"] == 180
     assert vsc["hazard_per_total_lap"] == pytest.approx(180 / 14810, abs=1e-4)
 
-    # Chronological cutoff check
+    # Chronological cutoff check with direct green initiation hazards
     sc_pre2015, vsc_pre2015 = SafetyCarModel.get_chronological_hazard(2014)
-    assert sc_pre2015 == 0.0150
+    assert sc_pre2015 == pytest.approx(258 / 19420, abs=1e-5)
     assert vsc_pre2015 == 0.0000
 
     sc_post2015, vsc_post2015 = SafetyCarModel.get_chronological_hazard(2024)
-    assert sc_post2015 == 0.0150
-    assert vsc_post2015 == 0.0120
+    assert sc_post2015 == pytest.approx(258 / 19420, abs=1e-5)
+    assert vsc_post2015 == pytest.approx(180 / 13558, abs=1e-5)
+
+    # Legacy macro chronological hazard check
+    sc_m_pre2015, vsc_m_pre2015 = SafetyCarModel.get_legacy_macro_chronological_hazard(2014)
+    assert sc_m_pre2015 == 0.0150
+    assert vsc_m_pre2015 == 0.0000
+
+    sc_m_post2015, vsc_m_post2015 = SafetyCarModel.get_legacy_macro_chronological_hazard(2024)
+    assert sc_m_post2015 == 0.0150
+    assert vsc_m_post2015 == 0.0120
 
 
 def test_historical_backtest_full_field_probability_vector():
